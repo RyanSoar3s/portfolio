@@ -16,7 +16,8 @@
     "module": "preserve",
     "paths": {
       "@features/*": [ "./src/app/features/*" ],
-      "@services/*": [ "./src/app/core/services/*" ]
+      "@services/*": [ "./src/app/core/services/*" ],
+      "@mocks/*": [ "./src/app/mocks/*" ]
 
     }
   },
