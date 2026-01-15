@@ -1,23 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@use "sass:map";
+@use "./app/utils/styles/utils.scss" as *;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 * {
-  margin: 0;
-  padding: 0;
+  @include margin(null, 0px);
+  @include padding(null, 0px);
   box-sizing: border-box;
 
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 10px;
+  @include dimension(10px, 7px);
 
 }
 
 ::-webkit-scrollbar-thumb {
+  @include dimension((prefix: min, value: 50px), (prefix: min, value: 40px));
   background: #888;
   border-radius: 5px;
-  min-height: 50px;
-  min-width: 40px;
 
 }
 
@@ -28,7 +28,13 @@ html, body {
 }
 
 body {
-  background: #131417;
+  @include globalBackground;
+  color: white;
   font-family: "Rubik", sans-serif;
+
+}
+
+ul {
+  list-style: none;
 
 }
