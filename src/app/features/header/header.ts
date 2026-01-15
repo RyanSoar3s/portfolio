@@ -19,7 +19,7 @@ export class Header {
 
   protected readonly faCode = faCode;
   protected readonly profileImage = "assets/images/profile.png";
-  protected isOpenMenu = signal(false);
+  public isOpenMenu = signal(false);
 
   toggleMenu(): void {
     this.isOpenMenu.update((value) => !value);

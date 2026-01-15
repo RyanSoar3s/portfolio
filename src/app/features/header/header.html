@@ -25,7 +25,12 @@
 
     </div>
 
-    <div [ngClass]="'header__bars'" (click)="void toggleMenu()">
+    <div
+      data-testid="menuButton"
+      [ngClass]="'header__bars'"
+      (click)="void toggleMenu()"
+
+      >
       <div [ngClass]="'header__bar'"></div>
       <div [ngClass]="'header__bar'"></div>
       <div [ngClass]="'header__bar'"></div>
