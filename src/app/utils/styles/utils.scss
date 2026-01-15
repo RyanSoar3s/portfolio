@@ -1,0 +1,126 @@
+@use "sass:map";
+@use "sass:meta";
+
+$-border-circle: calc(Infinity * 1px);
+
+@function normalize-dimension($input) {
+  @if meta.type-of($input) == map {
+    @if not map.has-key($input, value) {
+      @error "Map requires the key 'value'";
+
+    }
+    @return (
+      prefix: map.get($input, prefix),
+      value: map.get($input, value)
+
+    );
+
+  }
+
+  @return (
+    prefix: null,
+    value: $input
+
+  );
+
+}
+
+@mixin dimension($height: 100%, $width: 100%) {
+  $properties: (
+    height: normalize-dimension($height),
+    width: normalize-dimension($width)
+
+  );
+
+  @each $prop, $config in $properties {
+    $prefix: map.get($config, prefix);
+    $value: map.get($config, value);
+
+    #{$prop}: $value;
+
+    @if $prefix {
+      #{$prefix}-#{$prop}: $value;
+
+    }
+
+  }
+
+}
+
+@mixin globalBackground {
+  background-color: #060607;
+
+}
+
+@mixin margin($direction: null, $values) {
+  @if $direction {
+    margin-#{$direction}: $values;
+
+  }
+
+  @else {
+    margin: $values;
+
+  }
+
+}
+
+@mixin padding($direction: null, $values) {
+  @if $direction {
+    padding-#{$direction}: $values;
+
+  }
+
+  @else {
+    padding: $values;
+
+  }
+
+}
+
+@mixin border($direction: null, $values) {
+  @if $direction {
+    border-#{$direction}: $values;
+
+  }
+
+  @else {
+    border: $values;
+
+  }
+
+}
+
+@mixin position($position: relative, $args...) {
+  position: $position;
+
+  @each $prop, $value in meta.keywords($args) {
+    #{$prop}: $value
+
+  }
+
+}
+
+@mixin flex($flexDirection: row, $alignItems: flex-start, $justifyContent: flex-start) {
+  display: flex;
+  flex-direction: $flexDirection;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+
+}
+
+@mixin rounded-full {
+  border-radius: $-border-circle;
+
+}
+
+@mixin text($textAlign: null, $fontSize: 1em, $fontWeight: 500) {
+  @if $textAlign {
+    text-align: $textAlign;
+
+  }
+
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+
+}
