@@ -1,0 +1,146 @@
+@use "../../utils/styles/utils.scss" as *;
+@use "sass:list";
+
+@keyframes openMenu {
+  from {
+    transform: translateY(-188px);
+
+  }
+  to {
+    transform: translateY(0px);
+
+  }
+
+}
+
+@keyframes closeMenu {
+  from {
+    transform: translateY(0px);
+
+  }
+  to {
+    transform: translateY(-188px);
+
+  }
+
+}
+
+:host {
+  @include dimension(120px, 100dvw);
+  display: block;
+
+}
+
+.header {
+  @include globalBackground;
+  @include position(relative);
+  @include flex(row, center, space-between);
+  @include dimension(100%, 100%);
+  @include border(bottom, 1px solid #292929);
+  z-index: 1;
+
+  .header__icon {
+    @include text(null, 2em, 500);
+
+  }
+
+}
+
+.header__bars {
+  @include dimension(25px, 40px);
+  @include flex(column, flex-end, space-between);
+  cursor: pointer;
+
+  & .header__bar {
+    background-color: white;
+    border-radius: 20px;
+
+    $bar-widths: 95%, 80%, 60%;
+    @for $i from 1 through list.length($bar-widths) {
+      &:nth-child(#{$i}) {
+        @include dimension(4px, list.nth($bar-widths, $i));
+
+      }
+
+    }
+
+  }
+
+}
+
+.header__highlight {
+  @include flex(column, center, center);
+  @include text(center);
+
+  .header__name {
+    @include text(null, 1.3em, bold);
+
+  }
+
+  .header__role {
+    @include text(null, 1em, 600);
+    opacity: 0.7;
+
+  }
+
+}
+
+.header__navigation {
+  @include dimension(auto, 500px);
+
+  .header__options {
+    @include flex(row, flex-start, space-between);
+
+    .header__option {
+      @include text(null, 1.1em, 500);
+      cursor: pointer;
+
+    }
+
+  }
+
+}
+
+.header__menu {
+  @include globalBackground;
+  @include dimension(auto, 100%);
+  @include margin(top, 15px);
+  @include position(absolute);
+  @include border(bottom, 1px solid #292929);
+
+  .header__options {
+    @include flex(column, center, space-between);
+    @include dimension(172px, auto);
+    @include padding(bottom, 20px);
+
+  }
+
+}
+
+.menu-open {
+  animation: openMenu 0.5s ease;
+
+}
+
+.menu-close {
+  animation: closeMenu 0.5s ease;
+
+}
+
+.header__image {
+  @include dimension(80px, 80px);
+  @include border(null, 2px solid white);
+  @include padding(null, 4px);
+  cursor: pointer;
+
+  &, img {
+    @include rounded-full;
+
+  }
+
+  img {
+    @include dimension(100%, 100%);
+
+  }
+
+}
