@@ -1,11 +1,15 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { Header } from '@features/header/header';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [
+    Header
+
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('Portfolio');
+
 }
