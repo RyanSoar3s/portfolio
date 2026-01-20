@@ -16,8 +16,8 @@
 
 ::-webkit-scrollbar-thumb {
   @include dimension((prefix: min, value: 50px), (prefix: min, value: 40px));
-  background: #888;
-  border-radius: 5px;
+  @include bg(#888);
+  @include rounded(5px);
 
 }
 
@@ -30,8 +30,7 @@ html, body {
 
 body {
   @include globalBackground;
-  color: white;
-  font-family: "Rubik", sans-serif;
+  @include text($family: ("Rubik", sans-serif));
 
 }
 
