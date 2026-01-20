@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "sass:meta";
+@use "sass:list";
 
 $-border-circle: calc(Infinity * 1px);
 
@@ -9,9 +10,13 @@ $-border-circle: calc(Infinity * 1px);
       @error "Map requires the key 'value'";
 
     }
+    $value: map.get($input, value);
+    $pvalue: if(map.has-key($input, pvalue), map.get($input, pvalue), $value);
+
     @return (
       prefix: map.get($input, prefix),
-      value: map.get($input, value)
+      pvalue: $pvalue,
+      value: $value
 
     );
 
@@ -35,11 +40,12 @@ $-border-circle: calc(Infinity * 1px);
   @each $prop, $config in $properties {
     $prefix: map.get($config, prefix);
     $value: map.get($config, value);
+    $pvalue: map.get($config, pvalue);
 
     #{$prop}: $value;
 
     @if $prefix {
-      #{$prefix}-#{$prop}: $value;
+      #{$prefix}-#{$prop}: $pvalue;
 
     }
 
@@ -49,6 +55,21 @@ $-border-circle: calc(Infinity * 1px);
 
 @mixin globalBackground {
   background-color: #060607;
+
+}
+
+@mixin bg($background) {
+  background-color: $background;
+
+}
+
+@mixin highlightColor {
+  color: #38bdf8;
+
+}
+
+@mixin softColor {
+  color: #9ca3af;
 
 }
 
@@ -91,6 +112,30 @@ $-border-circle: calc(Infinity * 1px);
 
 }
 
+
+@mixin rounded($radius, $directions: null) {
+  @if $directions {
+    @each $direction in $directions {
+      $d1: list.nth($direction, 1);
+      $d2: list.nth($direction, 2);
+
+      border-#{$d1}-#{$d2}-radius: $radius;
+
+    }
+
+  }
+  @else {
+    border-radius: $radius;
+
+  }
+
+}
+
+@mixin rounded-full {
+  border-radius: $-border-circle;
+
+}
+
 @mixin position($position: relative, $args...) {
   position: $position;
 
@@ -101,26 +146,58 @@ $-border-circle: calc(Infinity * 1px);
 
 }
 
-@mixin flex($flexDirection: row, $alignItems: flex-start, $justifyContent: flex-start) {
+@mixin block {
+  display: block;
+
+}
+
+@mixin flex($flexDirection: row, $alignItems: flex-start, $justifyContent: flex-start, $gap: 0px, $wrap: nowrap) {
   display: flex;
   flex-direction: $flexDirection;
   align-items: $alignItems;
   justify-content: $justifyContent;
+  flex-wrap: $wrap;
+  gap: $gap;
 
 }
 
-@mixin rounded-full {
-  border-radius: $-border-circle;
+@mixin self($prop, $value) {
+  #{$prop}-self: $value;
 
 }
 
-@mixin text($textAlign: null, $fontSize: 1em, $fontWeight: 500) {
+@mixin text($family: null, $color: white, $textAlign: null, $fontSize: 1em, $fontWeight: 500, $lineHeight: null, $wrap: null) {
+  @if $family {
+    font-family: $family;
+
+  }
   @if $textAlign {
     text-align: $textAlign;
 
   }
 
+  @if $lineHeight {
+    line-height: $lineHeight;
+
+  }
+
+  @if $wrap {
+    text-wrap: $wrap;
+
+  }
+
+  color: $color;
   font-size: $fontSize;
   font-weight: $fontWeight;
+
+}
+
+@mixin pointer {
+  cursor: pointer;
+
+}
+
+@mixin z($index) {
+  z-index: $index;
 
 }
