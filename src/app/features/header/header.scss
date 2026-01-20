@@ -27,7 +27,7 @@
 
 :host {
   @include dimension(120px, 100dvw);
-  display: block;
+  @include block;
 
 }
 
@@ -37,10 +37,10 @@
   @include flex(row, center, space-between);
   @include dimension(100%, 100%);
   @include border(bottom, 1px solid #292929);
-  z-index: 1;
+  @include z(10);
 
   .header__icon {
-    @include text(null, 2em, 500);
+    @include text($fontSize: 2em, $fontWeight: 500);
 
   }
 
@@ -49,11 +49,11 @@
 .header__bars {
   @include dimension(25px, 40px);
   @include flex(column, flex-end, space-between);
-  cursor: pointer;
+  @include pointer;
 
   & .header__bar {
-    background-color: white;
-    border-radius: 20px;
+    @include rounded(20px);
+    @include bg(white);
 
     $bar-widths: 95%, 80%, 60%;
     @for $i from 1 through list.length($bar-widths) {
@@ -70,15 +70,15 @@
 
 .header__highlight {
   @include flex(column, center, center);
-  @include text(center);
+  @include text($textAlign: center);
 
   .header__name {
-    @include text(null, 1.3em, bold);
+    @include text($fontSize: 1.3em, $fontWeight: 800);
 
   }
 
   .header__role {
-    @include text(null, 1em, 600);
+    @include text($fontSize: 1em, $fontWeight: 600);
     opacity: 0.7;
 
   }
@@ -92,8 +92,8 @@
     @include flex(row, flex-start, space-between);
 
     .header__option {
-      @include text(null, 1.1em, 500);
-      cursor: pointer;
+      @include text($fontSize: 1.1em, $fontWeight: 500);
+      @include pointer;
 
     }
 
@@ -131,7 +131,7 @@
   @include dimension(80px, 80px);
   @include border(null, 2px solid white);
   @include padding(null, 4px);
-  cursor: pointer;
+  @include pointer;
 
   &, img {
     @include rounded-full;
