@@ -1,0 +1,41 @@
+<header [ngClass]="'code-box-header'">
+  <div [ngClass]="'code-box-tabs'">
+    @for (box of codeBoxesHome; track box.id; let i = $index) {
+      <p
+      [ngClass]="{
+        'code-box-tab': true,
+        'selected-tab': ($index === selectedFileIndex)
+
+      }"
+      (click)="void changeFile($index)"
+
+      >{{ box.title }}.{{ box.language }}</p>
+
+    }
+
+  </div>
+
+</header>
+
+<main [ngClass]="'code-box-main'">
+  @let box = codeBoxesHome[selectedFileIndex];
+
+  <pre>
+    @for (ct of getCodeToken(box); track $index) {
+      <code (click)="selectedLineIndex = $index">
+        @for (token of ct; track $index) {
+          <span [ngClass]="'code-text'">{{ token.token }}</span>
+
+        }
+        @if ($index == selectedLineIndex) {
+          <span [ngClass]="'cursor'"></span>
+          <span [ngClass]="'selected-line'"></span>
+
+        }
+
+      </code>
+    }
+
+  </pre>
+
+</main>
