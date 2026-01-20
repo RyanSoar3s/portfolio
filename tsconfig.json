@@ -16,8 +16,11 @@
     "module": "preserve",
     "paths": {
       "@features/*": [ "./src/app/features/*" ],
+      "@shared/*": [ "./src/app/shared/*" ],
       "@services/*": [ "./src/app/core/services/*" ],
-      "@mocks/*": [ "./src/app/mocks/*" ]
+      "@mocks/*": [ "./src/app/mocks/*" ],
+      "@models/*": [ "./src/app/models/*" ],
+      "@utils/*": [ "./src/app/utils/*" ]
 
     }
   },

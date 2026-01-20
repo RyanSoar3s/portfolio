@@ -1,0 +1,21 @@
+@let LG = responsive.isLg();
+@let XL = responsive.isXl();
+
+@let titleSizes = [ "home__title-desktop-size", "home__title-mobile-size" ];
+@let titleSize = (XL || LG) ? titleSizes[0] : titleSizes[1];
+
+<section [ngClass]="'home'">
+  <h1 [ngClass]="'home__title ' + titleSize">
+    Olá, eu sou <span>Ryan Soares</span>
+
+  </h1>
+
+  <p [ngClass]="'home__text'">
+    Desenvolvedor Fullstack Júnior focado em aplicações modernas,
+    arquitetura frontend e experiências bem pensadas.
+
+  </p>
+
+</section>
+
+<app-code-box></app-code-box>
