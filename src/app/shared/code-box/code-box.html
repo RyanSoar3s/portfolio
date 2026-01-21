@@ -24,7 +24,7 @@
     @for (ct of getCodeToken(box); track $index) {
       <code (click)="selectedLineIndex = $index">
         @for (token of ct; track $index) {
-          <span [ngClass]="'code-text'">{{ token.token }}</span>
+          <span [ngClass]="'code-text ' + token.styleClass">{{ token.token }}</span>
 
         }
         @if ($index == selectedLineIndex) {
