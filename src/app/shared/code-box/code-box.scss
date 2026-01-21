@@ -35,11 +35,16 @@
 
 }
 
-.selected-tab::after {
-  content: "";
-  @include selectedTitleHeader;
-  @include dimension(24px, 90px);
-  @include position(absolute, $top: -2px, $left: -6px);
+.selected-tab {
+  @include text($color: #61afef !important);
+
+  &::after {
+    content: "";
+    @include selectedTitleHeader;
+    @include dimension(24px, 90px);
+    @include position(absolute, $top: -2px, $left: -6px);
+
+  }
 
 }
 
@@ -70,7 +75,6 @@ code {
     @include bg(#80808030);
     @include position(absolute, $left: 0px);
     @include dimension(100%, 100%);
-    @include self(align, center);
 
   }
 
@@ -88,5 +92,37 @@ code {
   @include margin(left, 3px);
   @include self(align, center);
   @include animation($name: blinkingCursor, $duration: .8s, $count: infinite);
+
+}
+
+/* Token colors */
+
+.token-at {
+  @include colorTokenAt; 
+
+}
+
+.token-type-function {
+  @include colorTypeFunction;
+
+}
+
+.token-string {
+  @include colorTokenString;
+
+}
+
+.token-html-property {
+  @include colorTokenHtmlProperty;
+
+}
+
+.token-identifier {
+  @include colorTokenIdentifier;
+
+}
+
+.token-keyword {
+  @include colorTokenKeyword;
 
 }

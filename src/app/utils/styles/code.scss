@@ -6,7 +6,15 @@ $-colorSoft: #0f0f13;
 $-colorCode: #0b0b0e;
 $-colorBorder: #1f1f27;
 $-colorTitleHeader: #9ca3af;
-$-colorSelectedTitleHeader: #62626233;
+$-colorSelectedTitleHeader: #61afef1a;
+
+/* token colors */
+$-tokenAt: #56b6c2;
+$-tokenTypeFunction: #61afef;
+$-tokenString: #98c379;
+$-tokenHtmlProperty: #d19a66;
+$-tokenIdentifier: #e06c75;
+$-tokenKeyword: #c678dd;
 
 // fonts
 $-fontCode: ("Fira Code", monospace);
@@ -89,5 +97,36 @@ $-fontCode: ("Fira Code", monospace);
   animation-direction: $direction;
   animation-fill-mode: $fill;
   animation-play-state: $state;
-  
+
+}
+
+/* -------------------------------------------------------------------- */
+@mixin colorTokenAt {
+  @include text($color: $-tokenAt);
+
+}
+
+@mixin colorTypeFunction {
+  @include text($color: $-tokenTypeFunction);
+
+}
+
+@mixin colorTokenString {
+  @include text($color: $-tokenString);
+
+}
+
+@mixin colorTokenHtmlProperty {
+  @include text($color: $-tokenHtmlProperty);
+
+}
+
+@mixin colorTokenIdentifier {
+  @include text($color: $-tokenIdentifier);
+
+}
+
+@mixin colorTokenKeyword {
+  @include text($color: $-tokenKeyword);
+
 }
