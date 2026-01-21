@@ -8,48 +8,45 @@ const codeBoxHtmlHome: CodeBox<"home", "html"> = {
     "home.html": [
      [
         { token: "<", styleClass: "" },
-        { token: "section", styleClass: "" },
-        { token: " class", styleClass: "" },
-        { token: "='", styleClass: "" },
-        { token: "home", styleClass: "" },
-        { token: "'", styleClass: "" },
+        { token: "section", styleClass: "token-identifier" },
+        { token: " class", styleClass: "token-html-property" },
+        { token: "=", styleClass: "" },
+        { token: "'home'", styleClass: "token-string" },
         { token: ">", styleClass: "" }
 
      ],
      [
         { token: "  <", styleClass: "" },
-        { token: "h1", styleClass: "" },
-        { token: " class", styleClass: "" },
-        { token: "='", styleClass: "" },
-        { token: "home__title", styleClass: "" },
-        { token: "'", styleClass: "" },
+        { token: "h1", styleClass: "token-identifier" },
+        { token: " class", styleClass: "token-html-property" },
+        { token: "=", styleClass: "" },
+        { token: "'home__title'", styleClass: "token-string" },
         { token: ">", styleClass: "" }
 
      ],
      [
         { token: "    Olá, eu sou ", styleClass: "" },
         { token: "<", styleClass: "" },
-        { token: "span", styleClass: "" },
+        { token: "span", styleClass: "token-identifier" },
         { token: ">", styleClass: "" },
         { token: "Ryan Soares", styleClass: "" },
         { token: "</", styleClass: "" },
-        { token: "span", styleClass: "" },
+        { token: "span", styleClass: "token-identifier" },
         { token: ">", styleClass: "" }
 
      ],
      [
         { token: "  </", styleClass: "" },
-        { token: "h1", styleClass: "" },
+        { token: "h1", styleClass: "token-identifier" },
         { token: ">", styleClass: "" }
 
      ],
      [
         { token: "  <", styleClass: "" },
-        { token: "p", styleClass: "" },
-        { token: " class", styleClass: "" },
-        { token: "='", styleClass: "" },
-        { token: "home__text", styleClass: "" },
-        { token: "'", styleClass: "" },
+        { token: "p", styleClass: "token-identifier" },
+        { token: " class", styleClass: "token-html-property" },
+        { token: "=", styleClass: "" },
+        { token: "'home__text'", styleClass: "token-string" },
         { token: ">", styleClass: "" }
 
      ],
@@ -59,13 +56,13 @@ const codeBoxHtmlHome: CodeBox<"home", "html"> = {
      ],
      [
         { token: "  </", styleClass: "" },
-        { token: "p", styleClass: "" },
+        { token: "p", styleClass: "token-identifier" },
         { token: ">", styleClass: "" }
 
      ],
      [
         { token: "</", styleClass: "" },
-        { token: "section", styleClass: "" },
+        { token: "section", styleClass: "token-identifier" },
         { token: ">", styleClass: "" }
 
      ]
@@ -83,51 +80,48 @@ const codeBoxScssHome: CodeBox<"home", "scss"> = {
   code: {
     "home.scss": [
       [
-        { token: ".", styleClass: "" },
-        { token: "home ", styleClass: "" },
+        { token: ".home ", styleClass: "token-html-property" },
         { token: "{", styleClass: "" }
 
       ],
       [
-        { token: "  @", styleClass: "" },
-        { token: "include ", styleClass: "" },
-        { token: "dimension", styleClass: "" },
+        { token: "  @", styleClass: "token-at" },
+        { token: "include ", styleClass: "token-string" },
+        { token: "dimension", styleClass: "token-type-function" },
         { token: "(", styleClass: "" },
-        { token: "auto", styleClass: "" },
+        { token: "auto", styleClass: "token-html-property" },
         { token: ", ", styleClass: "" },
-        { token: "auto", styleClass: "" },
+        { token: "auto", styleClass: "token-html-property" },
         { token: ")", styleClass: "" },
         { token: ";", styleClass: "" }
 
       ],
       [
-        { token: "  @", styleClass: "" },
-        { token: "include ", styleClass: "" },
-        { token: "padding", styleClass: "" },
+        { token: "  @", styleClass: "token-at" },
+        { token: "include ", styleClass: "token-string" },
+        { token: "padding", styleClass: "token-type-function" },
         { token: "(", styleClass: "" },
-        { token: "null", styleClass: "" },
+        { token: "null", styleClass: "token-html-property" },
         { token: ", ", styleClass: "" },
-        { token: "0px 50px", styleClass: "" },
+        { token: "0px 50px", styleClass: "token-html-property" },
         { token: ")", styleClass: "" },
         { token: ";", styleClass: "" }
 
       ],
       [
-        { token: "  .", styleClass: "" },
-        { token: "home__title ", styleClass: "" },
+        { token: "  .home__title ", styleClass: "token-html-property" },
         { token: "{", styleClass: "" }
 
       ],
       [
-        { token: "    & ", styleClass: "" },
-        { token: "span", styleClass: "" },
+        { token: "    & span ", styleClass: "token-identifier" },
         { token: "{", styleClass: "" }
 
       ],
       [
-        { token: "      @", styleClass: "" },
-        { token: "include ", styleClass: "" },
-        { token: "highlightColor", styleClass: "" },
+        { token: "      @", styleClass: "token-at" },
+        { token: "include ", styleClass: "token-string" },
+        { token: "highlightColor", styleClass: "token-type-function" },
         { token: ";", styleClass: "" }
 
       ],
@@ -140,70 +134,69 @@ const codeBoxScssHome: CodeBox<"home", "scss"> = {
 
       ],
       [
-        { token: "  .", styleClass: "" },
-        { token: "home__text ", styleClass: "" },
+        { token: "  .home__text ", styleClass: "token-html-property" },
         { token: "{", styleClass: "" }
 
       ],
       [
-        { token: "    @", styleClass: "" },
-        { token: "include ", styleClass: "" },
-        { token: "dimension", styleClass: "" },
+        { token: "    @", styleClass: "token-at" },
+        { token: "include ", styleClass: "token-string" },
+        { token: "dimension", styleClass: "token-type-function" },
         { token: "(", styleClass: "" },
-        { token: "auto", styleClass: "" },
+        { token: "auto", styleClass: "token-html-property" },
         { token: ", ", styleClass: "" },
         { token: "(", styleClass: "" },
         { token: "prefix", styleClass: "" },
         { token: ": ", styleClass: "" },
-        { token: "max", styleClass: "" },
+        { token: "max", styleClass: "token-html-property" },
         { token: ", ", styleClass: "" },
         { token: "pvalue", styleClass: "" },
         { token: ": ", styleClass: "" },
-        { token: "500px", styleClass: "" },
+        { token: "500px", styleClass: "token-html-property" },
         { token: ", ", styleClass: "" },
         { token: "value", styleClass: "" },
         { token: ": ", styleClass: "" },
-        { token: "100%", styleClass: "" },
+        { token: "100%", styleClass: "token-html-property" },
         { token: ")", styleClass: "" },
         { token: ")", styleClass: "" },
         { token: ";", styleClass: "" }
 
       ],
       [
-        { token: "    @", styleClass: "" },
-        { token: "include ", styleClass: "" },
-        { token: "text", styleClass: "" },
+        { token: "    @", styleClass: "token-at" },
+        { token: "include ", styleClass: "token-string" },
+        { token: "text", styleClass: "token-type-function" },
         { token: "(", styleClass: "" },
-        { token: "$textAlign", styleClass: "" },
+        { token: "$textAlign", styleClass: "token-identifier" },
         { token: ": ", styleClass: "" },
-        { token: "center", styleClass: "" },
+        { token: "center", styleClass: "token-html-property" },
         { token: ", ", styleClass: "" },
-        { token: "$fontSize", styleClass: "" },
+        { token: "$fontSize", styleClass: "token-identifier" },
         { token: ": ", styleClass: "" },
-        { token: "1em", styleClass: "" },
+        { token: "1em", styleClass: "token-html-property" },
         { token: ", ", styleClass: "" },
-        { token: "$fontWeight", styleClass: "" },
+        { token: "$fontWeight", styleClass: "token-identifier" },
         { token: ": ", styleClass: "" },
-        { token: "500", styleClass: "" },
+        { token: "500", styleClass: "token-html-property" },
         { token: ")", styleClass: "" },
         { token: ";", styleClass: "" }
 
       ],
       [
-        { token: "    @", styleClass: "" },
-        { token: "include ", styleClass: "" },
-        { token: "softColor", styleClass: "" },
+        { token: "    @", styleClass: "token-at" },
+        { token: "include ", styleClass: "token-string" },
+        { token: "softColor", styleClass: "token-type-function" },
         { token: ";", styleClass: "" }
 
       ],
       [
-        { token: "    @", styleClass: "" },
-        { token: "include ", styleClass: "" },
-        { token: "margin", styleClass: "" },
+        { token: "    @", styleClass: "token-at" },
+        { token: "include ", styleClass: "token-string" },
+        { token: "margin", styleClass: "token-type-function" },
         { token: "(", styleClass: "" },
-        { token: "top", styleClass: "" },
+        { token: "top", styleClass: "token-html-property" },
         { token: ", ", styleClass: "" },
-        { token: "30px", styleClass: "" },
+        { token: "30px", styleClass: "token-html-property" },
         { token: ")", styleClass: "" },
         { token: ";", styleClass: "" }
 
