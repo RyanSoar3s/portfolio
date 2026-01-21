@@ -166,7 +166,7 @@ $-border-circle: calc(Infinity * 1px);
 
 }
 
-@mixin text($family: null, $color: white, $textAlign: null, $fontSize: 1em, $fontWeight: 500, $lineHeight: null, $wrap: null) {
+@mixin text($family: null, $color: white, $textAlign: null, $fontSize: null, $fontWeight: 500, $lineHeight: null, $wrap: null) {
   @if $family {
     font-family: $family;
 
@@ -185,9 +185,12 @@ $-border-circle: calc(Infinity * 1px);
     text-wrap: $wrap;
 
   }
+  @if $fontSize {
+    font-size: $fontSize;
+
+  }
 
   color: $color;
-  font-size: $fontSize;
   font-weight: $fontWeight;
 
 }
