@@ -165,7 +165,7 @@ $-border-circle: calc(Infinity * 1px);
     display: flex;
 
   }
-  
+
   flex-direction: $flexDirection;
   align-items: $alignItems;
   justify-content: $justifyContent;
@@ -244,6 +244,20 @@ $-border-circle: calc(Infinity * 1px);
 
 @mixin pointer {
   cursor: pointer;
+
+}
+
+@mixin translate($values, $important: false) {
+  @if ($important) {
+    transform: translate($values) !important;
+
+  }
+
+  @else {
+    transform: translate($values);
+
+  }
+
 
 }
 
