@@ -2,7 +2,7 @@
 
 :host {
   @include dimension(calc(100dvh - 120px), 100dvw);
-  @include flex(row, center, center, 50px);
+  @include flex($flexDirection: row, $alignItems: center, $justifyContent: center, $gap: 50px);
 
 }
 

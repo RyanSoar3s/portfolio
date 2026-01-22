@@ -34,7 +34,7 @@
 .header {
   @include globalBackground;
   @include position(relative);
-  @include flex(row, center, space-between);
+  @include flex($flexDirection: row, $alignItems: center, $justifyContent: space-between);
   @include dimension(100%, 100%);
   @include border(bottom, 1px solid #292929);
   @include z(10);
@@ -48,7 +48,7 @@
 
 .header__bars {
   @include dimension(25px, 40px);
-  @include flex(column, flex-end, space-between);
+  @include flex($flexDirection: column, $alignItems: flex-end, $justifyContent: space-between);
   @include pointer;
 
   & .header__bar {
@@ -69,7 +69,7 @@
 }
 
 .header__highlight {
-  @include flex(column, center, center);
+  @include flex($flexDirection: column, $alignItems: center, $justifyContent: center);
   @include text($textAlign: center);
 
   .header__name {
@@ -89,7 +89,7 @@
   @include dimension(auto, 500px);
 
   .header__options {
-    @include flex(row, flex-start, space-between);
+    @include flex($flexDirection: row, $alignItems: flex-start, $justifyContent: space-between);
 
     .header__option {
       @include text($fontSize: 1.1em, $fontWeight: 500);
@@ -109,7 +109,7 @@
   @include border(bottom, 1px solid #292929);
 
   .header__options {
-    @include flex(column, center, space-between);
+    @include flex($flexDirection: column, $alignItems: center, $justifyContent: space-between);
     @include dimension(172px, auto);
     @include padding(bottom, 20px);
 
