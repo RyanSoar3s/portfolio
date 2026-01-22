@@ -11,7 +11,7 @@ $colorMongoDB: #47A248;
 
 @mixin hoverSkill($color) {
   &:hover {
-    @include border(null, 1px solid $color !important);
+    @include border(null, 2px solid $color !important);
     @include text($color: $color);
 
   }
@@ -30,46 +30,26 @@ $colorMongoDB: #47A248;
 
 }
 
+
 .about-me {
   @include flex($alignItems: center, $justifyContent: center, $gap: 90px 180px);
   @include dimension(auto, auto);
 
-  .about-me__profile-card {
-    @include bg(#0f0f11);
-    @include flex($flexDirection: column, $alignItems: center, $justifyContent: center, $gap: 5px);
-    @include dimension(300px, 300px);
-    @include border(null, 2px solid #27272a);
-    @include rounded(25px);
-    @include pointer;
-    @include transition(all .5s ease);
-
-    &:hover {
-      @include border(null, 2px solid white);
-      @include cardTranslateY;
-
-    }
-
-    .about-me__avatar {
-      @include gradient(linear, 135deg, #333, #111);
-      @include flex($alignItems: center, $justifyContent: center);
-      @include dimension(120px, 120px);
-      @include rounded-full;
-      @include text($fontSize: 2.8em);
-      @include margin(bottom, 20px);
-
-    }
-
-    p {
-      @include text($color: #9ca3af, $fontWeight: 400)
-
-    }
-
-  }
-
   .about-me__title {
+    @include flex($alignItems: center, $justifyContent: center, $gap: 10px 20px, $wrap: wrap);
     @include text($fontSize: 2.8em, $fontWeight: 600, $lineHeight: 1.2);
 
-    span {
+    .about-me__icon {
+      @include gradient(linear, 135deg, #333, #111);
+      @include flex($inline: true, $alignItems: center, $justifyContent: center);
+      @include dimension(90px, 90px);
+      @include text($fontSize: 0.9em);
+      @include rounded-full;
+      @include margin(right, 10px);
+
+    }
+
+    & span.about-me__highlight {
       @include highlightColor;
 
     }
@@ -77,26 +57,29 @@ $colorMongoDB: #47A248;
   }
 
   .about-me__text {
-    @include margin(top, 30px);
-    @include text($color: #9ca3af, $fontSize: 1em, $fontWeight: 500, $lineHeight: 1.8, $textAlign: justify, $wrap: auto);
+    @include margin(top, 45px);
+    @include text($color: #9ca3af, $fontSize: 1.2em, $fontWeight: 500, $lineHeight: 1.6, $textAlign: justify, $wrap: auto);
 
     span {
+      @include bg(#ffffff0d);
       @include text($color: white, $fontWeight: 600);
-      @include border(bottom, 1px dashed #91959b83);
+      @include padding(null, 2px 6px);
+      @include rounded(4px);
 
     }
 
   }
 
   .about-me__techs {
-    @include grid($templates: (columns: repeat(4, 1fr)), $align: null, $justify: (items: center), $gap: 15px 60px);
-    @include dimension(75px, auto);
+    @include grid($templates: (columns: repeat(4, 1fr)), $align: null, $justify: (items: center), $gap: 15px 30px);
+    @include dimension(auto, 100%);
     @include margin(top, 30px);
 
     .about-me__tech {
       @include flex($alignItems: center, $justifyContent: center);
       @include dimension(100%, 100%);
-      @include border(null, 1px solid #27272a);
+      @include padding(null, 10px 0px);
+      @include border(null, 2px solid #27272a);
       @include rounded(6px);
       @include pointer;
       @include transition(all .3s ease);
@@ -108,8 +91,11 @@ $colorMongoDB: #47A248;
 }
 
 .about-me__container-info {
+  @include bg(#0f0f13);
   @include flex($flexDirection: column, $alignItems: center);
-  @include dimension(auto, clamp(350px, 40%, 500px));
+  @include dimension(auto, clamp(380px, 80%, 750px));
+  @include padding(null, 60px 30px);
+  @include rounded(20px);
 
 }
 

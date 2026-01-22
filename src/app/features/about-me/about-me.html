@@ -1,24 +1,13 @@
 @let LG = responsive.isLg();
 @let XL = responsive.isXl();
 
-<section
-        [ngClass]="'about-me'"
-        [ngStyle]="{
-          'flex-direction': (XL || LG) ? 'row' : 'column'
-
-        }"
-
-        >
-  <div [ngClass]="'about-me__profile-card'">
-    <div [ngClass]="'about-me__avatar'">👨‍💻</div>
-    <h3>Dev Junior</h3>
-    <p>Fullstack Developer</p>
-
-  </div>
-
+<section [ngClass]="'about-me'">
   <div [ngClass]="'about-me__container-info'">
     <h1 [ngClass]="'about-me__title'">
-       Sobre <span>mim</span>
+      <span [ngClass]="'about-me__icon'">
+        👨‍💻
+      </span>
+      <span>Sobre <span [ngClass]="'about-me__highlight'">mim</span></span>
 
     </h1>
 
@@ -27,7 +16,14 @@
 
     </p>
 
-    <ul [ngClass]="'about-me__techs'">
+    <ul
+        [ngClass]="'about-me__techs'"
+        [ngStyle]="{
+          'grid-template-columns': (XL || LG) ? 'repeat(4, 1fr)' : 'repeat(3, 1fr)'
+
+        }"
+
+        >
       @for (t of techs; track $index) {
         <li [ngClass]="'about-me__tech ' + t.styleClass">{{ t.tech }}</li>
 
