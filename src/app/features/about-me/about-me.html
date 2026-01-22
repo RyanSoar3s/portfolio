@@ -1,0 +1,40 @@
+@let LG = responsive.isLg();
+@let XL = responsive.isXl();
+
+<section
+        [ngClass]="'about-me'"
+        [ngStyle]="{
+          'flex-direction': (XL || LG) ? 'row' : 'column'
+
+        }"
+
+        >
+  <div [ngClass]="'about-me__profile-card'">
+    <div [ngClass]="'about-me__avatar'">👨‍💻</div>
+    <h3>Dev Junior</h3>
+    <p>Fullstack Developer</p>
+
+  </div>
+
+  <div [ngClass]="'about-me__container-info'">
+    <h1 [ngClass]="'about-me__title'">
+       Sobre <span>mim</span>
+
+    </h1>
+
+    <p [ngClass]="'about-me__text'">
+      Sou um desenvolvedor <span>Fullstack Junior</span> focado em criar soluções eficientes e visualmente atraentes. No front-end, trabalho com as tecnologias <span>HTML5</span>, <span>CSS3</span>, <span>Sass</span> e <span>Tailwind</span>. Meu principal foco é no ecossistema <span>Angular</span>, onde crio aplicações responsivas e focadas no cliente. No back-end, construo APIs com <span>NodeJS</span>, integrando sistemas de cache com <span>Redis</span> e bancos de dados escaláveis como <span>MongoDB</span>.
+
+    </p>
+
+    <ul [ngClass]="'about-me__techs'">
+      @for (t of techs; track $index) {
+        <li [ngClass]="'about-me__tech ' + t.styleClass">{{ t.tech }}</li>
+
+      }
+
+    </ul>
+
+  </div>
+
+</section>

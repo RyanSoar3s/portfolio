@@ -1,0 +1,156 @@
+@use "../../utils/styles/utils.scss" as *;
+
+$colorHtml: #E34F26;
+$colorCss: #1572B6;
+$colorSass: #CC6699;
+$colorTailwind: #06B6D4;
+$colorAngular: #DD0031;
+$colorNodeJS: #339933;
+$colorRedis: #DC382D;
+$colorMongoDB: #47A248;
+
+@mixin hoverSkill($color) {
+  &:hover {
+    @include border(null, 1px solid $color !important);
+    @include text($color: $color);
+
+  }
+
+}
+
+@mixin cardTranslateY {
+  transform: translateY(-10px);
+
+}
+
+:host {
+  @include flex($alignItems: center, $justifyContent: center);
+  @include dimension(auto, 100dvw);
+  @include margin(bottom, 50px);
+
+}
+
+.about-me {
+  @include flex($alignItems: center, $justifyContent: center, $gap: 90px 180px);
+  @include dimension(auto, auto);
+
+  .about-me__profile-card {
+    @include bg(#0f0f11);
+    @include flex($flexDirection: column, $alignItems: center, $justifyContent: center, $gap: 5px);
+    @include dimension(300px, 300px);
+    @include border(null, 2px solid #27272a);
+    @include rounded(25px);
+    @include pointer;
+    @include transition(all .5s ease);
+
+    &:hover {
+      @include border(null, 2px solid white);
+      @include cardTranslateY;
+
+    }
+
+    .about-me__avatar {
+      @include gradient(linear, 135deg, #333, #111);
+      @include flex($alignItems: center, $justifyContent: center);
+      @include dimension(120px, 120px);
+      @include rounded-full;
+      @include text($fontSize: 2.8em);
+      @include margin(bottom, 20px);
+
+    }
+
+    p {
+      @include text($color: #9ca3af, $fontWeight: 400)
+
+    }
+
+  }
+
+  .about-me__title {
+    @include text($fontSize: 2.8em, $fontWeight: 600, $lineHeight: 1.2);
+
+    span {
+      @include highlightColor;
+
+    }
+
+  }
+
+  .about-me__text {
+    @include margin(top, 30px);
+    @include text($color: #9ca3af, $fontSize: 1em, $fontWeight: 500, $lineHeight: 1.8, $textAlign: justify, $wrap: auto);
+
+    span {
+      @include text($color: white, $fontWeight: 600);
+      @include border(bottom, 1px dashed #91959b83);
+
+    }
+
+  }
+
+  .about-me__techs {
+    @include grid($templates: (columns: repeat(4, 1fr)), $align: null, $justify: (items: center), $gap: 15px 60px);
+    @include dimension(75px, auto);
+    @include margin(top, 30px);
+
+    .about-me__tech {
+      @include flex($alignItems: center, $justifyContent: center);
+      @include dimension(100%, 100%);
+      @include border(null, 1px solid #27272a);
+      @include rounded(6px);
+      @include pointer;
+      @include transition(all .3s ease);
+
+    }
+
+  }
+
+}
+
+.about-me__container-info {
+  @include flex($flexDirection: column, $alignItems: center);
+  @include dimension(auto, clamp(350px, 40%, 500px));
+
+}
+
+// Technologies - colors
+
+.html {
+  @include hoverSkill($colorHtml);
+
+}
+
+.css {
+  @include hoverSkill($colorCss);
+
+}
+
+.sass {
+  @include hoverSkill($colorSass);
+
+}
+
+.tailwind {
+  @include hoverSkill($colorTailwind);
+
+}
+
+.angular {
+  @include hoverSkill($colorAngular);
+
+}
+
+.nodejs {
+  @include hoverSkill($colorNodeJS);
+
+}
+
+.redis {
+  @include hoverSkill($colorRedis);
+
+}
+
+.mongodb {
+  @include hoverSkill($colorMongoDB);
+
+}
