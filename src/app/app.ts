@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AboutMe } from '@features/about-me/about-me';
 import { Header } from '@features/header/header';
 import { Home } from '@features/home/home';
 
@@ -6,7 +7,8 @@ import { Home } from '@features/home/home';
   selector: 'app-root',
   imports: [
     Header,
-    Home
+    Home,
+    AboutMe
 
   ],
   templateUrl: './app.html',
