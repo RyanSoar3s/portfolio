@@ -26,8 +26,10 @@
 }
 
 :host {
-  @include dimension(120px, 100dvw);
+  @include dimension(120px, calc(100dvw - 7px));
   @include block;
+  @include position(fixed);
+  @include z(100);
 
 }
 
@@ -104,7 +106,7 @@
 .header__menu {
   @include globalBackground;
   @include dimension(auto, 100%);
-  @include margin(top, 15px);
+  @include padding(top, 15px);
   @include position(relative);
   @include border(bottom, 1px solid #292929);
 
