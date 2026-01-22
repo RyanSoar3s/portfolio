@@ -1,0 +1,38 @@
+@let XS = responsive.isXs();
+@let SM = responsive.isSm();
+
+<section [ngClass]="'contacts'">
+  <h1
+      [ngClass]="'contacts__title'"
+      [ngStyle]="{
+        'font-size': (XS || SM) ? '2.5em' : '2.8em'
+
+      }"
+
+      >
+    Entre em <span>contato</span>
+
+  </h1>
+
+  <ul
+      [ngClass]="'contacts__list'"
+      [ngStyle]="{
+        'grid-template-columns': (XS || SM) ? 'repeat(1, 1fr)' : 'repeat(2, 1fr)'
+
+      }"
+
+      >
+    @for (contact of contacts; track $index) {
+      <li [ngClass]="'contacts__contact ' + contact.styleClass">
+        <fa-icon [icon]="contact.icon"></fa-icon>
+        <h3>{{ contact.title }}</h3>
+        <p>{{ contact.info }}</p>
+        <a [href]="contact.link" [target]="'_blank'"></a>
+
+      </li>
+
+    }
+
+  </ul>
+
+</section>

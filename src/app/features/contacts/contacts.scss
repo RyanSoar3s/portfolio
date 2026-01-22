@@ -1,0 +1,108 @@
+@use "../../utils/styles/utils.scss" as *;
+
+$colorLinkedin: #0077b5;
+$colorGithub: black;
+$colorEmail: #ea4335;
+$colorWhatsapp: #25d366;
+
+@mixin contactHover($colorIcon) {
+  &:hover {
+    @include bg(#1a1a1b !important);
+    @include border(null, 1px solid #ffffff4d !important);
+    @include translate($values: (0px, -5px), $important: true);
+
+    & fa-icon {
+      @include text($color: $colorIcon !important);
+
+    }
+
+  }
+
+}
+
+:host {
+  @include flex($alignItems: center, $justifyContent: center);
+  @include dimension(100dvh, 100dvw);
+  @include margin(null, 80px 0px 30px 0px);
+
+}
+
+.contacts {
+  @include flex($flexDirection: column, $alignItems: center, $justifyContent: center, $gap: 70px);
+  @include dimension(auto, 90%);
+
+  .contacts__title {
+    @include text($fontSize: 2.8em, $fontWeight: 600, $lineHeight: 1.2);
+
+    span {
+      @include highlightColor;
+
+    }
+
+  }
+
+  .contacts__list {
+    @include grid($templates: (columns: repeat(2, 1fr)), $align: (items: center), $justify: (items: center), $gap: 40px 70px);
+
+    .contacts__contact {
+      @include bg(#111112);
+      @include dimension(150px, 100%);
+      @include flex($flexDirection: column, $justifyContent: space-evenly);
+      @include position(relative);
+      @include padding(null, 10px 80px 10px 20px);
+      @include border(null, 1px solid #ffffff1a);
+      @include rounded(20px);
+      @include transition(transform .3s ease);
+      @include pointer;
+
+      &::after {
+        content: "";
+        @include position(absolute, $top: 0px, $left: 0px);
+        @include dimension(100%, 100%);
+        @include gradient(radial, (circle at top right, #ffffff0d, transparent));
+        @include rounded(20px);
+
+      }
+
+      fa-icon {
+        @include text($fontSize: 2em);
+
+      }
+
+      p {
+        @include text($color: #888, $fontSize: 0.88em, $fontWeight: 400);
+
+      }
+
+      a {
+        @include position(absolute, $top: 0px, $left: 0px);
+        @include dimension(100%, 100%);
+        @include z(1);
+
+      }
+
+    }
+
+  }
+
+}
+
+.linkedin {
+  @include contactHover($colorLinkedin);
+
+}
+
+.github {
+  @include contactHover($colorGithub);
+
+}
+
+.email {
+  @include contactHover($colorEmail);
+
+}
+
+.whatsapp {
+  @include contactHover($colorWhatsapp)
+
+}
