@@ -63,6 +63,11 @@ $-border-circle: calc(Infinity * 1px);
 
 }
 
+@mixin gradient($type, $values...) {
+  background-image: #{$type}-gradient($values);
+
+}
+
 @mixin highlightColor {
   color: #38bdf8;
 
@@ -151,13 +156,55 @@ $-border-circle: calc(Infinity * 1px);
 
 }
 
-@mixin flex($flexDirection: row, $alignItems: flex-start, $justifyContent: flex-start, $gap: 0px, $wrap: nowrap) {
-  display: flex;
+@mixin flex($inline: false, $flexDirection: row, $alignItems: flex-start, $justifyContent: flex-start, $gap: 0px, $wrap: nowrap) {
+  @if $inline {
+    display: inline-flex;
+
+  }
+  @else {
+    display: flex;
+
+  }
+  
   flex-direction: $flexDirection;
   align-items: $alignItems;
   justify-content: $justifyContent;
   flex-wrap: $wrap;
   gap: $gap;
+
+}
+
+@mixin grid($templates, $align, $justify, $gap: 0px 0px) {
+  display: grid;
+
+  @if $templates {
+    @each $prop, $value in $templates {
+      grid-template-#{$prop}: $value
+
+    }
+
+  }
+
+  @if $align {
+    @each $prop, $value in $align {
+      align-#{$prop}: $value
+
+    }
+
+  }
+
+  @if $justify {
+    @each $prop, $value in $justify {
+      justify-#{$prop}: $value
+
+    }
+
+  }
+
+  @if $gap {
+    gap: $gap;
+
+  }
 
 }
 
@@ -197,6 +244,11 @@ $-border-circle: calc(Infinity * 1px);
 
 @mixin pointer {
   cursor: pointer;
+
+}
+
+@mixin transition($value) {
+  transition: $value;
 
 }
 
