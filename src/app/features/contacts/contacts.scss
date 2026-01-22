@@ -32,7 +32,7 @@ $colorWhatsapp: #25d366;
   @include dimension(auto, 90%);
 
   .contacts__title {
-    @include text($fontSize: 2.8em, $fontWeight: 600, $lineHeight: 1.2);
+    @include text($textAlign: center, $fontSize: 2.8em, $fontWeight: 600, $lineHeight: 1.2, $wrap: auto);
 
     span {
       @include highlightColor;
