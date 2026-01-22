@@ -22,7 +22,7 @@
   @include z(1);
 
   .code-box-tabs {
-    @include flex(row, $gap: 20px);
+    @include flex($gap: 20px);
 
     .code-box-tab {
       @include position(relative);
@@ -98,7 +98,7 @@ code {
 /* Token colors */
 
 .token-at {
-  @include colorTokenAt; 
+  @include colorTokenAt;
 
 }
 
