@@ -1,0 +1,128 @@
+@use "../../utils/styles/utils.scss" as *;
+@use "../../utils/styles/code.scss" as *;
+@use "sass:meta";
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+:host {
+  @include dimension(330px, clamp(380px, 80%, 500px));
+  @include block;
+  @include bgCode;
+  @include fontCode;
+  @include borderCode;
+  @include scrollbar;
+
+}
+
+.code-box-header {
+  @include bgSoft;
+  @include dimension(auto, auto);
+  @include padding(null, 10px 16px);
+  @include headerCodeBox;
+  @include position(sticky, $top: 0px);
+  @include z(1);
+
+  .code-box-tabs {
+    @include flex(row, $gap: 20px);
+
+    .code-box-tab {
+      @include position(relative);
+      @include softColor;
+      @include pointer;
+
+    }
+
+  }
+
+}
+
+.selected-tab {
+  @include text($color: #61afef !important);
+
+  &::after {
+    content: "";
+    @include selectedTitleHeader;
+    @include dimension(24px, 90px);
+    @include position(absolute, $top: -2px, $left: -6px);
+
+  }
+
+}
+
+.code-box-main {
+  @include padding(null, 20px 0px);
+  @include pointer;
+
+}
+
+pre {
+  @include flex($flexDirection: column, $justifyContent: center);
+  @include bgCode;
+  @include dimension(auto, 100%);
+  @include position(relative);
+
+}
+
+code {
+  @include flex($justifyContent: flex-start, $wrap: wrap);
+  @include dimension(100%, 100%);
+  @include position(relative);
+  @include padding(left, 20px);
+  @include padding(right, 10px);
+  @include margin(bottom, 8px);
+  @include fontCode;
+
+  .selected-line {
+    @include bg(#80808030);
+    @include position(absolute, $left: 0px);
+    @include dimension(100%, 100%);
+
+  }
+
+}
+
+.code-text {
+  @include textCode;
+
+}
+
+.cursor {
+  @include block;
+  @include dimension(16px, 2px);
+  @include bg(white);
+  @include margin(left, 3px);
+  @include self(align, center);
+  @include animation($name: blinkingCursor, $duration: .8s, $count: infinite);
+
+}
+
+/* Token colors */
+
+.token-at {
+  @include colorTokenAt; 
+
+}
+
+.token-type-function {
+  @include colorTypeFunction;
+
+}
+
+.token-string {
+  @include colorTokenString;
+
+}
+
+.token-html-property {
+  @include colorTokenHtmlProperty;
+
+}
+
+.token-identifier {
+  @include colorTokenIdentifier;
+
+}
+
+.token-keyword {
+  @include colorTokenKeyword;
+
+}

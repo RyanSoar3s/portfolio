@@ -1,0 +1,132 @@
+@use "./utils.scss" as *;
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+// colors
+$-colorSoft: #0f0f13;
+$-colorCode: #0b0b0e;
+$-colorBorder: #1f1f27;
+$-colorTitleHeader: #9ca3af;
+$-colorSelectedTitleHeader: #61afef1a;
+
+/* token colors */
+$-tokenAt: #56b6c2;
+$-tokenTypeFunction: #61afef;
+$-tokenString: #98c379;
+$-tokenHtmlProperty: #d19a66;
+$-tokenIdentifier: #e06c75;
+$-tokenKeyword: #c678dd;
+
+// fonts
+$-fontCode: ("Fira Code", monospace);
+
+@keyframes blinkingCursor {
+  50% {
+    opacity: 0;
+
+  }
+
+}
+
+@mixin bgSoft {
+  @include bg($-colorSoft);
+
+}
+
+@mixin bgCode {
+  @include bg($-colorCode);
+
+}
+
+@mixin borderCode {
+  @include border(null, 1px solid $-colorBorder);
+  @include rounded(14px);
+
+}
+
+@mixin fontCode {
+  @include text($family: $-fontCode);
+
+}
+
+@mixin headerCodeBox {
+  $directions: ((top, right), (top, left));
+  @include text($color: $-colorTitleHeader, $fontSize: 0.9em);
+  @include border(bottom, 1px solid $-colorBorder);
+  @include rounded(14px, $directions);
+
+}
+
+@mixin selectedTitleHeader {
+  @include bg($-colorSelectedTitleHeader);
+  @include rounded(7px);
+
+}
+
+@mixin textCode {
+  @include text($fontSize: 0.9em, $textAlign: start, $wrap: auto);
+
+}
+
+@mixin scrollbar {
+  overflow: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+
+  }
+
+}
+
+@mixin animation(
+  $name,
+  $duration: 500ms,
+  $timing: ease,
+  $delay: 0ms,
+  $count: 1,
+  $direction: normal,
+  $fill: both,
+  $state: running
+
+) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-timing-function: $timing;
+  animation-delay: $delay;
+  animation-iteration-count: $count;
+  animation-direction: $direction;
+  animation-fill-mode: $fill;
+  animation-play-state: $state;
+
+}
+
+/* -------------------------------------------------------------------- */
+@mixin colorTokenAt {
+  @include text($color: $-tokenAt);
+
+}
+
+@mixin colorTypeFunction {
+  @include text($color: $-tokenTypeFunction);
+
+}
+
+@mixin colorTokenString {
+  @include text($color: $-tokenString);
+
+}
+
+@mixin colorTokenHtmlProperty {
+  @include text($color: $-tokenHtmlProperty);
+
+}
+
+@mixin colorTokenIdentifier {
+  @include text($color: $-tokenIdentifier);
+
+}
+
+@mixin colorTokenKeyword {
+  @include text($color: $-tokenKeyword);
+
+}
