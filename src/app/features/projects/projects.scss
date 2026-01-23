@@ -18,7 +18,7 @@ $colorText: #9ca3af;
 
 :host {
   @include flex($alignItems: center, $justifyContent: center);
-  @include dimension((prefix: min, pvalue: 100dvh, value: null), 100dvw);
+  @include dimension((prefix: min, pvalue: 90dvh, value: null), 100dvw);
   @include padding(null, 0px 30px);
 
 }
