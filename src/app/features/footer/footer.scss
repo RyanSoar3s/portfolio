@@ -1,0 +1,14 @@
+@use "../../utils/styles/utils.scss" as *;
+
+:host {
+  @include flex($alignItems: center, $justifyContent: center);
+  @include bg(#0d0d0f);
+  @include dimension(100px, 100dvw);
+  @include border(top, 1px solid #292929);
+
+}
+
+.footer {
+  @include text($color: #888, $textAlign: center, $fontSize: 0.9em, $fontWeight: 400, $wrap: auto);
+
+}
