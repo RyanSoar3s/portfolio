@@ -22,7 +22,7 @@ $colorWhatsapp: #25d366;
 
 :host {
   @include flex($alignItems: center, $justifyContent: center);
-  @include dimension(100dvh, 100dvw);
+  @include dimension((prefix: min, pvalue: 84dvh, value: null), 100dvw);
   @include margin(bottom, 30px);
 
 }

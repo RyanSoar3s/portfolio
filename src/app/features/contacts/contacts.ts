@@ -13,7 +13,11 @@ import { Responsive } from '@services/responsive';
 
   ],
   templateUrl: './contacts.html',
-  styleUrl: './contacts.scss'
+  styleUrl: './contacts.scss',
+  host: {
+    '[style.marginBottom]': `(responsive.isXs() || responsive.isSm()) ? '100px' : '0px'`
+
+  }
 })
 export class Contacts {
   protected readonly contacts = [
