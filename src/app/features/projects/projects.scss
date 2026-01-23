@@ -1,0 +1,167 @@
+@use "../../utils/styles/utils.scss" as *;
+
+$bgHeader: #1d1d20;
+$bgCard: #121214;
+
+$bgViewButton: #38bdf8;
+$bgHoverViewButton: #38bff8e1;
+$bgHoverRepoButton: #2a2a2c;
+$borderCard: 1px solid #292929;
+$borderHoverCard: 1px solid $bgViewButton;
+
+$bgTag: #61afef1a;
+$colorTag: #61afef;
+$colorHoverTag: #00294a;
+$shadowTags: 0px 0px 16px 1px #38bdf873;
+
+$colorText: #9ca3af;
+
+:host {
+  @include flex($alignItems: center, $justifyContent: center);
+  @include dimension((prefix: min, pvalue: 100dvh, value: null), 100dvw);
+  @include padding(null, 0px 30px);
+
+}
+
+.projects {
+  @include dimension(100%, (prefix: max, pvalue: 1150px, value: 100%));
+  @include flex($flexDirection: column, $alignItems: initial, $justifyContent: center, $gap: 70px);
+
+  .projects__cards {
+    @include dimension(auto, auto);
+    @include grid($templates: (columns: repeat(auto-fill, minmax(300px, 1fr))), $align: (items: initial), $justify: (items: initial), $gap: 70px);
+
+  }
+
+}
+
+.projects__header {
+  .projects__title {
+    @include text($textAlign: center, $fontSize: 2.8em, $fontWeight: 600, $wrap: auto);
+    @include margin(bottom, 15px);
+
+    span {
+      @include highlightColor;
+
+    }
+
+  }
+
+  .projects__text {
+    @include text($textAlign: center, $color: $colorText, $fontWeight: 400, $wrap: auto);
+
+  }
+
+}
+
+
+.projects__card {
+  @include bg($bgCard);
+  @include dimension(auto, auto);
+  @include flex($flexDirection: column, $justifyContent: space-between);
+  @include rounded(20px);
+  @include border(null, $borderCard);
+  @include transition(all .3s ease);
+
+  &:hover {
+    @include border(null, $borderHoverCard);
+    @include translate((0px, -8px));
+
+  }
+
+  .projects__card-image {
+    @include bg($bgHeader);
+    @include dimension(180px, 100%);
+    @include rounded(20px, ((top, left), (top, right)));
+    @include position(relative);
+
+
+    img {
+      @include dimension(100%, 100%);
+      @include rounded(20px, ((top, left), (top, right)));
+
+    }
+
+  }
+
+  .projects__card-buttons {
+    @include dimension(auto, 100%);
+    @include flex($alignItems: center, $gap: 0px 20px);
+    @include padding(left, 20px);
+    @include margin(bottom, 20px);
+
+    .button-view, .button-repo {
+      @include bg(transparent);
+      @include padding(null, 10px);
+      @include rounded(10px);
+      @include text($fontSize: 0.9em, $fontWeight: 600);
+      @include border(null, none);
+      @include pointer;
+
+    }
+
+    .button-view {
+      @include bg($bgViewButton);
+      @include text($color: black, $fontSize: 0.9em, $fontWeight: 600);
+
+      &:hover {
+        @include bg($bgHoverViewButton);
+
+      }
+
+    }
+
+    .button-repo {
+      @include border(null, $borderCard);
+
+      &:hover {
+        @include bg($bgHoverRepoButton);
+
+      }
+
+    }
+
+  }
+
+
+}
+
+.projects__card-info {
+  @include flex($flexDirection: column, $justifyContent: center, $gap: 20px 0px);
+  @include margin(null, 25px 0px 25px 20px);
+  @include padding(right, 20px);
+
+  .projects__card-tech {
+    @include flex($gap: 15px, $wrap: wrap);
+    @include dimension(auto, 100%);
+    @include pointer;
+
+    span {
+      @include bg($bgTag);
+      @include text($color: $colorTag, $fontSize: 0.9em);
+      @include padding(null, 8px);
+      @include rounded(6px);
+
+      &:hover {
+        @include bg($colorTag);
+        @include text($color: $colorHoverTag);
+        @include shadow($shadowTags);
+
+      }
+
+    }
+
+  }
+
+  .projects__card-title {
+    @include text($fontSize: 1.6em, $fontWeight: 600);
+    @include margin(top, 10px);
+
+  }
+
+  .projects__card-text {
+    @include text($color: $colorText, $fontSize: 0.95em, $fontWeight: 400, $wrap: auto);
+
+  }
+
+}
