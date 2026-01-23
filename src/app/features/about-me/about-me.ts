@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Responsive } from '@services/responsive';
 
 @Component({
   selector: 'app-about-me',
@@ -8,9 +9,15 @@ import { Component } from '@angular/core';
 
   ],
   templateUrl: './about-me.html',
-  styleUrl: './about-me.scss'
+  styleUrl: './about-me.scss',
+  host: {
+  '[style.marginBottom]': `(responsive.isXs() || responsive.isSm()) ? '100px' : '0px'`
+
+}
 })
 export class AboutMe {
+  protected readonly responsive = inject(Responsive);
+
   protected readonly techs = [
     { tech: "HTML", styleClass: "html" },
     { tech: "CSS", styleClass: "css" },
