@@ -3,7 +3,7 @@
 :host {
   @include dimension(calc(100dvh - 120px), 100dvw);
   @include flex($flexDirection: row, $alignItems: center, $justifyContent: center, $gap: 50px);
-  @include padding(top, 120px);
+  @include padding(top, 180px);
 
 }
 
