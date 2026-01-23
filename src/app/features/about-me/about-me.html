@@ -1,6 +1,3 @@
-@let LG = responsive.isLg();
-@let XL = responsive.isXl();
-
 <section [ngClass]="'about-me'">
   <div [ngClass]="'about-me__container-info'">
     <h1 [ngClass]="'about-me__title'">
@@ -16,14 +13,7 @@
 
     </p>
 
-    <ul
-        [ngClass]="'about-me__techs'"
-        [ngStyle]="{
-          'grid-template-columns': (XL || LG) ? 'repeat(4, 1fr)' : 'repeat(3, 1fr)'
-
-        }"
-
-        >
+    <ul [ngClass]="'about-me__techs'">
       @for (t of techs; track $index) {
         <li [ngClass]="'about-me__tech ' + t.styleClass">{{ t.tech }}</li>
 

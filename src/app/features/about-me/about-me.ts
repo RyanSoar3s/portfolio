@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { Responsive } from '@services/responsive';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about-me',
@@ -12,7 +11,6 @@ import { Responsive } from '@services/responsive';
   styleUrl: './about-me.scss'
 })
 export class AboutMe {
-  protected readonly responsive = inject(Responsive);
   protected readonly techs = [
     { tech: "HTML", styleClass: "html" },
     { tech: "CSS", styleClass: "css" },
