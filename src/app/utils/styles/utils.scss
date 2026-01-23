@@ -42,7 +42,10 @@ $-border-circle: calc(Infinity * 1px);
     $value: map.get($config, value);
     $pvalue: map.get($config, pvalue);
 
-    #{$prop}: $value;
+    @if $value {
+      #{$prop}: $value;
+
+    }
 
     @if $prefix {
       #{$prefix}-#{$prop}: $pvalue;
