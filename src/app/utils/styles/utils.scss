@@ -242,6 +242,11 @@ $-border-circle: calc(Infinity * 1px);
 
 }
 
+@mixin shadow($value) {
+  box-shadow: $value;
+
+}
+
 @mixin pointer {
   cursor: pointer;
 
