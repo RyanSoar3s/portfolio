@@ -11,7 +11,7 @@ import { Responsive } from '@services/responsive';
   templateUrl: './about-me.html',
   styleUrl: './about-me.scss',
   host: {
-  '[style.marginBottom]': `(responsive.isXs() || responsive.isSm()) ? '100px' : '0px'`
+  '[style.marginBottom]': `(responsive.isXl()) ? '0px' : '100px'`
 
 }
 })
