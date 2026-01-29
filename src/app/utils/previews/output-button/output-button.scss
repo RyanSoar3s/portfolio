@@ -1,0 +1,97 @@
+@use "../../styles/utils.scss" as *;
+
+.container-html-sass {
+  @include flex($alignItems: center, $justifyContent: center);
+  @include dimension(100%, 100%);
+  @include bg(white);
+
+}
+
+.container-html-sass__logo {
+  @include position(absolute,
+    $top: calc(50% - 50px),
+    $left: calc(50% - 50px)
+
+  );
+
+  @include dimension(100px, 100px);
+  @include opacity(0);
+
+}
+
+.container-html-sass__logo-html {
+  @include animation-list(
+    (
+      spawn 0.8s ease-out 0.5s forwards,
+      moveToTopLeft 1.5s cubic-bezier(0.68, -0.55, 0.26, 1.55) 2.5s forwards
+
+    )
+
+  );
+
+}
+
+.container-html-sass__logo-sass {
+  @include animation-list(
+    (
+      spawn 0.8s ease-out 5s forwards,
+      moveToTopRight 1.5s cubic-bezier(0.68, -0.55, 0.26, 1.55) 7s forwards
+
+    )
+
+  );
+
+}
+
+.container-html-sass__btn-container {
+  @include flex;
+  @include position(relative, $top: 30px);
+  
+}
+
+.container-html-sass__btn-raw {
+  @include opacity(0);
+  @include transform(scale(0));
+  @include pointer-events(none);
+
+  @include animation-list(
+    (
+      spawn 0.8s ease-out 4s forwards,
+      beautify 1.2s ease-in-out 8.5s forwards
+
+    )
+
+  );
+
+  @include transition(
+    (
+      background-color 0.35s ease,
+      color 0.35s ease,
+      box-shadow 0.35s ease,
+      transform 0.2s ease
+
+    )
+
+  );
+
+  &:hover {
+    @include gradient(
+      $type: linear,
+      $values:
+      (
+        -135deg,
+      #f7b7d2,
+      #cc6699,
+      #b24a7d
+
+      ),
+      $important: true,
+
+    );
+
+    @include text($color: white !important);
+    @include shadow(0px 0px 30px 2px #cc6699 !important);
+
+  }
+
+}
