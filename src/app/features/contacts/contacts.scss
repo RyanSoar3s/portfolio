@@ -59,7 +59,7 @@ $colorWhatsapp: #25d366;
         content: "";
         @include position(absolute, $top: 0px, $left: 0px);
         @include dimension(100%, 100%);
-        @include gradient(radial, (circle at top right, #ffffff0d, transparent));
+        @include gradient($type: radial, $values: (circle at top right, #ffffff0d, transparent));
         @include rounded(20px);
 
       }

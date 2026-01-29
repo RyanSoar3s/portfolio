@@ -40,7 +40,7 @@ $colorMongoDB: #47A248;
     @include text($fontSize: 2.8em, $fontWeight: 600, $lineHeight: 1.2);
 
     .about-me__icon {
-      @include gradient(linear, 135deg, #333, #111);
+      @include gradient($type: linear, $values: (135deg, #333, #111));
       @include flex($inline: true, $alignItems: center, $justifyContent: center);
       @include dimension(90px, 90px);
       @include text($fontSize: 0.9em);
