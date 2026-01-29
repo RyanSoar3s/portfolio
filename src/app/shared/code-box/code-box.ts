@@ -1,13 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { Responsive } from '@services/responsive';
-import { codeBoxesHome } from '@utils/codes/code';
+import { codeBoxes } from '@utils/codes/code';
 import { CodeBox as TCodeBox, Language, CodeToken } from "@models/code-box.model";
-
+import { OutputButton } from '@utils/previews/output-button/output-button';
+import { OutputLoader } from '@utils/previews/output-loader/output-loader';
+import { OutputReactiveInput } from '@utils/previews/output-reactive-input/output-reactive-input';
 @Component({
   selector: 'app-code-box',
   imports: [
-    CommonModule
+    CommonModule,
+    OutputButton,
+    OutputLoader,
+    OutputReactiveInput
 
   ],
   templateUrl: './code-box.html',
@@ -18,9 +23,13 @@ import { CodeBox as TCodeBox, Language, CodeToken } from "@models/code-box.model
   }
 })
 export class CodeBox {
+  public boxName = input.required<keyof typeof codeBoxes>();
+
   protected readonly responsive = inject(Responsive);
 
-  protected readonly codeBoxesHome = codeBoxesHome;
+  protected readonly tabs = computed(() => codeBoxes[this.boxName()].tabs);
+  protected readonly boxes = computed(() => [ ...codeBoxes[this.boxName()].codeBoxes, codeBoxes[this.boxName()].output ]);
+
   protected selectedLineIndex = 0;
   protected selectedFileIndex = 0;
 

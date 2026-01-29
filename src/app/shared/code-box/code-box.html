@@ -1,6 +1,6 @@
 <header [ngClass]="'code-box-header'">
   <div [ngClass]="'code-box-tabs'">
-    @for (box of codeBoxesHome; track box.id; let i = $index) {
+    @for (tab of tabs(); track $index) {
       <p
       [ngClass]="{
         'code-box-tab': true,
@@ -9,7 +9,7 @@
       }"
       (click)="void changeFile($index)"
 
-      >{{ box.title }}.{{ box.language }}</p>
+      >{{ tab }}</p>
 
     }
 
@@ -18,22 +18,47 @@
 </header>
 
 <main [ngClass]="'code-box-main'">
-  @let box = codeBoxesHome[selectedFileIndex];
-
   <pre>
-    @for (ct of getCodeToken(box); track $index) {
-      <code (click)="selectedLineIndex = $index">
-        @for (token of ct; track $index) {
-          <span [ngClass]="'code-text ' + token.styleClass">{{ token.token }}</span>
+    @let code = boxes()[selectedFileIndex];
+
+    @if (typeof code === "object") {
+      @for (ct of getCodeToken(code); track $index) {
+        <code (click)="selectedLineIndex = $index">
+          @for (token of ct; track $index) {
+            <span [ngClass]="'code-text ' + token.styleClass">{{ token.token }}</span>
+
+          }
+          @if ($index == selectedLineIndex) {
+            <span [ngClass]="'cursor'"></span>
+            <span [ngClass]="'selected-line'"></span>
+
+          }
+
+        </code>
+
+      }
+
+    }
+
+    @else {
+      @switch (boxName()) {
+        @case ("button") {
+          <app-output-button [ngClass]="'output'" [html]="code"></app-output-button>
 
         }
-        @if ($index == selectedLineIndex) {
-          <span [ngClass]="'cursor'"></span>
-          <span [ngClass]="'selected-line'"></span>
+
+        @case ("loader") {
+          <app-output-loader [ngClass]="'output'" [html]="code"></app-output-loader>
 
         }
 
-      </code>
+        @case ("reactiveInput") {
+          <app-output-reactive-input [ngClass]="'output'" [html]="code"></app-output-reactive-input>
+
+        }
+
+      }
+
     }
 
   </pre>
