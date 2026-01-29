@@ -1,0 +1,58 @@
+@use "../../utils/styles/utils.scss" as *;
+
+:host {
+  @include flex($alignItems: center, $justifyContent: center);
+  @include dimension(100dvh, 100dvw);
+  @include padding(null, 0px 30px);
+
+}
+
+.technologies {
+  @include dimension(auto, 1300px);
+
+  .technologies__header {
+    .technologies__title {
+      @include text($textAlign: center, $fontSize: 2.8em, $fontWeight: 600, $wrap: auto);
+      @include margin(bottom, 15px);
+
+      span {
+        @include highlightColor;
+
+      }
+
+    }
+    .technologies__text {
+      @include text($color: #9ca3af, $textAlign: center, $fontWeight: 400);
+      @include padding(null, 0px 30px);
+
+    }
+
+  }
+
+  .techonologies__main {
+    @include flex($flexDirection: row, $alignItems: center, $justifyContent: center);
+    @include margin(top, 50px);
+
+    .technologies__title-techs {
+      @include flex($alignItems: center, $gap: 15px);
+      @include dimension(50px, 520px);
+      @include margin(bottom, 20px);
+
+      div {
+        @include bg(#38bdf8d6);
+        @include dimension(17px, 17px);
+        @include rounded(3px);
+        @include shadow(0px 0px 15px 0px #22bbff);
+
+      }
+
+    }
+
+  }
+
+}
+
+.technologies__title-container-techs {
+  @include dimension(null, 500px);
+
+}
