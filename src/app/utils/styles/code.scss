@@ -1,4 +1,5 @@
 @use "./utils.scss" as *;
+@use "../animations/animations.scss" as *;
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 // colors
@@ -19,14 +20,6 @@ $-tokenKeyword: #c678dd;
 // fonts
 $-fontCode: ("Fira Code", monospace);
 
-@keyframes blinkingCursor {
-  50% {
-    opacity: 0;
-
-  }
-
-}
-
 @mixin bgSoft {
   @include bg($-colorSoft);
 
@@ -37,9 +30,9 @@ $-fontCode: ("Fira Code", monospace);
 
 }
 
-@mixin borderCode {
-  @include border(null, 1px solid $-colorBorder);
-  @include rounded(14px);
+@mixin outlineCode {
+  outline: 1px solid $-colorBorder;
+  @include rounded(15px);
 
 }
 
@@ -58,7 +51,7 @@ $-fontCode: ("Fira Code", monospace);
 
 @mixin selectedTitleHeader {
   @include bg($-colorSelectedTitleHeader);
-  @include rounded(7px);
+  @include rounded(10px);
 
 }
 
@@ -68,7 +61,7 @@ $-fontCode: ("Fira Code", monospace);
 }
 
 @mixin scrollbar {
-  overflow: auto;
+  @include overflow(null, auto);
   scrollbar-width: none;
 
   &::-webkit-scrollbar {
@@ -78,29 +71,12 @@ $-fontCode: ("Fira Code", monospace);
 
 }
 
-@mixin animation(
-  $name,
-  $duration: 500ms,
-  $timing: ease,
-  $delay: 0ms,
-  $count: 1,
-  $direction: normal,
-  $fill: both,
-  $state: running
-
-) {
-  animation-name: $name;
-  animation-duration: $duration;
-  animation-timing-function: $timing;
-  animation-delay: $delay;
-  animation-iteration-count: $count;
-  animation-direction: $direction;
-  animation-fill-mode: $fill;
-  animation-play-state: $state;
+@mixin blinkingAnimation {
+  @include animation($name: blinkingCursor, $duration: .8s, $count: infinite);
 
 }
 
-/* -------------------------------------------------------------------- */
+/* --------------------------------------------- Token Colors Utilities --------------------------------------------- */
 @mixin colorTokenAt {
   @include text($color: $-tokenAt);
 
