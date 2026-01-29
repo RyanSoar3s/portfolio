@@ -8,8 +8,18 @@
   @include block;
   @include bgCode;
   @include fontCode;
-  @include borderCode;
+  @include outlineCode;
   @include scrollbar;
+
+}
+
+:host:has(.output) {
+  @include bg(white);
+
+  .code-box-main {
+    @include cursor;
+
+  }
 
 }
 
@@ -41,8 +51,9 @@
   &::after {
     content: "";
     @include selectedTitleHeader;
-    @include dimension(24px, 90px);
-    @include position(absolute, $top: -2px, $left: -6px);
+    @include dimension(24px, 100%);
+    @include position(absolute, $top: -4px, $left: -6px);
+    @include padding(null, 1px 6px);
 
   }
 
@@ -82,6 +93,7 @@ code {
 
 .code-text {
   @include textCode;
+  @include overflow-wrap(anywhere);
 
 }
 
@@ -91,7 +103,7 @@ code {
   @include bg(white);
   @include margin(left, 3px);
   @include self(align, center);
-  @include animation($name: blinkingCursor, $duration: .8s, $count: infinite);
+  @include blinkingAnimation;
 
 }
 
