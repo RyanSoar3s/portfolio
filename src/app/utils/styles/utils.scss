@@ -1,6 +1,7 @@
 @use "sass:map";
 @use "sass:meta";
 @use "sass:list";
+@use "../animations/animations.scss" as *;
 
 $-border-circle: calc(Infinity * 1px);
 
@@ -66,8 +67,16 @@ $-border-circle: calc(Infinity * 1px);
 
 }
 
-@mixin gradient($type, $values...) {
-  background-image: #{$type}-gradient($values);
+@mixin gradient($type, $values, $important: false) {
+  @if $important {
+    background-image: #{$type}-gradient($values) !important;
+
+  }
+
+  @else {
+    background-image: #{$type}-gradient($values);
+
+  }
 
 }
 
@@ -159,6 +168,11 @@ $-border-circle: calc(Infinity * 1px);
 
 }
 
+@mixin inline-block {
+  display: inline-block;
+
+}
+
 @mixin flex($inline: false, $flexDirection: row, $alignItems: flex-start, $justifyContent: flex-start, $gap: 0px, $wrap: nowrap) {
   @if $inline {
     display: inline-flex;
@@ -245,6 +259,11 @@ $-border-circle: calc(Infinity * 1px);
 
 }
 
+@mixin overflow-wrap($value: break-word) {
+  overflow-wrap: $value;
+
+}
+
 @mixin shadow($value) {
   box-shadow: $value;
 
@@ -252,6 +271,58 @@ $-border-circle: calc(Infinity * 1px);
 
 @mixin pointer {
   cursor: pointer;
+
+}
+
+@mixin cursor($value: null) {
+  @if $value {
+    cursor: $value;
+
+  }
+
+  @else {
+    cursor: default;
+
+  }
+
+}
+
+@mixin opacity($value) {
+  opacity: $value;
+
+}
+
+@mixin overflow($axis: null, $value) {
+  @if $axis {
+    overflow-#{$axis}: $value;
+
+  }
+  @else {
+    overflow: $value;
+
+  }
+
+}
+
+@mixin pointer-events($value) {
+  pointer-events: $value;
+
+}
+
+@mixin transform($value) {
+  transform: $value;
+
+}
+
+@mixin keyframe-transform($opacity: null, $scale: null) {
+  @if $opacity {
+    opacity: $opacity;
+  }
+
+  @if $scale {
+    transform: scale($scale);
+
+  }
 
 }
 
@@ -271,6 +342,33 @@ $-border-circle: calc(Infinity * 1px);
 
 @mixin transition($value) {
   transition: $value;
+
+}
+
+@mixin animation-list($value) {
+  animation: $value;
+
+}
+
+@mixin animation(
+  $name,
+  $duration: 500ms,
+  $timing: ease,
+  $delay: 0ms,
+  $count: 1,
+  $direction: normal,
+  $fill: both,
+  $state: running
+
+) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-timing-function: $timing;
+  animation-delay: $delay;
+  animation-iteration-count: $count;
+  animation-direction: $direction;
+  animation-fill-mode: $fill;
+  animation-play-state: $state;
 
 }
 
