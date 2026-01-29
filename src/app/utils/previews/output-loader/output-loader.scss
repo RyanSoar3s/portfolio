@@ -1,0 +1,167 @@
+@use "../../styles/utils.scss" as *;
+@use "../../styles/code.scss" as *;
+
+.container-loader {
+  @include flex($alignItems: center, $justifyContent: center);
+  @include dimension(100%, 100%);
+  @include bg(white);
+
+}
+
+.container-loader__wrapper {
+  @include dimension(100%, 100%);
+  @include position(relative);
+  @include flex($flexDirection: column, $alignItems: center, $justifyContent: center);
+
+}
+
+.container-loader__logo {
+  @include position(absolute, $top: calc(50% - 50px), $left: calc(50% - 50px));
+  @include dimension(100px, 100px);
+  @include opacity(0);
+  @include transform(scale(0));
+  @include z(50);
+
+}
+
+.container-loader__html-logo {
+  @include animation-list(
+    (
+    spawn 0.8s ease-out forwards,
+    moveToTopLeft 1.5s cubic-bezier(0.68, -0.55, 0.26, 1.55) 1.5s forwards
+
+    )
+  );
+
+}
+
+.container-loader__tailwind-logo {
+  @include animation-list(
+    (
+      spawn 0.8s ease-out 4s forwards,
+      moveToTopRight 1.5s cubic-bezier(0.68, -0.55, 0.26, 1.55) 5.5s forwards
+
+    )
+
+  );
+
+}
+
+.container-loader__download-wrapper {
+  @include dimension(null, 100%);
+  @include position(relative);
+  @include flex($flexDirection: column, $alignItems: center);
+  @include opacity(0);
+  @include animation-list((fadeIn 0.5s forwards 3s));
+
+}
+
+.container-loader__text-container {
+  @include fontCode;
+  @include position(relative);
+  @include flex($alignItems: center, $justifyContent: center);
+  @include margin(bottom, 0);
+  @include animation-list((spacingUpgrade 0.5s forwards 7s));
+
+}
+
+.container-loader__status-text {
+  @include text($color: black, $fontSize: 16px);
+  @include animation-list(
+    (
+      textStyleUpgrade 0.5s forwards 7s,
+      fadeOut 0.3s forwards 9.5s
+
+    )
+
+  );
+
+}
+
+.container-loader__dots {
+  @include inline-block;
+  @include dimension(null, 0);
+  @include overflow(null, hidden);
+  @include animation-list((dotsAnim 1.5s steps(4, end) 7s infinite));
+  vertical-align: bottom;
+
+}
+
+.container-loader__success-message {
+  position: absolute;
+  color: #059669;
+  font-weight: bold;
+  font-size: 1.4rem;
+  opacity: 0;
+  transform: translateY(10px);
+  white-space: nowrap;
+  animation: showSuccess 0.5s forwards 9.8s;
+
+}
+
+.container-loader__progress-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.container-loader__progress-container {
+  width: 200px;
+  height: 18px;
+  border: 1px solid #767676;
+  background: #ffffff;
+  overflow: hidden;
+  border-radius: 0;
+  animation: barStyleUpgrade 0.5s forwards 7s;
+
+}
+
+.container-loader__progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #767676;
+  position: relative;
+  animation:
+    fillStyleUpgrade 0.1s forwards 7s,
+    fillProgress 3s ease-in-out 7s forwards;
+
+}
+
+.container-loader__progress-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #ffffff4d 50%,
+      transparent 100%
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  animation: shine 2s infinite linear 7s forwards;
+
+}
+
+.container-loader__percentage {
+  position: absolute;
+  left: calc(100% + 15px);
+  font-size: 14px;
+  color: black;
+  opacity: 0;
+  animation:
+    fadeIn 0.5s forwards 2.7s,
+    percentMoveUpgrade 0.5s forwards 7s,
+    textStyleUpgrade 0.5s forwards 7s;
+
+}
+
+.container-loader__percentage::after {
+  counter-reset: num var(--num);
+  content: counter(num) "%";
+  animation: countProgress 3s linear 7s forwards;
+
+}
