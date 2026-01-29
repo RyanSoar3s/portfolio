@@ -1,0 +1,218 @@
+// Properties
+
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+
+}
+
+// Utility - Animations
+
+$colorSass: #cc6699;
+
+$tailwindLight: #7dd3fc;
+$tailwindMain: #38bdf8;
+$tailwindDark: #0284c7;
+$spacing: 40px;
+
+@keyframes blinkingCursor {
+  50% {
+    opacity: 0;
+
+  }
+
+}
+
+@keyframes beautify {
+  to {
+    appearance: none;
+    background: transparent;
+    border: 2px solid $colorSass;
+    color: $colorSass;
+    padding: 16px 36px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-family: sans-serif;
+    border-radius: 30px;
+    text-shadow: 0px 0px 10px $colorSass;
+    box-shadow: 0px 0px 15px $colorSass;
+    pointer-events: auto;
+    cursor: pointer;
+
+  }
+
+}
+@keyframes spawn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+
+  }
+
+}
+
+@keyframes moveToTopLeft {
+  to {
+    top: -20px;
+    left: 7px;
+    transform: scale(0.5);
+
+  }
+
+}
+
+@keyframes moveToTopRight {
+  to {
+    top: -20px;
+    left: calc(100% - 100px);
+    transform: scale(0.5);
+
+  }
+
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+
+  }
+
+}
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+
+  }
+
+}
+
+@keyframes spacingUpgrade {
+  to {
+    margin-bottom: 25px;
+
+  }
+
+}
+
+@keyframes textStyleUpgrade {
+  to {
+    color: $tailwindDark;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+
+  }
+
+}
+
+@keyframes barStyleUpgrade {
+  to {
+    border: none;
+    border-radius: 20px;
+    background: #f1f5f9;
+    width: 300px;
+    height: 12px;
+    box-shadow: inset 0 1px 2px #0000001a;
+
+  }
+
+}
+
+@keyframes fillStyleUpgrade {
+  to {
+    background: linear-gradient(
+      90deg,
+      $tailwindDark 0%,
+      $tailwindMain 50%,
+      $tailwindLight 100%
+
+    );
+    box-shadow: 0 4px 12px #0284c766;
+
+  }
+
+}
+
+@keyframes fillProgress {
+  from {
+    width: 0%;
+
+  }
+  to {
+    width: 100%;
+
+  }
+
+}
+
+@keyframes shine {
+  from {
+    background-position: 200% 0%;
+    opacity: 1;
+
+  }
+  to {
+    background-position: -200% 0%;
+    opacity: 1;
+
+  }
+
+}
+
+@keyframes countProgress {
+  from {
+    --num: 0;
+
+  }
+  to {
+    --num: 100;
+
+  }
+
+}
+
+@keyframes percentMoveUpgrade {
+  to {
+    left: calc(50% + 170px);
+
+  }
+
+}
+
+@keyframes dotsAnim {
+  0%,
+  100% {
+    width: 0;
+
+  }
+  25% {
+    width: 0.8em;
+
+  }
+  50% {
+    width: 1.2em;
+
+  }
+  75% {
+    width: 1.8em;
+
+  }
+
+}
+
+@keyframes showSuccess {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+
+  }
+
+}
