@@ -1,4 +1,3 @@
-
 export type Language = "html" | "css" | "sass" | "scss" | "js" | "ts";
 
 export type CodeToken = {
@@ -23,7 +22,7 @@ export type CodePreview<
  TBoxes extends readonly CodeBox<string, Language>[]
 
 > = {
-  tabs: `${TBoxes[number]["title"]}.${TBoxes[number]["language"]}` | "output",
+  tabs: Array<`${TBoxes[number]["title"]}.${TBoxes[number]["language"]}` | "output">,
   codeBoxes: Array<CodeBox<string, Language>>,
   output: string
 
