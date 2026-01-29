@@ -23,8 +23,8 @@
 
 html, body {
   @include dimension(100dvh, 100dvw);
+  @include overflow(x, hidden);
   scroll-behavior: smooth;
-  overflow-x: hidden;
 
 }
 
