@@ -1,0 +1,11 @@
+@use "../../styles/utils.scss" as *;
+
+:host {
+  @include block;
+  @include dimension(100%, 100%);
+  @include bg(white);
+  @include text($color: black, $fontSize: 1.2em, $fontWeight: 500, $wrap: auto);
+  @include overflow-wrap;
+
+}
+
