@@ -1,0 +1,32 @@
+@use "../styles/utils.scss" as *;
+
+:host {
+  @include flex($alignItems: center, $justifyContent: center, $gap: 30px);
+  @include position(absolute);
+  @include dimension(270px, 100%);
+  @include bg(transparent);
+  @include text($color: black, $fontSize: 1.2em, $fontWeight: 500);
+
+}
+
+.circle {
+  @include bg(black);
+  @include dimension(25px, 25px);
+  @include rounded-full;
+
+}
+
+.circle-1 {
+  @include animation($name: loading, $duration: 0.8s, $timing: ease, $delay: 0s, $count: infinite)
+
+}
+
+.circle-2 {
+  @include animation($name: loading, $duration: 0.8s, $timing: ease, $delay: 0.12s, $count: infinite)
+
+}
+
+.circle-3 {
+  @include animation($name: loading, $duration: 0.8s, $timing: ease, $delay: 0.22s, $count: infinite)
+
+}

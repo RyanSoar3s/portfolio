@@ -1,0 +1,6 @@
+@let circles = [ "circle-1", "circle-2", "circle-3" ];
+
+@for (circle of circles; track $index) {
+  <div [ngClass]="'circle ' + circle"></div>
+
+}
