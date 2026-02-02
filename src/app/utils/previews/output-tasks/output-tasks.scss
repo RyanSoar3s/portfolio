@@ -1,0 +1,118 @@
+@use "../../styles/utils.scss" as *;
+
+:host {
+  @include block;
+  @include dimension(100%, 100%);
+  @include bg(white);
+  @include text($color: black, $fontSize: 1.2em, $fontWeight: 500);
+
+}
+
+.container__tasks {
+  @include bg(white);
+  @include dimension(100%, 100%);
+
+}
+
+.container__tasks-wrapper {
+  @include flex($flexDirection: column, $alignItems: center);
+  @include bg(white);
+  @include dimension(100%, 100%);
+
+}
+
+.container__tasks-title {
+  @include text($color: #333, $textAlign: center);
+
+}
+
+.container__tasks-input-group {
+  @include flex($alignItems: center, $gap: 10px);
+  @include margin(bottom, 20px);
+
+  & + span {
+    @include opacity(0);
+
+  }
+
+}
+
+.container__tasks-input {
+  flex-grow: 1;
+  @include padding(null, 10px);
+  @include border(null, 2px solid #ddd);
+  @include rounded(6px);
+  @include outline(none);
+
+}
+
+.container__tasks-input:focus {
+  border-color: #4caf50;
+
+}
+
+.container__tasks-button {
+  @include padding(null, 10px 15px);
+  @include bg(#4caf50);
+  @include text($color: white, $fontWeight: 600);
+  @include border(null, none);
+  @include rounded(6px);
+  @include pointer;
+
+}
+
+.container__tasks-button:hover {
+  @include bg(#45a049);
+
+}
+
+.container__tasks-empty-task {
+  @include text($color: red, $fontSize: 1.1em, $fontWeight: 600);
+  @include opacity(1 !important);
+
+}
+
+.container__tasks-list {
+  @include padding(null, 0px);
+
+}
+
+.container__tasks-list li {
+  @include bg(white);
+  @include border(bottom, 1px solid #eee);
+  @include flex($alignItems: center, $justifyContent: space-between, $gap: 20px);
+  @include padding(null, 10px 0px);
+
+}
+
+.container__tasks-list li:last-child {
+  @include border(bottom, none);
+
+}
+
+.container__tasks-task-text {
+  flex-grow: 1;
+  @include pointer;
+
+}
+
+.container__tasks-task-completed {
+  text-decoration: line-through;
+  @include text($color: #888);
+
+}
+
+.container__tasks-delete-btn {
+  @include bg(#ff5252);
+  @include text($color: white, $fontSize: 0.8rem);
+  @include border(null, none);
+  @include padding(null, 5px 10px);
+  @include rounded(4px);
+  @include pointer;
+
+}
+
+.container__tasks-delete-btn:hover {
+  @include bg(#e04848);
+
+}

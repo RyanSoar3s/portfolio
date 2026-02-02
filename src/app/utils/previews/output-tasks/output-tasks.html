@@ -1,0 +1,7 @@
+<app-loading [isLoading]="isLoading()"></app-loading>
+
+<div
+  [ngClass]="'container__tasks-wrapper'"
+  [innerHTML]="sanitizedHtml()"
+
+></div>
