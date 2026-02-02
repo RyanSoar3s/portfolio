@@ -12,11 +12,15 @@ import { codeBoxes } from '@utils/codes/code';
 
   ],
   templateUrl: './technologies.html',
-  styleUrl: './technologies.scss'
+  styleUrl: './technologies.scss',
+  host: {
+  '[style.marginBottom]': `(responsive.isXl()) ? '0px' : '100px'`
+
+  }
 })
 export class Technologies {
   protected readonly responsive = inject(Responsive);
 
-  protected readonly boxes = [ "button", "loader" ] as Array<keyof typeof codeBoxes>;
+  protected readonly boxes = [ "button", "loader", "reactiveInput", "tasks" ] as Array<keyof typeof codeBoxes>;
 
 }

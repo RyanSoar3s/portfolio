@@ -1,8 +1,4 @@
-@let XS = responsive.isXs();
-@let SM = responsive.isSm();
-@let MD = responsive.isMd();
-
-@let technologies = [ "HTML + Sass", "HTML + Tailwind" ];
+@let technologies = [ "HTML + Sass", "HTML + Tailwind", "Angular", "Express + Redis" ];
 
 <section [ngClass]="'technologies'">
   <div [ngClass]="'technologies__header'">
@@ -17,14 +13,7 @@
   <div [ngClass]="'techonologies__main'">
     @for (tech of technologies; track i; let i = $index) {
       <div [ngClass]="'technologies__title-container-techs'">
-        <div
-          [ngClass]="'technologies__title-techs'"
-          [ngStyle]="{
-            'padding-left': (XS) ? '60px' : (SM) ? '70px' : (MD) ? '30px' : '0px'
-
-          }"
-
-          >
+        <div [ngClass]="'technologies__title-techs'">
           <div></div>
           <h2>{{ tech }}</h2>
 
