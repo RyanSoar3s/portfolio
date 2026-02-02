@@ -60,7 +60,7 @@
 }
 
 .code-box-main {
-  @include padding(null, 20px 0px);
+  @include padding(top, 20px);
   @include pointer;
 
 }
