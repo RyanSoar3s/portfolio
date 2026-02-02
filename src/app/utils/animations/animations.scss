@@ -118,7 +118,7 @@ $spacing: 40px;
     border: none;
     border-radius: 20px;
     background: #f1f5f9;
-    width: 300px;
+    width: 270px;
     height: 12px;
     box-shadow: inset 0 1px 2px #0000001a;
 
@@ -179,14 +179,6 @@ $spacing: 40px;
 
 }
 
-@keyframes percentMoveUpgrade {
-  to {
-    left: calc(50% + 170px);
-
-  }
-
-}
-
 @keyframes dotsAnim {
   0%,
   100% {
@@ -212,6 +204,14 @@ $spacing: 40px;
   to {
     opacity: 1;
     transform: translateY(0);
+
+  }
+
+}
+
+@keyframes loading {
+  50% {
+    transform: translateY(-20px);
 
   }
 
