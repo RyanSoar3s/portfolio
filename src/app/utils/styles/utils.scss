@@ -129,6 +129,10 @@ $-border-circle: calc(Infinity * 1px);
 
 }
 
+@mixin outline($value) {
+  outline: $value;
+
+}
 
 @mixin rounded($radius, $directions: null) {
   @if $directions {
@@ -230,7 +234,7 @@ $-border-circle: calc(Infinity * 1px);
 
 }
 
-@mixin text($family: null, $color: white, $textAlign: null, $fontSize: null, $fontWeight: 500, $lineHeight: null, $wrap: null) {
+@mixin text($family: null, $color: white, $textAlign: null, $fontSize: null, $fontWeight: 500, $lineHeight: null, $wrap: null, $whiteSpace: null) {
   @if $family {
     font-family: $family;
 
@@ -251,6 +255,10 @@ $-border-circle: calc(Infinity * 1px);
   }
   @if $fontSize {
     font-size: $fontSize;
+
+  }
+  @if $whiteSpace {
+    white-space: $whiteSpace;
 
   }
 
