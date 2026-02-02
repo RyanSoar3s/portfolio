@@ -18,7 +18,7 @@ import { DomSanitizer } from '@angular/platform-browser';
     '[style.overflow]': `'hidden'`
 
   },
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class OutputButton {
   public html = input.required<string>();

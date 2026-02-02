@@ -19,7 +19,7 @@ import { DomSanitizer } from '@angular/platform-browser';
     '[style.overflow]': `'hidden'`
 
   },
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class OutputLoader {
   public html = input.required<string>();
