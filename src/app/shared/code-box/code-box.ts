@@ -6,13 +6,15 @@ import { CodeBox as TCodeBox, Language, CodeToken } from "@models/code-box.model
 import { OutputButton } from '@utils/previews/output-button/output-button';
 import { OutputLoader } from '@utils/previews/output-loader/output-loader';
 import { OutputReactiveInput } from '@utils/previews/output-reactive-input/output-reactive-input';
+import { OutputTasks } from '@utils/previews/output-tasks/output-tasks';
 @Component({
   selector: 'app-code-box',
   imports: [
     CommonModule,
     OutputButton,
     OutputLoader,
-    OutputReactiveInput
+    OutputReactiveInput,
+    OutputTasks
 
   ],
   templateUrl: './code-box.html',
