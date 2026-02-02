@@ -88,80 +88,81 @@
 }
 
 .container-loader__success-message {
-  position: absolute;
-  color: #059669;
-  font-weight: bold;
-  font-size: 1.4rem;
-  opacity: 0;
-  transform: translateY(10px);
-  white-space: nowrap;
-  animation: showSuccess 0.5s forwards 9.8s;
+  @include position(absolute);
+  @include text($color: #059669, $fontSize: 1.4rem, $fontWeight: 600, $whiteSpace: nowrap);
+  @include opacity(0);
+  @include transform(translateY(10px));
+  @include animation-list((showSuccess 0.5s forwards 9.8s));
 
 }
 
 .container-loader__progress-area {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  @include position(relative);
+  @include flex($alignItems: center, $justifyContent: center);
+  @include dimension(null, 100%);
 
 }
 
 .container-loader__progress-container {
-  width: 200px;
-  height: 18px;
-  border: 1px solid #767676;
-  background: #ffffff;
-  overflow: hidden;
-  border-radius: 0;
-  animation: barStyleUpgrade 0.5s forwards 7s;
+  @include dimension(18px, 200px);
+  @include bg(white);
+  @include border(null, 1px solid #767676);
+  @include overflow(null, hidden);
+  @include rounded(0px);
+  @include animation-list((barStyleUpgrade 0.5s forwards 7s));
 
 }
 
 .container-loader__progress-fill {
-  height: 100%;
-  width: 0%;
-  background: #767676;
-  position: relative;
-  animation:
-    fillStyleUpgrade 0.1s forwards 7s,
-    fillProgress 3s ease-in-out 7s forwards;
+  @include dimension(100%, 0%);
+  @include bg(#767676);
+  @include position(relative);
+  @include animation-list(
+    (
+      fillStyleUpgrade 0.1s forwards 7s,
+      fillProgress 3s ease-in-out 7s forwards
+
+    )
+
+  );
 
 }
 
 .container-loader__progress-fill::before {
   content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-      90deg,
-      transparent 0%,
-      #ffffff4d 50%,
-      transparent 100%
-  );
+  @include position(absolute, $top: 0, $left: 0, $right: 0, $bottom: 0);
+  @include gradient($type: linear, $values: (
+    90deg,
+    transparent 0%,
+    #ffffff4d 50%,
+    transparent 100%
+
+  ));
   background-size: 200% 100%;
-  opacity: 0;
-  animation: shine 2s infinite linear 7s forwards;
+  @include opacity(0);
+  @include animation-list((shine 2s infinite linear 7s forwards));
 
 }
 
 .container-loader__percentage {
-  position: absolute;
-  left: calc(100% + 15px);
-  font-size: 14px;
-  color: black;
-  opacity: 0;
-  animation:
-    fadeIn 0.5s forwards 2.7s,
-    percentMoveUpgrade 0.5s forwards 7s,
-    textStyleUpgrade 0.5s forwards 7s;
+  @include position(absolute, $left: calc(50% + 150px));
+  @include text($color: black, $fontSize: 14px);
+  @include opacity(0);
+  @include animation-list(
+    (
+      fadeIn 0.5s forwards 2.7s,
+      percentMoveUpgrade 0.5s forwards 7s,
+      textStyleUpgrade 0.5s forwards 7s
+
+    )
+
+  );
 
 }
 
 .container-loader__percentage::after {
   counter-reset: num var(--num);
   content: counter(num) "%";
-  animation: countProgress 3s linear 7s forwards;
+  @include animation-list((countProgress 3s linear 7s forwards));
 
 }
