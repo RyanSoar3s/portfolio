@@ -42,7 +42,7 @@ export class OutputTasks implements OnInit, AfterViewInit {
   private renderer = inject(Renderer2);
   private fakeRedis = inject(FakeRedis);
 
-  tasks!: Array<Task>;
+  private tasks!: Array<Task>;
 
   ngOnInit(): void {
     const tasks = this.fakeRedis.findAll();
@@ -133,6 +133,7 @@ export class OutputTasks implements OnInit, AfterViewInit {
     this.renderer.listen(delButton, "click", () => {
       this.renderer.removeChild(ul, li);
       this.delete(task.id);
+      this.tasks = this.findAll();
 
     });
 
