@@ -926,7 +926,7 @@ const codeBoxLoaderHtml: CodeBox<"loader", "html"> = {
         { token: "div", styleClass: "token-identifier" },
         { token: " class", styleClass: "token-html-property" },
         { token: "=", styleClass: "" },
-        { token: "'absolute left-[calc(100%+15px)] text-[14px] text-black opacity-0 anim-percent'", styleClass: "token-string" },
+        { token: "'absolute left-[calc(50%+150px)] text-[14px] text-black opacity-0 anim-percent'", styleClass: "token-string" },
         { token: ">", styleClass: "" }
 
       ],
@@ -1368,7 +1368,7 @@ const codeBoxLoaderCss: CodeBox<"loader", "css"> = {
       ],
       [
         { token: "    0%", styleClass: "token-type-function" },
-        { token: ",", styleClass: "" } // terminar
+        { token: ",", styleClass: "" }
 
       ],
       [
@@ -1468,7 +1468,7 @@ const codeBoxLoaderCss: CodeBox<"loader", "css"> = {
       ],
       [
         { token: "      width: ", styleClass: "" },
-        { token: "300px", styleClass: "token-html-property" },
+        { token: "270px", styleClass: "token-html-property" },
         { token: ";", styleClass: "" }
 
       ],
@@ -2299,17 +2299,136 @@ const codePreviewLoader: CodePreview<[ typeof codeBoxLoaderHtml, typeof codeBoxL
 
 };
 
-
 // ------------------------------------------------ Code Box Reactive Input ------------------------------------------------ //
 
-const codeBoxReactiveInputHtml: CodeBox<"reactive-input", "html"> = {
+const codeBoxReactiveInputTs: CodeBox<"reactive-input", "ts"> = {
   id: 0,
   title: "reactive-input",
-  language: "html",
+  language: "ts",
   code: {
-    "reactive-input.html": [
+    "reactive-input.ts": [
       [
-        { token: "<", styleClass: "" }
+        { token: "import ", styleClass: "token-identifier" },
+        { token: "{ Component } ", styleClass: "" },
+        { token: "from ", styleClass: "token-identifier" },
+        { token: "'@angular/core'", styleClass: "token-string" },
+        { token: ";", styleClass: "" }
+
+      ],
+      [
+        { token: "import ", styleClass: "token-identifier" },
+        { token: "{ FormsModule } ", styleClass: "" },
+        { token: "from ", styleClass: "token-identifier" },
+        { token: "'@angular/forms'", styleClass: "token-string" },
+        { token: ";", styleClass: "" }
+
+      ],
+      [
+        { token: "@", styleClass: "token-at" },
+        { token: "Component", styleClass: "token-type-function" },
+        { token: "({", styleClass: "" }
+
+      ],
+      [
+        { token: "  selector", styleClass: "token-identifier" },
+        { token: ": ", styleClass: "" },
+        { token: "'app-reactive-input'", styleClass: "token-string" },
+        { token: ",", styleClass: "" }
+
+      ],
+      [
+        { token: "  template", styleClass: "token-identifier" },
+        { token: ": `", styleClass: "" }
+
+      ],
+      [
+        { token: "    <", styleClass: "" },
+        { token: "label", styleClass: "token-identifier" },
+        { token: " for", styleClass: "token-html-property" },
+        { token: "=", styleClass: "" },
+        { token: "'favoriteFood'", styleClass: "token-string" },
+        { token: ">", styleClass: "" }
+
+      ],
+      [
+        { token: "      Qual sua comida favorita? ", styleClass: "" }
+
+      ],
+      [
+        { token: "      <", styleClass: "" },
+        { token: "input", styleClass: "token-identifier" },
+        { token: " id", styleClass: "token-html-property" },
+        { token: "=", styleClass: "" },
+        { token: "'favoriteFood'", styleClass: "token-string" },
+        { token: " type", styleClass: "token-html-property" },
+        { token: "=", styleClass: "" },
+        { token: "'text'", styleClass: "token-string" }
+      ],
+      [
+        { token: "      placeholder", styleClass: "token-html-property" },
+        { token: "=", styleClass: "" },
+        { token: "'Digite aqui'", styleClass: "token-string" }
+
+      ],
+      [
+        { token: "      [(", styleClass: "" },
+        { token: "ngModel", styleClass: "token-html-property" },
+        { token: ")]=", styleClass: "" },
+        { token: "'favoriteFood'", styleClass: "token-string" },
+        { token: " />", styleClass: "" }
+
+      ],
+      [
+        { token: "    </", styleClass: "" },
+        { token: "label", styleClass: "token-identifier" },
+        { token: "> ", styleClass: "" }
+
+      ],
+      [
+        { token: "    <", styleClass: "" },
+        { token: "p", styleClass: "token-identifier" },
+        { token: ">", styleClass: "" }
+
+      ],
+      [
+        { token: "      Eu gosto de ", styleClass: "" },
+        { token: "{{ favoriteFood }}", styleClass: "" }
+
+      ],
+      [
+        { token: "    </", styleClass: "" },
+        { token: "p", styleClass: "token-identifier" },
+        { token: ">", styleClass: "" }
+
+      ],
+      [
+        { token: "  `,", styleClass: "" }
+
+      ],
+      [
+        { token: "  imports", styleClass: "token-identifier" },
+        { token: ": ", styleClass: "" },
+        { token: "[ FormsModule ]", styleClass: "" }
+
+      ],
+      [
+        { token: "})", styleClass: "" }
+
+      ],
+      [
+        { token: "export ", styleClass: "token-identifier" },
+        { token: "class ", styleClass: "token-identifier" },
+        { token: "ReactiveInput {", styleClass: "" }
+
+      ],
+      [
+        { token: "  favoriteFood = ", styleClass: "" },
+        { token: "''", styleClass: "token-string" },
+        { token: ";", styleClass: "" }
+
+      ],
+      [
+        { token: "}", styleClass: "" }
 
       ]
 
@@ -2319,11 +2438,937 @@ const codeBoxReactiveInputHtml: CodeBox<"reactive-input", "html"> = {
 
 };
 
-export const codeBoxes = {
-  home: codePreviewHome,
-  button: codePreviewButton,
-  loader: codePreviewLoader
+const codePreviewReactiveInput: CodePreview<[ typeof codeBoxReactiveInputTs ]> = {
+  tabs: [ "reactive-input.ts", "output" ],
+  codeBoxes: [ codeBoxReactiveInputTs ],
+  output: `
+    <label for="favoriteFood">
+    Qual sua comida favorita?
+
+    <input id="favoriteFood" type="text" placeholder="Digite aqui" />
+    </label><p>    Eu gosto de </p>
+  `
 
 };
 
+// ------------------------------------------------- Code Box Tasks ------------------------------------------------- //
 
+const codeBoxTasks: CodeBox<"tasks", "js"> = {
+  id: 0,
+  title: "tasks",
+  language: "js",
+  code: {
+    "tasks.js": [
+      [
+        { token: "import ", styleClass: "token-identifier" },
+        { token: "express ", styleClass: "t" },
+        { token: "from ", styleClass: "token-identifier" },
+        { token: "'express'", styleClass: "token-string" },
+        { token: ";", styleClass: "" }
+
+      ],
+      [
+        { token: "import ", styleClass: "token-identifier" },
+        { token: "{ createClient } ", styleClass: "" },
+        { token: "from ", styleClass: "token-identifier" },
+        { token: "'redis'", styleClass: "token-string" },
+        { token: ";", styleClass: "" }
+
+      ],
+      [
+        { token: "", styleClass: "" }
+
+      ],
+      [
+        { token: "const ", styleClass: "token-identifier" },
+        { token: "app = express()", styleClass: "" }
+
+      ],
+      [
+        { token: "app.", styleClass: "" },
+        { token: "use", styleClass: "token-type-function" },
+        { token: "(express.", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "());", styleClass: "" }
+
+      ],
+      [
+        { token: "", styleClass: "" }
+
+      ],
+      [
+        { token: "const ", styleClass: "token-identifier" },
+        { token: "redis = ", styleClass: "" },
+        { token: "createClient", styleClass: "token-type-function" },
+        { token: "();", styleClass: "" }
+
+      ],
+      [
+        { token: "redis.", styleClass: "" },
+        { token: "on", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'error'", styleClass: "token-string" },
+        { token: ", ", styleClass: "" },
+        { token: "err => console.", styleClass: "" },
+        { token: "error", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'Redis error:'", styleClass: "token-string" },
+        { token: ", err));", styleClass: "" }
+
+      ],
+      [
+        { token: "await ", styleClass: "token-identifier" },
+        { token: "redis.", styleClass: "" },
+        { token: "connect", styleClass: "token-type-function" },
+        { token: "();", styleClass: "" }
+
+      ],
+      [
+        { token: "", styleClass: "" }
+
+      ],
+      [
+        { token: "app.", styleClass: "" },
+        { token: "post", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'/tasks'", styleClass: "token-string" },
+        { token: ", ", styleClass: "" },
+        { token: "async ", styleClass: "token-identifier" },
+        { token: "(req, res) => {", styleClass: "" }
+
+      ],
+      [
+        { token: "  const ", styleClass: "token-identifier" },
+        { token: "{ title } = ", styleClass: "" },
+        { token: "req.", styleClass: "" },
+        { token: "body", styleClass: "token-identifier" },
+        { token: ";", styleClass: "" }
+
+      ],
+      [
+        { token: "  if ", styleClass: "token-identifier" },
+        { token: "(!title) {", styleClass: "" }
+
+      ],
+      [
+        { token: "    return ", styleClass: "token-identifier" },
+        { token: "res.", styleClass: "" },
+        { token: "status", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "400", styleClass: "token-html-property" },
+        { token: ").", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "({ ", styleClass: "" },
+        { token: "error", styleClass: "token-identifier" },
+        { token: ": ", styleClass: "" },
+        { token: "'Título é obrigatório'", styleClass: "token-string" },
+        { token: " });", styleClass: "" }
+
+      ],
+      [
+        { token: "  }", styleClass: "" }
+
+      ],
+      [
+        { token: "  const ", styleClass: "token-identifier" },
+        { token: "id = ", styleClass: "" },
+        { token: "await ", styleClass: "token-identifier" },
+        { token: "redis.", styleClass: "" },
+        { token: "incr", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'task:id'", styleClass: "token-string" },
+        { token: ");", styleClass: "" }
+
+      ],
+      [
+        { token: "  await ", styleClass: "token-identifier" },
+        { token: "redis.", styleClass: "" },
+        { token: "hSet", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "`task:${id}`", styleClass: "token-string" },
+        { token: ", {", styleClass: "" }
+
+      ],
+      [
+        { token: "    id,", styleClass: "" }
+
+      ],
+      [
+        { token: "    title,", styleClass: "" }
+
+      ],
+      [
+        { token: "    done", styleClass: "token-identifier" },
+        { token: ": ", styleClass: "" },
+        { token: "false", styleClass: "token-html-property" }
+
+      ],
+      [
+        { token: "  });", styleClass: "" }
+
+      ],
+      [
+        { token: "  await ", styleClass: "token-identifier" },
+        { token: "redis.", styleClass: "" },
+        { token: "rPush", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'tasks'", styleClass: "token-string" },
+        { token: ", id);", styleClass: "" }
+
+      ],
+      [
+        { token: "  res.", styleClass: "" },
+        { token: "status", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "201", styleClass: "token-html-property" },
+        { token: ")", styleClass: "" },
+        { token: ".", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "({ ", styleClass: "" },
+        { token: "id, title, ", styleClass: "" },
+        { token: "done", styleClass: "token-identifier" },
+        { token: ": ", styleClass: "" },
+        { token: "false", styleClass: "token-html-property" },
+        { token: " });", styleClass: "" }
+
+      ],
+      [
+        { token: "});", styleClass: "" }
+
+      ],
+      [
+        { token: "app.", styleClass: "" },
+        { token: "get", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'tasks'", styleClass: "token-string" },
+        { token: ", ", styleClass: "" },
+        { token: "async ", styleClass: "token-identifier" },
+        { token: "(req, res) => {", styleClass: "" }
+
+      ],
+      [
+        { token: "  const ", styleClass: "token-identifier" },
+        { token: "ids = ", styleClass: "" },
+        { token: "await ", styleClass: "token-identifier" },
+        { token: "redis.", styleClass: "" },
+        { token: "lRange", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'tasks'", styleClass: "token-string" },
+        { token: ", ", styleClass: "" },
+        { token: "0", styleClass: "token-html-property" },
+        { token: ", ", styleClass: "" },
+        { token: "-1", styleClass: "token-html-property" },
+        { token: ");", styleClass: "" }
+
+      ],
+      [
+        { token: "  const ", styleClass: "token-identifier" },
+        { token: "tasks = [];", styleClass: "" }
+
+      ],
+      [
+        { token: "  for ", styleClass: "token-identifier" },
+        { token: "(", styleClass: "" },
+        { token: "const ", styleClass: "token-identifier" },
+        { token: "id ", styleClass: "" },
+        { token: "of ", styleClass: "token-identifier" },
+        { token: "ids) {", styleClass: "" }
+
+      ],
+      [
+        { token: "    const ", styleClass: "token-identifier" },
+        { token: "task = ", styleClass: "" },
+        { token: "await ", styleClass: "token-identifier" },
+        { token: "redis.", styleClass: "" },
+        { token: "hGetAll", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "`task:${id}`", styleClass: "token-string" },
+        { token: ");", styleClass: "" }
+
+      ],
+      [
+        { token: "    if ", styleClass: "token-identifier" },
+        { token: "(Object.", styleClass: "" },
+        { token: "keys", styleClass: "token-type-function" },
+        { token: "(task).", styleClass: "" },
+        { token: "length", styleClass: "token-identifier" },
+        { token: ") {", styleClass: "" }
+
+      ],
+      [
+        { token: "      task.", styleClass: "" },
+        { token: "done ", styleClass: "token-identifier" },
+        { token: "= (task.", styleClass: "" },
+        { token: "done ", styleClass: "token-identifier" },
+        { token: "=== ", styleClass: "" },
+        { token: "'true'", styleClass: "token-string" },
+        { token: ");", styleClass: "" }
+
+      ],
+      [
+        { token: "      tasks.", styleClass: "" },
+        { token: "push", styleClass: "token-type-function" },
+        { token: "(task);", styleClass: "" }
+
+      ],
+      [
+        { token: "    }", styleClass: "" }
+
+      ],
+      [
+        { token: "  }", styleClass: "" }
+
+      ],
+      [
+        { token: "  res.", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "(tasks);", styleClass: "" }
+
+      ],
+      [
+        { token: "});", styleClass: "" }
+
+      ],
+      [
+        { token: "app.", styleClass: "" },
+        { token: "get", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'/tasks/:id'", styleClass: "token-string" },
+        { token: ", ", styleClass: "" },
+        { token: "async ", styleClass: "token-identifier" },
+        { token: "(req, res) => {", styleClass: "" }
+
+      ],
+      [
+        { token: "  const ", styleClass: "token-identifier" },
+        { token: "task = ", styleClass: "" },
+        { token: "await ", styleClass: "token-identifier" },
+        { token: "redis.", styleClass: "" },
+        { token: "hGetAll", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "`task:${req.params.id}`", styleClass: "token-string" },
+        { token: ");", styleClass: "" }
+
+      ],
+      [
+        { token: "  if ", styleClass: "token-identifier" },
+        { token: "(!Object.", styleClass: "" },
+        { token: "keys", styleClass: "token-type-function" },
+        { token: "(task).", styleClass: "" },
+        { token: "length", styleClass: "token-identifier" },
+        { token: ") {", styleClass: "" }
+
+      ],
+      [
+        { token: "    return ", styleClass: "token-identifier" },
+        { token: "res.", styleClass: "" },
+        { token: "status", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "404", styleClass: "token-html-property" },
+        { token: ").", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "({ ", styleClass: "" },
+        { token: "error", styleClass: "token-identifier" },
+        { token: ": ", styleClass: "" },
+        { token: "'Tarefa não encontrada'", styleClass: "token-string" },
+        { token: " });", styleClass: "" }
+
+      ],
+      [
+        { token: "  }", styleClass: "" }
+
+      ],
+      [
+        { token: "  task.", styleClass: "" },
+        { token: "done ", styleClass: "token-identifier" },
+        { token: "= (task.", styleClass: "" },
+        { token: "done ", styleClass: "token-identifier" },
+        { token: "=== ", styleClass: "" },
+        { token: "'true'", styleClass: "token-string" },
+        { token: ");", styleClass: "" }
+      ],
+      [
+        { token: "  res.", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "(task);", styleClass: "" }
+
+      ],
+      [
+        { token: "});", styleClass: "" }
+
+      ],
+      [
+        { token: "app.", styleClass: "" },
+        { token: "patch", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'tasks/:id'", styleClass: "token-string" },
+        { token: ", ", styleClass: "" },
+        { token: "async ", styleClass: "token-identifier" },
+        { token: "(req, res) => {", styleClass: "" }
+
+      ],
+      [
+        { token: "  const ", styleClass: "token-identifier" },
+        { token: "key = ", styleClass: "" },
+        { token: "`task:${req.params.id}`", styleClass: "token-string" },
+        { token: ";", styleClass: "" }
+      ],
+      [
+        { token: "  const ", styleClass: "token-identifier" },
+        { token: "exists = ", styleClass: "" },
+        { token: "await ", styleClass: "token-identifier" },
+        { token: "redis.", styleClass: "" },
+        { token: "exists", styleClass: "token-type-function" },
+        { token: "(key);", styleClass: "" }
+
+      ],
+      [
+        { token: "  if ", styleClass: "token-identifier" },
+        { token: "(!exists) {", styleClass: "" }
+
+      ],
+      [
+        { token: "    return ", styleClass: "token-identifier" },
+        { token: "res.", styleClass: "" },
+        { token: "status", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "404", styleClass: "token-html-property" },
+        { token: ").", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "({ ", styleClass: "" },
+        { token: "error", styleClass: "token-identifier" },
+        { token: ": ", styleClass: "" },
+        { token: "'Tarefa não encontrada'", styleClass: "token-string" },
+        { token: " });", styleClass: "" }
+
+      ],
+      [
+        { token: "  }", styleClass: "" }
+
+      ],
+      [
+        { token: "  const ", styleClass: "token-identifier" },
+        { token: "updates = {};", styleClass: "" }
+
+      ],
+      [
+        { token: "  if ", styleClass: "token-identifier" },
+        { token: "(req.", styleClass: "" },
+        { token: "body", styleClass: "token-identifier" },
+        { token: ".", styleClass: "" },
+        { token: "title", styleClass: "token-identifier" },
+        { token: ") ", styleClass: "" },
+        { token: "updates.", styleClass: "" },
+        { token: "title", styleClass: "token-identifier" },
+        { token: " = req.", styleClass: "" },
+        { token: "body", styleClass: "token-identifier" },
+        { token: ".", styleClass: "" },
+        { token: "title", styleClass: "token-identifier" },
+        { token: ";", styleClass: "" }
+
+      ],
+      [
+        { token: "  if ", styleClass: "token-identifier" },
+        { token: "(req.", styleClass: "" },
+        { token: "body", styleClass: "token-identifier" },
+        { token: ".", styleClass: "" },
+        { token: "done ", styleClass: "token-identifier" },
+        { token: "!== ", styleClass: "" },
+        { token: "undefined", styleClass: "token-html-property" },
+        { token: ") ", styleClass: "" },
+        { token: "updates.", styleClass: "" },
+        { token: "done ", styleClass: "token-identifier" },
+        { token: "= req.", styleClass: "" },
+        { token: "body", styleClass: "token-identifier" },
+        { token: ".", styleClass: "" },
+        { token: "done", styleClass: "token-identifier" },
+        { token: ";", styleClass: "" }
+
+      ],
+      [
+        { token: "  await ", styleClass: "token-identifier" },
+        { token: "redis.", styleClass: "" },
+        { token: "hSet", styleClass: "token-type-function" },
+        { token: "(key, updates);", styleClass: "" }
+
+      ],
+      [
+        { token: "  const ", styleClass: "token-identifier" },
+        { token: "updatedTask = ", styleClass: "" },
+        { token: "await ", styleClass: "token-identifier" },
+        { token: "redis.", styleClass: "" },
+        { token: "hGetAll", styleClass: "token-type-function" },
+        { token: "(key);", styleClass: "" }
+
+      ],
+      [
+        { token: "  updatedTask.", styleClass: "" },
+        { token: "done ", styleClass: "token-identifier" },
+        { token: "= (updatedTask.", styleClass: "" },
+        { token: "done ", styleClass: "token-identifier" },
+        { token: "=== ", styleClass: "" },
+        { token: "'true'", styleClass: "token-string" },
+        { token: ");", styleClass: "" }
+
+      ],
+      [
+        { token: "  res.", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "(updatedTask);", styleClass: "" }
+
+      ],
+      [
+        { token: "});", styleClass: "" }
+
+      ],
+      [
+        { token: "app.", styleClass: "" },
+        { token: "delete", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'tasks/:id'", styleClass: "token-string" },
+        { token: ", ", styleClass: "" },
+        { token: "async ", styleClass: "token-identifier" },
+        { token: "(req, res) => {", styleClass: "" }
+
+      ],
+      [
+        { token: "  const ", styleClass: "token-identifier" },
+        { token: "id = req.", styleClass: "r" },
+        { token: "params", styleClass: "token-identifier" },
+        { token: ".", styleClass: "" },
+        { token: "id", styleClass: "token-identifier" },
+        { token: ";", styleClass: "" }
+
+      ],
+      [
+        { token: "  await ", styleClass: "token-identifier" },
+        { token: "redis.",  styleClass: "" },
+        { token: "del", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "`task:${id}`", styleClass: "token-string" },
+        { token: ");", styleClass: "" }
+
+      ],
+      [
+        { token: "  await ", styleClass: "token-identifier" },
+        { token: "redis.", styleClass: "" },
+        { token: "lRem", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'tasks'", styleClass: "token-string" },
+        { token: ", ", styleClass: "" },
+        { token: "0", styleClass: "token-html-property" },
+        { token: ", id);", styleClass: "" }
+
+      ],
+      [
+        { token: "  res.", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "({ ", styleClass: "" },
+        { token: "message", styleClass: "token-identifier" },
+        { token: ": ", styleClass: "" },
+        { token: "'Tarefa removida'", styleClass: "token-string" },
+        { token: " });", styleClass: "" }
+
+      ],
+      [
+        { token: "});", styleClass: "" }
+
+      ],
+      [
+        { token: "app.", styleClass: "" },
+        { token: "listen", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "3000", styleClass: "token-html-property" },
+        { token: ", () => {", styleClass: "" }
+
+      ],
+      [
+        { token: "  console.", styleClass: "" },
+        { token: "log", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'Servidor rodando na porta 3000'", styleClass: "token-string" },
+        { token: ");", styleClass: "" }
+
+      ],
+      [
+        { token: "});", styleClass: "" }
+
+      ]
+
+    ]
+
+  }
+
+};
+
+const codePreviewTasks: CodePreview<[ typeof codeBoxTasks ]> = {
+  tabs: [ "tasks.js", "output" ],
+  codeBoxes: [ codeBoxTasks ],
+  output: `
+    <div class="container__tasks-wrapper">
+      <h2 class="container__tasks-title">Minhas Tarefas</h2>
+      <div class="container__tasks-input-group">
+          <input type="text" id="task-input" class="container__tasks-input" placeholder="O que precisa ser feito?">
+          <button id="add-btn" class="container__tasks-button">Adicionar</button>
+      </div>
+      <span id="empty-task-msg">Tarefa não pode ser vazia</span>
+      <ul id="task-list" class="container__tasks-list"></ul>
+    </div>
+  `
+
+};
+
+// ------------------------------------------------- Code Box Users ------------------------------------------------- //
+
+const codeBoxUsers: CodeBox<"users", "js"> = {
+  id: 0,
+  title: "users",
+  language: "js",
+  code: {
+    "users.js": [
+      [
+        { token: "import ", styleClass: "token-identifier" },
+        { token: "express ", styleClass: "t" },
+        { token: "from ", styleClass: "token-identifier" },
+        { token: "'express'", styleClass: "token-string" },
+        { token: ";", styleClass: "" }
+
+      ],
+      [
+        { token: "import ", styleClass: "token-identifier" },
+        { token: "mongoose ", styleClass: "t" },
+        { token: "from ", styleClass: "token-identifier" },
+        { token: "'mongoose'", styleClass: "token-string" },
+        { token: ";", styleClass: "" }
+
+      ],
+      [
+        { token: "", styleClass: "" }
+
+      ],
+      [
+        { token: "const ", styleClass: "token-identifier" },
+        { token: "app = express()", styleClass: "" }
+
+      ],
+      [
+        { token: "app.", styleClass: "" },
+        { token: "use", styleClass: "token-type-function" },
+        { token: "(express.", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "());", styleClass: "" }
+
+      ],
+      [
+        { token: "", styleClass: "" }
+
+      ],
+      [
+        { token: "mongoose.", styleClass: "" },
+        { token: "connect", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'mongodb://localhost:27017/exemplo_db'", styleClass: "token-string" },
+        { token: ")", styleClass: "" }
+
+      ],
+      [
+        { token: "  .", styleClass: "" },
+        { token: "then", styleClass: "token-type-function" },
+        { token: "(() => console.", styleClass: "" },
+        { token: "log", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'MongoDB conectado'", styleClass: "token-string" },
+        { token: "))", styleClass: "" }
+
+      ],
+      [
+        { token: "  .", styleClass: "" },
+        { token: "catch", styleClass: "token-type-function" },
+        { token: "(err => console.", styleClass: "" },
+        { token: "error", styleClass: "token-type-function" },
+        { token: "(err));", styleClass: "" }
+
+      ],
+      [
+        { token: "", styleClass: "" }
+
+      ],
+      [
+        { token: "const ", styleClass: "token-identifier" },
+        { token: "UserSchema = ", styleClass: "" },
+        { token: "new ", styleClass: "token-identifier" },
+        { token: "mongoose.", styleClass: "" },
+        { token: "Schema", styleClass: "token-type-function" },
+        { token: "({", styleClass: "" }
+
+      ],
+      [
+        { token: "  name", styleClass: "token-identifier" },
+        { token: ": ", styleClass: "" },
+        { token: "String,", styleClass: "token-type-function" }
+
+      ],
+      [
+        { token: "  email", styleClass: "token-identifier" },
+        { token: ": ", styleClass: "" },
+        { token: "String", styleClass: "token-type-function" }
+
+      ],
+      [
+        { token: "});", styleClass: "" }
+
+      ],
+      [
+        { token: "", styleClass: "" }
+
+      ],
+      [
+        { token: "const ", styleClass: "token-identifier" },
+        { token: "User = ", styleClass: "" },
+        { token: "mongoose.", styleClass: "" },
+        { token: "model", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'User'", styleClass: "token-string" },
+        { token: ", UserSchema);", styleClass: "" }
+
+      ],
+      [
+        { token: "app.", styleClass: "" },
+        { token: "post", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "\"/users\"", styleClass: "token-string" },
+        { token: ", ", styleClass: "" },
+        { token: "async ", styleClass: "token-identifier" },
+        { token: "(req, res) => {", styleClass: "" }
+
+      ],
+      [
+        { token: "  const ", styleClass: "token-identifier" },
+        { token: "user = ", styleClass: "" },
+        { token: "await ", styleClass: "token-identifier" },
+        { token: "User.", styleClass: "" },
+        { token: "create", styleClass: "token-type-function" },
+        { token: "(req.", styleClass: "" },
+        { token: "body", styleClass: "token-identifier" },
+        { token: ");", styleClass: "" }
+
+      ],
+      [
+        { token: "  res.", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "(user);", styleClass: "" }
+
+      ],
+      [
+        { token: "});", styleClass: "" }
+
+      ],
+      [
+        { token: "", styleClass: "" }
+
+      ],
+      [
+        { token: "app.", styleClass: "" },
+        { token: "get", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'/users'", styleClass: "token-string" },
+        { token: ", ", styleClass: "" },
+        { token: "async ", styleClass: "token-identifier" },
+        { token: "(req, res) => {", styleClass: "" }
+
+      ],
+      [
+        { token: "  const ", styleClass: "token-identifier" },
+        { token: "users = ", styleClass: "" },
+        { token: "await ", styleClass: "token-identifier" },
+        { token: "User.", styleClass: "" },
+        { token: "find", styleClass: "token-type-function" },
+        { token: "();", styleClass: "" }
+
+      ],
+      [
+        { token: "  res.", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "(users);", styleClass: "" }
+
+      ],
+      [
+        { token: "});", styleClass: "" }
+
+      ],
+      [
+        { token: "", styleClass: "" }
+
+      ],
+      [
+        { token: "app.", styleClass: "" },
+        { token: "delete", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'/users/:id'", styleClass: "token-string" },
+        { token: ", ", styleClass: "" },
+        { token: "async ", styleClass: "token-identifier" },
+        { token: "(req, res) => {", styleClass: "" }
+
+      ],
+      [
+        { token: "  try ", styleClass: "token-identifier" },
+        { token: "{", styleClass: "" }
+
+      ],
+      [
+        { token: "    const ", styleClass: "token-identifier" },
+        { token: "{ id } = ", styleClass: "" },
+        { token: "req.", styleClass: "" },
+        { token: "params", styleClass: "token-identifier" },
+        { token: ";", styleClass: "" }
+
+      ],
+      [
+        { token: "", styleClass: "" }
+
+      ],
+      [
+        { token: "    const ", styleClass: "token-identifier" },
+        { token: "user = ", styleClass: "" },
+        { token: "await ", styleClass: "token-identifier" },
+        { token: "User.", styleClass: "" },
+        { token: "findByIdAndDelete", styleClass: "token-type-function" },
+        { token: "(id);", styleClass: "" }
+
+      ],
+      [
+        { token: "", styleClass: "" }
+
+      ],
+      [
+        { token: "    if ", styleClass: "token-identifier" },
+        { token: "(!user) {", styleClass: "" }
+
+      ],
+      [
+        { token: "      return ", styleClass: "token-identifier" },
+        { token: "res.", styleClass: "" },
+        { token: "status", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "404", styleClass: "token-html-property" },
+        { token: ").", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "({ ", styleClass: "" },
+        { token: "message", styleClass: "token-identifier" },
+        { token: ": ", styleClass: "" },
+        { token: "'Usuário não encontrado'", styleClass: "token-string" },
+        { token: " });", styleClass: "" }
+
+      ],
+      [
+        { token: "    }", styleClass: "" }
+
+      ],
+      [
+        { token: "", styleClass: "" }
+
+      ],
+      [
+        { token: "    res.", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "({", styleClass: "" }
+
+      ],
+      [
+        { token: "      message", styleClass: "token-identifier" },
+        { token: ": ", styleClass: "" },
+        { token: "'Usuário deletado com sucesso',", styleClass: "token-string" }
+      ],
+      [
+        { token: "      user", styleClass: "token-identifier" }
+
+      ],
+      [
+        { token: "    });", styleClass: "" }
+
+      ],
+      [
+        { token: "  }", styleClass: "" }
+
+      ],
+      [
+        { token: " catch ", styleClass: "token-identifier" },
+        { token: "(error) {", styleClass: "" }
+
+      ],
+      [
+        { token: "    res.", styleClass: "" },
+        { token: "status", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "400", styleClass: "token-html-property" },
+        { token: ").", styleClass: "" },
+        { token: "json", styleClass: "token-type-function" },
+        { token: "({ ", styleClass: "" },
+        { token: "error", styleClass: "token-identifier" },
+        { token: ": ", styleClass: "" },
+        { token: "\"ID inválido\"", styleClass: "token-string" },
+        { token: " });", styleClass: "" }
+
+      ],
+      [
+        { token: "  }", styleClass: "" }
+
+      ],
+      [
+        { token: "});", styleClass: "" }
+
+      ],
+      [
+        { token: "app.", styleClass: "" },
+        { token: "listen", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "3000", styleClass: "token-html-property" },
+        { token: ", () => {", styleClass: "" }
+
+      ],
+      [
+        { token: "  console.", styleClass: "" },
+        { token: "log", styleClass: "token-type-function" },
+        { token: "(", styleClass: "" },
+        { token: "'Servidor rodando na porta 3000'", styleClass: "token-string" },
+        { token: ");", styleClass: "" }
+
+      ],
+      [
+        { token: "});", styleClass: "" }
+
+      ]
+
+    ]
+
+  }
+
+};
+
+const codePreviewUsers: CodePreview<[ typeof codeBoxUsers ]> = {
+  tabs: [ "users.js", "output" ],
+  codeBoxes: [ codeBoxUsers ],
+  output: `
+    <h2 class="container__users-form-title">Novo Usuário</h2>
+    <form id="userForm" class="container__users-form">
+        <input type="text" id="name" placeholder="Nome" autocomplete="off" required>
+        <input type="email" id="email" placeholder="E-mail" autocomplete="off" required>
+        <button type="submit" class="container__users-btn-save">Cadastrar</button>
+
+    </form>
+
+    <h2 class="container__users-list-title">Lista de Usuários</h2>
+    <div id="userList" class="container__users-user-list"></div>
+  `
+
+};
+
+export const codeBoxes = {
+  home: codePreviewHome,
+  button: codePreviewButton,
+  loader: codePreviewLoader,
+  reactiveInput: codePreviewReactiveInput,
+  tasks: codePreviewTasks,
+  users: codePreviewUsers
+
+};
