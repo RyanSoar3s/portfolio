@@ -42,7 +42,7 @@
    <nav [ngClass]="'header__navigation'">
       <ul [ngClass]="'header__options'">
         @for (opt of options; track $index) {
-          <li [ngClass]="'header__option'">{{ opt }}</li>
+          <li [ngClass]="'header__option'" (click)="void emit($index)">{{ opt }}</li>
 
         }
 
@@ -63,7 +63,7 @@
   <nav [ngClass]="'header__navigation header__menu'" animate.enter="menu-open" animate.leave="menu-close">
     <ul [ngClass]="'header__options'">
       @for (opt of options; track $index) {
-        <li [ngClass]="'header__option'">{{ opt }}</li>
+        <li [ngClass]="'header__option'" (click)="void emit($index)">{{ opt }}</li>
 
       }
 

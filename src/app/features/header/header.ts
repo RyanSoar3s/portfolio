@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, inject, signal } from '@angular/core';
+import { Component, HostListener, inject, output, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
 import { Responsive } from '@services/responsive';
@@ -21,8 +21,15 @@ export class Header {
   protected readonly profileImage = "assets/images/profile.png";
   public isOpenMenu = signal(false);
 
+  public idSection = output<number>();
+
   toggleMenu(): void {
     this.isOpenMenu.update((value) => !value);
+
+  }
+
+  emit(id: number): void {
+    this.idSection.emit(id);
 
   }
 
