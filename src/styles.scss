@@ -23,6 +23,7 @@
 
 html, body {
   @include dimension(100dvh, 100dvw);
+  @include overflow(x, clip);
   scroll-behavior: smooth;
 
 }
@@ -30,7 +31,6 @@ html, body {
 body {
   @include globalBackground;
   @include text($family: ("Rubik", sans-serif));
-  @include overflow(x, hidden);
 
 }
 
