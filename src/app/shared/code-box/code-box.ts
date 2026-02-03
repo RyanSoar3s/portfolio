@@ -7,6 +7,7 @@ import { OutputButton } from '@utils/previews/output-button/output-button';
 import { OutputLoader } from '@utils/previews/output-loader/output-loader';
 import { OutputReactiveInput } from '@utils/previews/output-reactive-input/output-reactive-input';
 import { OutputTasks } from '@utils/previews/output-tasks/output-tasks';
+import { OutputUsers } from "@utils/previews/output-users/output-users";
 @Component({
   selector: 'app-code-box',
   imports: [
@@ -14,9 +15,9 @@ import { OutputTasks } from '@utils/previews/output-tasks/output-tasks';
     OutputButton,
     OutputLoader,
     OutputReactiveInput,
-    OutputTasks
-
-  ],
+    OutputTasks,
+    OutputUsers
+],
   templateUrl: './code-box.html',
   styleUrl: './code-box.scss',
   host: {

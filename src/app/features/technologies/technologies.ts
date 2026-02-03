@@ -21,6 +21,6 @@ import { codeBoxes } from '@utils/codes/code';
 export class Technologies {
   protected readonly responsive = inject(Responsive);
 
-  protected readonly boxes = [ "button", "loader", "reactiveInput", "tasks" ] as Array<keyof typeof codeBoxes>;
+  protected readonly boxes = [ "button", "loader", "reactiveInput", "tasks", "users" ] as Array<keyof typeof codeBoxes>;
 
 }
