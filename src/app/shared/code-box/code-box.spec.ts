@@ -8,11 +8,12 @@ describe('CodeBox', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CodeBox]
+      imports: [ CodeBox ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(CodeBox);
+    fixture.componentRef.setInput("boxName", "home");
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

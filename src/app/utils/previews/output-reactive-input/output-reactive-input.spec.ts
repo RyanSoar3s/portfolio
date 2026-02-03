@@ -8,11 +8,12 @@ describe('OutputReactiveInput', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OutputReactiveInput]
+      imports: [ OutputReactiveInput ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(OutputReactiveInput);
+    fixture.componentRef.setInput("html", "<p>Olá, mundo!</p>");
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

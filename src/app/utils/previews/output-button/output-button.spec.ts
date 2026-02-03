@@ -8,11 +8,12 @@ describe('OutputButton', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OutputButton]
+      imports: [ OutputButton ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(OutputButton);
+    fixture.componentRef.setInput("html", "<p>Olá, mundo!</p>");
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

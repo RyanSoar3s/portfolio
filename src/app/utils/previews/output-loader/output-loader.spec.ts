@@ -8,11 +8,12 @@ describe('OutputLoader', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OutputLoader]
+      imports: [ OutputLoader ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(OutputLoader);
+    fixture.componentRef.setInput("html", "<p>Olá, mundo!</p>");
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

@@ -8,11 +8,12 @@ describe('Loading', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Loading]
+      imports: [ Loading ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(Loading);
+    fixture.componentRef.setInput("isLoading", false);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

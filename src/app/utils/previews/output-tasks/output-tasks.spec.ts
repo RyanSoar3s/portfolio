@@ -8,11 +8,12 @@ describe('Outputtasks', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OutputTasks]
+      imports: [ OutputTasks ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(OutputTasks);
+    fixture.componentRef.setInput("html", "<p>Olá, mundo!</p>");
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
