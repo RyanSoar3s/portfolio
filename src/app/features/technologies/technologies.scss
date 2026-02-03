@@ -30,7 +30,7 @@
   }
 
   .techonologies__main {
-    @include grid($templates: (columns: repeat(auto-fill, minmax(500px, 1fr))), $align: null, $justify: ((content, center), (items, center)), $gap: 50px 0px);
+    @include grid($templates: (columns: repeat(auto-fill, minmax(500px, 1fr))), $align: null, $justify: ((content, center), (items, center)), $gap: 70px 0px);
     @include margin(top, 50px);
 
     .technologies__title-techs {
