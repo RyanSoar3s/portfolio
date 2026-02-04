@@ -1,6 +1,5 @@
 @use "sass:map";
 @use "./app/utils/styles/utils.scss" as *;
-@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 * {
   @include margin(null, 0px);
