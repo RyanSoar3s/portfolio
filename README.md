@@ -1,4 +1,4 @@
-# Portfólio Web – Angular + TypeScript
+# Portfólio Web – Angular
 
 Este repositório contém o código-fonte do meu **portfólio web pessoal**, desenvolvido com **Angular (v21+)**, **TypeScript** e **SCSS**, com foco em **demonstrar raciocínio técnico, arquitetura e modelagem de código**, e não apenas exibir resultados visuais.
 
@@ -51,11 +51,12 @@ Em vez de ícones ou listas estáticas, ela apresenta um **ambiente de código s
 
 ### Code Boxes
 
-* Cada **Code Box** representa um arquivo de um projeto frontend
+* Cada **Code Box** representa um arquivo de um projeto frontend ou backend
 
   * `component.ts`
   * `template.html`
   * `style.scss`
+  * `server.js`
 * As caixas possuem **abas por arquivo**
 * Apenas uma combinação de caixas pode estar ativa por vez
 
@@ -67,7 +68,7 @@ Em vez de ícones ou listas estáticas, ela apresenta um **ambiente de código s
 
   * Mocks
   * Delays artificiais
-  * Estados intermediários
+  * Estados intermediários (ex.: loading, transições visuais e composição gradual da saída)
 
 Nenhum código é executado ou interpretado dinamicamente. A saída é previsível e controlada.
 
@@ -79,7 +80,7 @@ Um dos principais diferenciais do projeto é o uso intensivo de **tipagem avanç
 
 ### Principais conceitos explorados:
 
-* `type` e `interface` como ferramentas de modelagem
+* `type` como ferramenta central de modelagem
 * **Template Literal Types**
 * **Generics**
 * Relações entre tokens de código
@@ -147,4 +148,3 @@ Caso queira conversar sobre arquitetura frontend, TypeScript, Angular ou design 
 ## 📄 Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE)
-
