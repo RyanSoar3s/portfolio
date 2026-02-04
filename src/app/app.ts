@@ -1,5 +1,5 @@
 import { ViewportScroller } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, HostListener, inject, OnInit, viewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, viewChildren } from '@angular/core';
 import { AboutMe } from '@features/about-me/about-me';
 import { Contacts } from '@features/contacts/contacts';
 import { Footer } from '@features/footer/footer';
@@ -29,7 +29,7 @@ export class App implements AfterViewInit {
 
   ngAfterViewInit(): void {
     const section = this.sections()[0].nativeElement;
-    this.viewportScroll.scrollToPosition([ 0, section.offsetTop - 170 ]);
+    this.viewportScroll.scrollToPosition([ 0, section.offsetTop - 120 ]);
 
   }
 
@@ -37,14 +37,6 @@ export class App implements AfterViewInit {
     const section = this.sections()[index].nativeElement;
 
     this.viewportScroll.scrollToPosition([ 0, section.offsetTop - 120 ]);
-
-
-  }
-
-  @HostListener("window:resize")
-  resetScroll(): void {
-    const section = this.sections()[0].nativeElement;
-    this.viewportScroll.scrollToPosition([ 0, section.offsetTop - 170 ]);
 
   }
 
