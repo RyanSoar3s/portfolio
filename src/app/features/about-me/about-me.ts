@@ -26,8 +26,8 @@ export class AboutMe {
     { tech: "Angular", styleClass: "angular" },
     { tech: "NodeJS", styleClass: "nodejs" },
     { tech: "Redis", styleClass: "redis" },
-    { tech: "MongoDB", styleClass: "mongodb" }
-
+    { tech: "MongoDB", styleClass: "mongodb" },
+    { tech: "Vite", styleClass: "vite" }
   ];
 
 }

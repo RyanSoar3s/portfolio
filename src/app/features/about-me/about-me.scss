@@ -8,6 +8,7 @@ $colorAngular: #DD0031;
 $colorNodeJS: #339933;
 $colorRedis: #DC382D;
 $colorMongoDB: #47A248;
+$colorVite: #646CFF;
 
 @mixin hoverSkill($color) {
   &:hover {
@@ -138,5 +139,10 @@ $colorMongoDB: #47A248;
 
 .mongodb {
   @include hoverSkill($colorMongoDB);
+
+}
+
+.vite {
+  @include hoverSkill($colorVite);
 
 }
