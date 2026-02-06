@@ -137,6 +137,7 @@ $colorText: #9ca3af;
     @include pointer;
 
     span {
+      text-transform: uppercase;
       @include bg($bgTag);
       @include text($color: $colorTag, $fontSize: 0.9em);
       @include padding(null, 8px);
