@@ -30,7 +30,7 @@ export class OutputReactiveInput {
     const p = element.nativeElement.querySelector("p");
     const value = target.value;
 
-    if (p) p.textContent = `    Eu gosto de ${value}`;
+    if (p) p.textContent = `    I like ${value}`;
 
   }
 

@@ -81,7 +81,7 @@ export class OutputTasks implements OnInit, AfterViewInit {
 
         timer(1500).pipe(take(1)).subscribe(() => this.renderer.removeClass(emptyTask, "container__tasks-empty-task"));
 
-        console.error("Error: Título é obrigatório");
+        console.error("Error: Title is mandatory");
 
         return;
 

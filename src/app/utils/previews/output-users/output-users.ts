@@ -100,7 +100,7 @@ export class OutputUsers implements OnInit, AfterViewInit {
 
     if (!this.users.length) {
       const p = this.renderer.createElement("p") as HTMLParagraphElement;
-      p.textContent = "Nenhum usuário.";
+      p.textContent = "No user.";
 
       this.renderer.appendChild(div, p);
 
@@ -117,9 +117,9 @@ export class OutputUsers implements OnInit, AfterViewInit {
     const spanEmail = this.renderer.createElement("span") as HTMLSpanElement;
     const button = this.renderer.createElement("button") as HTMLButtonElement;
 
-    spanName.textContent = `Nome: ${user.name}`;
+    spanName.textContent = `Name: ${user.name}`;
     spanEmail.textContent = `Email: ${user.email}`;
-    button.textContent = "Excluir";
+    button.textContent = "Remove";
 
     this.renderer.addClass(button, "container__users-btn-delete");
     this.renderer.listen(button, "click", () => {
@@ -132,7 +132,7 @@ export class OutputUsers implements OnInit, AfterViewInit {
 
       if (!this.users.length) {
         const p = this.renderer.createElement("p") as HTMLParagraphElement;
-        p.textContent = "Nenhum usuário.";
+        p.textContent = "No users.";
 
         this.renderer.appendChild(div, p);
 

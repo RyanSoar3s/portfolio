@@ -27,7 +27,7 @@ const codeBoxHtmlHome: CodeBox<"home", "html"> = {
 
      ],
      [
-        { token: "    Olá, eu sou ", styleClass: "" },
+        { token: "    Hello, I am ", styleClass: "" },
         { token: "<", styleClass: "" },
         { token: "span", styleClass: "token-identifier" },
         { token: ">", styleClass: "" },
@@ -53,7 +53,7 @@ const codeBoxHtmlHome: CodeBox<"home", "html"> = {
 
      ],
      [
-        { token: "    Desenvolvedor Fullstack Júnior focado em aplicações modernas, arquitetura frontend e experiências bem pensadas.", styleClass: "" },
+        { token: "    Junior Fullstack Developer focused on modern applications, frontend architecture and well-thought-out experiences.", styleClass: "" },
 
      ],
      [
@@ -264,7 +264,7 @@ const codeBoxButtonHtml: CodeBox<"button", "html"> = {
 
       ],
       [
-        { token: "      PASSE O CURSOR AQUI", styleClass: "" }
+        { token: "      PASS YOUR CURSOR HERE", styleClass: "" }
 
       ],
       [
@@ -737,7 +737,7 @@ const codePreviewButton: CodePreview<[ typeof codeBoxButtonHtml, typeof codeBoxB
   output: `
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="container-html-sass__logo container-html-sass__logo-html" />
   <div class="container-html-sass__btn-container">
-      <button class="container-html-sass__btn-raw">PASSE O CURSOR AQUI</button>
+      <button class="container-html-sass__btn-raw">PASS YOUR CURSOR HERE</button>
   </div>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" class="container-html-sass__logo container-html-sass__logo-sass" />
   `
@@ -824,7 +824,7 @@ const codeBoxLoaderHtml: CodeBox<"loader", "html"> = {
 
       ],
       [
-        { token: "        baixando", styleClass: "" }
+        { token: "        downloading", styleClass: "" }
 
       ],
       [
@@ -863,7 +863,7 @@ const codeBoxLoaderHtml: CodeBox<"loader", "html"> = {
 
       ],
       [
-        { token: "        ✓ Concluído com Sucesso!", styleClass: "" }
+        { token: "        ✓ Completed Successfully!", styleClass: "" }
 
       ],
       [
@@ -2282,9 +2282,9 @@ const codePreviewLoader: CodePreview<[ typeof codeBoxLoaderHtml, typeof codeBoxL
 
         <div class="container-loader__download-wrapper">
             <div class="container-loader__text-container">
-                <div class="container-loader__status-text">baixando<span class="container-loader__dots">...</span></div>
+                <div class="container-loader__status-text">downloading<span class="container-loader__dots">...</span></div>
                 <div class="container-loader__success-message">
-                    ✓ Concluído com Sucesso!
+                    ✓ Completed Successfully!
                 </div>
             </div>
 
@@ -2351,7 +2351,7 @@ const codeBoxReactiveInputTs: CodeBox<"reactive-input", "ts"> = {
 
       ],
       [
-        { token: "      Qual sua comida favorita? ", styleClass: "" }
+        { token: "      What's your favorite food? ", styleClass: "" }
 
       ],
       [
@@ -2367,7 +2367,7 @@ const codeBoxReactiveInputTs: CodeBox<"reactive-input", "ts"> = {
       [
         { token: "      placeholder", styleClass: "token-html-property" },
         { token: "=", styleClass: "" },
-        { token: "'Digite aqui'", styleClass: "token-string" }
+        { token: "'Enter here'", styleClass: "token-string" }
 
       ],
       [
@@ -2391,7 +2391,7 @@ const codeBoxReactiveInputTs: CodeBox<"reactive-input", "ts"> = {
 
       ],
       [
-        { token: "      Eu gosto de ", styleClass: "" },
+        { token: "      I like ", styleClass: "" },
         { token: "{{ favoriteFood }}", styleClass: "" }
 
       ],
@@ -2443,10 +2443,10 @@ const codePreviewReactiveInput: CodePreview<[ typeof codeBoxReactiveInputTs ]> =
   codeBoxes: [ codeBoxReactiveInputTs ],
   output: `
     <label for="favoriteFood">
-    Qual sua comida favorita?
+    What's your favorite food?
 
-    <input id="favoriteFood" type="text" placeholder="Digite aqui" />
-    </label><p>    Eu gosto de </p>
+    <input id="favoriteFood" type="text" placeholder="Enter here" />
+    </label><p>    I like </p>
   `
 
 };
@@ -2561,7 +2561,7 @@ const codeBoxTasks: CodeBox<"tasks", "js"> = {
         { token: "({ ", styleClass: "" },
         { token: "error", styleClass: "token-identifier" },
         { token: ": ", styleClass: "" },
-        { token: "'Título é obrigatório'", styleClass: "token-string" },
+        { token: "'Title is mandatory'", styleClass: "token-string" },
         { token: " });", styleClass: "" }
 
       ],
@@ -2770,7 +2770,7 @@ const codeBoxTasks: CodeBox<"tasks", "js"> = {
         { token: "({ ", styleClass: "" },
         { token: "error", styleClass: "token-identifier" },
         { token: ": ", styleClass: "" },
-        { token: "'Tarefa não encontrada'", styleClass: "token-string" },
+        { token: "'Task not found'", styleClass: "token-string" },
         { token: " });", styleClass: "" }
 
       ],
@@ -2838,7 +2838,7 @@ const codeBoxTasks: CodeBox<"tasks", "js"> = {
         { token: "({ ", styleClass: "" },
         { token: "error", styleClass: "token-identifier" },
         { token: ": ", styleClass: "" },
-        { token: "'Tarefa não encontrada'", styleClass: "token-string" },
+        { token: "'Task not found'", styleClass: "token-string" },
         { token: " });", styleClass: "" }
 
       ],
@@ -2966,7 +2966,7 @@ const codeBoxTasks: CodeBox<"tasks", "js"> = {
         { token: "({ ", styleClass: "" },
         { token: "message", styleClass: "token-identifier" },
         { token: ": ", styleClass: "" },
-        { token: "'Tarefa removida'", styleClass: "token-string" },
+        { token: "'Task removed'", styleClass: "token-string" },
         { token: " });", styleClass: "" }
 
       ],
@@ -2986,7 +2986,7 @@ const codeBoxTasks: CodeBox<"tasks", "js"> = {
         { token: "  console.", styleClass: "" },
         { token: "log", styleClass: "token-type-function" },
         { token: "(", styleClass: "" },
-        { token: "'Servidor rodando na porta 3000'", styleClass: "token-string" },
+        { token: "'Server running on the port 3000'", styleClass: "token-string" },
         { token: ");", styleClass: "" }
 
       ],
@@ -3006,12 +3006,12 @@ const codePreviewTasks: CodePreview<[ typeof codeBoxTasks ]> = {
   codeBoxes: [ codeBoxTasks ],
   output: `
     <div class="container__tasks-wrapper">
-      <h2 class="container__tasks-title">Minhas Tarefas</h2>
+      <h2 class="container__tasks-title">My tasks</h2>
       <div class="container__tasks-input-group">
-          <input type="text" id="task-input" class="container__tasks-input" placeholder="O que precisa ser feito?">
-          <button id="add-btn" class="container__tasks-button">Adicionar</button>
+          <input type="text" id="task-input" class="container__tasks-input" placeholder="What needs to be done?">
+          <button id="add-btn" class="container__tasks-button">Add</button>
       </div>
-      <span id="empty-task-msg">Tarefa não pode ser vazia</span>
+      <span id="empty-task-msg">Task cannot be empty</span>
       <ul id="task-list" class="container__tasks-list"></ul>
     </div>
   `
@@ -3077,7 +3077,7 @@ const codeBoxUsers: CodeBox<"users", "js"> = {
         { token: "(() => console.", styleClass: "" },
         { token: "log", styleClass: "token-type-function" },
         { token: "(", styleClass: "" },
-        { token: "'MongoDB conectado'", styleClass: "token-string" },
+        { token: "'MongoDB connected'", styleClass: "token-string" },
         { token: "))", styleClass: "" }
 
       ],
@@ -3256,7 +3256,7 @@ const codeBoxUsers: CodeBox<"users", "js"> = {
         { token: "({ ", styleClass: "" },
         { token: "message", styleClass: "token-identifier" },
         { token: ": ", styleClass: "" },
-        { token: "'Usuário não encontrado'", styleClass: "token-string" },
+        { token: "'User not found'", styleClass: "token-string" },
         { token: " });", styleClass: "" }
 
       ],
@@ -3277,7 +3277,7 @@ const codeBoxUsers: CodeBox<"users", "js"> = {
       [
         { token: "      message", styleClass: "token-identifier" },
         { token: ": ", styleClass: "" },
-        { token: "'Usuário deletado com sucesso',", styleClass: "token-string" }
+        { token: "'User deleted successfully',", styleClass: "token-string" }
       ],
       [
         { token: "      user", styleClass: "token-identifier" }
@@ -3306,7 +3306,7 @@ const codeBoxUsers: CodeBox<"users", "js"> = {
         { token: "({ ", styleClass: "" },
         { token: "error", styleClass: "token-identifier" },
         { token: ": ", styleClass: "" },
-        { token: "\"ID inválido\"", styleClass: "token-string" },
+        { token: "\"Invalid ID\"", styleClass: "token-string" },
         { token: " });", styleClass: "" }
 
       ],
@@ -3330,7 +3330,7 @@ const codeBoxUsers: CodeBox<"users", "js"> = {
         { token: "  console.", styleClass: "" },
         { token: "log", styleClass: "token-type-function" },
         { token: "(", styleClass: "" },
-        { token: "'Servidor rodando na porta 3000'", styleClass: "token-string" },
+        { token: "'Server running on the port 3000'", styleClass: "token-string" },
         { token: ");", styleClass: "" }
 
       ],
@@ -3349,15 +3349,15 @@ const codePreviewUsers: CodePreview<[ typeof codeBoxUsers ]> = {
   tabs: [ "users.js", "output" ],
   codeBoxes: [ codeBoxUsers ],
   output: `
-    <h2 class="container__users-form-title">Novo Usuário</h2>
+    <h2 class="container__users-form-title">New User</h2>
     <form id="userForm" class="container__users-form">
-        <input type="text" id="name" placeholder="Nome" autocomplete="off" required>
+        <input type="text" id="name" placeholder="Name" autocomplete="off" required>
         <input type="email" id="email" placeholder="E-mail" autocomplete="off" required>
-        <button type="submit" class="container__users-btn-save">Cadastrar</button>
+        <button type="submit" class="container__users-btn-save">Register</button>
 
     </form>
 
-    <h2 class="container__users-list-title">Lista de Usuários</h2>
+    <h2 class="container__users-list-title">User List</h2>
     <div id="userList" class="container__users-user-list"></div>
   `
 
