@@ -127,7 +127,7 @@ export class OutputTasks implements OnInit, AfterViewInit {
 
     });
 
-    delButton.textContent = "Excluir";
+    delButton.textContent = "Remove";
 
     this.renderer.addClass(delButton, "container__tasks-delete-btn");
     this.renderer.listen(delButton, "click", () => {
