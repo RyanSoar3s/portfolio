@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { TranslocoModule } from '@jsverse/transloco';
 import { Responsive } from '@services/responsive';
 import { CodeBox } from '@shared/code-box/code-box';
 
@@ -7,7 +8,8 @@ import { CodeBox } from '@shared/code-box/code-box';
   selector: 'app-home',
   imports: [
     CommonModule,
-    CodeBox
+    CodeBox,
+    TranslocoModule
 
   ],
   templateUrl: './home.html',

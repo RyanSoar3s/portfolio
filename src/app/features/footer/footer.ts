@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { TranslocoModule } from '@jsverse/transloco';
 import { Responsive } from '@services/responsive';
 
 @Component({
   selector: 'app-footer',
   imports: [
-    CommonModule
+    CommonModule,
+    TranslocoModule
 
   ],
   templateUrl: './footer.html',

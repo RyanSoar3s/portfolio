@@ -3,10 +3,10 @@
 <section [ngClass]="'technologies'">
   <div [ngClass]="'technologies__header'">
     <h1 [ngClass]="'technologies__title'">
-      Tecno<span>logias</span>
+      {{ "features.technologies.title-not-highlighted-tech" | transloco }}<span>{{ "features.technologies.title-highlighted-tech" | transloco }}</span>
 
     </h1>
-    <p [ngClass]="'technologies__text'">Alguns exemplos de códigos nas tecnologias que utilizo</p>
+    <p [ngClass]="'technologies__text'">{{ "features.technologies.p-tech" | transloco}}</p>
 
   </div>
 

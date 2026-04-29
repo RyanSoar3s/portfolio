@@ -6,15 +6,11 @@
 
 <section [ngClass]="'home'">
   <h1 [ngClass]="'home__title ' + titleSize">
-    Olá, eu sou <span>Ryan Soares</span>
+    {{ "features.header.title-home" | transloco}} <span>Ryan Soares</span>
 
   </h1>
 
-  <p [ngClass]="'home__text'">
-    Desenvolvedor Fullstack Júnior focado em aplicações modernas,
-    arquitetura frontend e experiências bem pensadas.
-
-  </p>
+  <p [ngClass]="'home__text'">{{ "features.header.p-home" | transloco }}</p>
 
 </section>
 

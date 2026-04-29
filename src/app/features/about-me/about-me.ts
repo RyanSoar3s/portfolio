@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { Responsive } from '@services/responsive';
 
 @Component({
   selector: 'app-about-me',
   imports: [
-    CommonModule
+    CommonModule,
+    TranslocoModule
 
   ],
   templateUrl: './about-me.html',
@@ -16,6 +18,7 @@ import { Responsive } from '@services/responsive';
 }
 })
 export class AboutMe {
+  protected readonly translocoService = inject(TranslocoService);
   protected readonly responsive = inject(Responsive);
 
   protected readonly techs = [

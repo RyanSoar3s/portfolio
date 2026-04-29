@@ -1,4 +1,7 @@
-@let options = [ "Início", "Sobre mim", "Tecnologias", "Projetos", "Contatos" ];
+@let lang = translocoService.getActiveLang();
+@let options = (lang === "pt-BR") ?
+                [ "Início", "Sobre mim", "Tecnologias", "Projetos", "Contatos" ] :
+                [ "Home", "About Me", "Technologies", "Projects", "Contacts" ];
 
 @let XS = responsive.isXs();
 @let SM = responsive.isSm();

@@ -1,11 +1,11 @@
 <section [ngClass]="'projects'">
   <div [ngClass]="'projects__header'">
     <h1 [ngClass]="'projects__title'">
-      Meus <span>Projetos</span>
+      {{ "features.projects.title-not-highlighted-projects" | transloco }} <span>{{ "features.projects.title-highlighted-projects" | transloco }}</span>
 
     </h1>
 
-    <p [ngClass]="'projects__text'">Alguns dos trabalhos que desenvolvi utilizando tecnologias modernas.</p>
+    <p [ngClass]="'projects__text'">{{ "features.projects.p-projects" | transloco }} </p>
 
   </div>
 
