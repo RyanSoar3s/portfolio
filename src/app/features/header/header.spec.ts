@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { screen } from '@testing-library/angular';
-import userEvent, { UserEvent } from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import { Header } from './header';
+import { translocoTestingProviders } from '../../testing/transloco-testing';
 import { Responsive } from '@services/responsive';
 import ResponsiveMock from '@mocks/responsive.mock'
 
@@ -15,6 +16,7 @@ describe('Header', () => {
     await TestBed.configureTestingModule({
       imports: [ Header ],
       providers: [
+        translocoTestingProviders,
         {
           provide: Responsive,
           useClass: ResponsiveMock

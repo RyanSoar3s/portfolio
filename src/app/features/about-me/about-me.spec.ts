@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { translocoTestingProviders } from '../../testing/transloco-testing';
 
 import { AboutMe } from './about-me';
 
@@ -8,7 +9,8 @@ describe('AboutMe', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AboutMe]
+      imports: [AboutMe],
+      providers: [translocoTestingProviders]
     })
     .compileComponents();
 

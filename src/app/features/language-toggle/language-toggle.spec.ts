@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { translocoTestingProviders } from '../../testing/transloco-testing';
 
-import { Contacts } from './contacts';
+import { LanguageToggle } from './language-toggle';
 
-describe('Contacts', () => {
-  let component: Contacts;
-  let fixture: ComponentFixture<Contacts>;
+describe('LanguageToggle', () => {
+  let component: LanguageToggle;
+  let fixture: ComponentFixture<LanguageToggle>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Contacts],
+      imports: [LanguageToggle],
       providers: [translocoTestingProviders]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Contacts);
+    fixture = TestBed.createComponent(LanguageToggle);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
