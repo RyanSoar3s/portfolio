@@ -5,6 +5,7 @@ import { Contacts } from '@features/contacts/contacts';
 import { Footer } from '@features/footer/footer';
 import { Header } from '@features/header/header';
 import { Home } from '@features/home/home';
+import { LanguageToggle } from '@features/language-toggle/language-toggle';
 import { Projects } from '@features/projects/projects';
 import { Technologies } from '@features/technologies/technologies';
 
@@ -17,7 +18,8 @@ import { Technologies } from '@features/technologies/technologies';
     Technologies,
     Projects,
     Contacts,
-    Footer
+    Footer,
+    LanguageToggle
 
   ],
   templateUrl: './app.html',

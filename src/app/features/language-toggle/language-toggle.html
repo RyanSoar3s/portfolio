@@ -1,0 +1,10 @@
+<button
+  type="button"
+  [ngClass]="'language-toggle'"
+  (click)="void toggleLanguage()"
+  [attr.aria-label]="(currentLanguageLabel === 'PT') ? 'Mudar idioma para inglês' : 'Switch language to Portuguese'"
+
+>
+  {{ currentLanguageLabel }}
+
+</button>

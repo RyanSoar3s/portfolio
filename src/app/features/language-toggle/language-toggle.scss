@@ -1,0 +1,33 @@
+@use "../../utils/styles/utils.scss" as *;
+
+.language-toggle {
+  @include position(fixed, $left: 16px, $bottom: 16px);
+  @include z(999);
+  @include dimension(42px, (prefix: min, value: 52px));
+  @include border(null, 1px solid #3a3a4d);
+  @include rounded-full;
+  @include bg(#111422);
+  @include text($color: #f1f5ff, $fontSize: 0.9rem, $fontWeight: 700);
+  letter-spacing: 0.04em;
+  @include pointer;
+  @include shadow(0 8px 18px rgb(0 0 0 / 0.3));
+  @include transition((transform 180ms ease, background-color 180ms ease));
+  
+}
+
+.language-toggle:hover {
+  @include translate(0 -1px);
+  @include bg(#1a2035);
+  
+}
+
+.language-toggle:active {
+  @include translate(0 0);
+  
+}
+
+.language-toggle:focus-visible {
+  @include outline(2px solid #6ea8ff);
+  outline-offset: 2px;
+  
+}
