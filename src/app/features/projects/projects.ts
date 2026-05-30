@@ -42,13 +42,13 @@ export class Projects implements OnInit {
       .subscribe((lang) => {
         const descs = (lang === "pt-BR") ?
                         [
-                          "Landing page responsiva e moderna para venda de um curso completo de guitarra",
+                          "Fiamma Pizza é uma vitrine digital para uma pizzaria de inspiração napolitana.",
                           "Projeto de um serviço de streaming desenvolvido com foco em organização de conteúdos",
                           "O Soletre Game é um jogo de palavras em português que desafia sua criatividade e conhecimento do idioma!"
 
                         ] :
                         [
-                          "Responsive and modern landing page for selling a complete guitar course",
+                          "Fiamma Pizza is a digital showcase for a Neapolitan-inspired pizzeria.",
                           "Project for a streaming service developed with a focus on content organization",
                           "Soletre Game is a Portuguese word game that challenges your creativity and knowledge of the language!"
 
@@ -57,12 +57,12 @@ export class Projects implements OnInit {
         this.projects = [
           {
             id: 0,
-            urlImage: "assets/images/guitar-academy-pro.png",
-            title: "Guitar Academy Pro",
+            urlImage: "assets/images/fiamma-pizza.png",
+            title: "Fiamma Pizza",
             description: descs[0],
-            techs: [ "HTML 5", "CSS 3", "JavaScript", "Vite" ],
-            linkView: "https://landing-page-guitar-academy-pro.vercel.app/",
-            linkRepo: "https://github.com/RyanSoar3s/landing-page---guitar-academy-pro"
+            techs: [ "TAILWIND", "ANGULAR", "NODEJS", "POSTGRESQL" ],
+            linkView: "https://fiamma-pizza.vercel.app/",
+            linkRepo: "https://github.com/RyanSoar3s/fiamma_pizza"
 
           },
           {
