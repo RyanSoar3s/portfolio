@@ -31,7 +31,11 @@ export class AboutMe {
     { tech: "Redis", styleClass: "redis" },
     { tech: "MongoDB", styleClass: "mongodb" },
     { tech: "PostgreSQL", styleClass: "postgresql" },
-    { tech: "Vite", styleClass: "vite" }
+    { tech: "Vite", styleClass: "vite" },
+    { tech: "Jest", styleClass: "jest" },
+    { tech: "Vitest", styleClass: "vitest" },
+    { tech: "Docker", styleClass: "docker" },
+    { tech: "Bun", styleClass: "bun" }
   ];
 
 }

@@ -10,6 +10,10 @@ $colorRedis: #DC382D;
 $colorMongoDB: #47A248;
 $colorPostgreSQL: #336791;
 $colorVite: #646CFF;
+$colorJest: #C21325;
+$colorVitest: #6E9F18;
+$colorDocker: #2496ED;
+$colorBun: #E8B84B;
 
 @mixin hoverSkill($color) {
   &:hover {
@@ -150,5 +154,25 @@ $colorVite: #646CFF;
 
 .vite {
   @include hoverSkill($colorVite);
+
+}
+
+.jest {
+  @include hoverSkill($colorJest);
+
+}
+
+.vitest {
+  @include hoverSkill($colorVitest);
+
+}
+
+.docker {
+  @include hoverSkill($colorDocker);
+
+}
+
+.bun {
+  @include hoverSkill($colorBun);
 
 }
