@@ -37,8 +37,28 @@
 
         </div>
         <div [ngClass]="'projects__card-buttons'">
-          <a [ngClass]="'button-view'" [href]="project.linkView" [target]="'_blank'">Demo</a>
-          <a [ngClass]="'button-repo'" [href]="project.linkRepo" [target]="'_blank'">GitHub</a>
+          <a
+          [ngClass]="'button-view'"
+          [ngStyle]="{
+            'opacity': (!project.linkView) ? '0.7' : '1',
+            'pointer-events': (!project.linkView) ? 'none' : ''
+
+          }"
+          [href]="project.linkView"
+          [target]="'_blank'"
+
+           >Demo</a>
+          <a
+          [ngClass]="'button-repo'"
+          [ngStyle]="{
+            'opacity': (!project.linkRepo) ? '0.7' : '1',
+            'pointer-events': (!project.linkRepo) ? 'none' : ''
+
+          }"
+          [href]="project.linkRepo"
+          [target]="'_blank'"
+
+           >GitHub</a>
 
         </div>
 

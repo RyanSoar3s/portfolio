@@ -42,47 +42,47 @@ export class Projects implements OnInit {
       .subscribe((lang) => {
         const descs = (lang === "pt-BR") ?
                         [
+                          "Plataforma para execução de código em múltiplas linguagens utilizando Angular, Bun e Docker.",
                           "Fiamma Pizza é uma vitrine digital para uma pizzaria de inspiração napolitana.",
-                          "Projeto de um serviço de streaming desenvolvido com foco em organização de conteúdos",
-                          "O Soletre Game é um jogo de palavras em português que desafia sua criatividade e conhecimento do idioma!"
+                          "Projeto de um serviço de streaming desenvolvido com foco em organização de conteúdos"
 
                         ] :
                         [
+                          "Platform for executing code in multiple languages ​​using Angular, Bun and Docker.",
                           "Fiamma Pizza is a digital showcase for a Neapolitan-inspired pizzeria.",
-                          "Project for a streaming service developed with a focus on content organization",
-                          "Soletre Game is a Portuguese word game that challenges your creativity and knowledge of the language!"
+                          "Project for a streaming service developed with a focus on content organization"
 
                         ];
 
         this.projects = [
           {
             id: 0,
+            urlImage: "assets/images/playground.png",
+            title: "Playground",
+            description: descs[0],
+            techs: [ "SASS", "ANGULAR", "BUN", "DOCKER" ],
+            linkView: "",
+            linkRepo: "https://github.com/RyanSoar3s/playground"
+
+          },
+          {
+            id: 1,
             urlImage: "assets/images/fiamma-pizza.png",
             title: "Fiamma Pizza",
-            description: descs[0],
+            description: descs[1],
             techs: [ "TAILWIND", "ANGULAR", "NODEJS", "POSTGRESQL" ],
             linkView: "https://fiamma-pizza.vercel.app/",
             linkRepo: "https://github.com/RyanSoar3s/fiamma_pizza"
 
           },
           {
-            id: 1,
+            id: 2,
             urlImage: "assets/images/video-streaming.png",
             title: "Video Streaming",
-            description: descs[1],
+            description: descs[2],
             techs: [ "TAILWIND", "ANGULAR", "NODEJS", "MONGODB" ],
             linkView: "https://video-streaming-tawny-nine.vercel.app/",
             linkRepo: "https://github.com/RyanSoar3s/video-streaming"
-
-          },
-          {
-            id: 2,
-            urlImage: "assets/images/soletre-game.png",
-            title: "Soletre Game",
-            description: descs[2],
-            techs: [ "TAILWIND", "ANGULAR", "NODEJS", "REDIS" ],
-            linkView: "https://soletre-game.vercel.app/",
-            linkRepo: "https://github.com/RyanSoar3s/soletre-game"
 
           }
 
