@@ -1,0 +1,49 @@
+@use "sass:map";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+$globalFonts: 'Inter', sans-serif;
+$globalBg: #070B18;
+$globalColor: #DDE4F0;
+
+$globalConfigs: (
+  "*": (
+    "box-sizing": border-box,
+    "margin": 0px,
+    "padding": 0px
+
+  ),
+  "body": (
+    "font-family": $globalFonts,
+    "height": 100dvh,
+    "width": 100dvw,
+    "background-color": $globalBg,
+    "color": $globalColor,
+    "display": flex,
+    "flex-direction": column,
+    "overflow-x": hidden
+
+  ),
+  "li": (
+    "list-style": none
+
+  ),
+  "a": (
+    "text-decoration": none
+
+  )
+
+);
+
+@mixin configureGlobalStyles {
+  @each $el, $styles in $globalConfigs {
+    #{$el} {
+      @each $prop, $value in $styles {
+        #{$prop}: $value;
+
+      }
+
+    }
+
+  }
+
+}
