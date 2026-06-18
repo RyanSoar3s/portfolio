@@ -1,5 +1,4 @@
 @use "sass:map";
-@use "./app/utils/styles/utils.scss" as *;
 
 * {
   @include margin(null, 0px);
