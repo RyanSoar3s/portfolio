@@ -1,0 +1,44 @@
+@let options = [
+  "Início",
+  "Sobre",
+  "Tecnologias",
+  "Projetos",
+  "Contato"
+
+];
+
+<div [class]="'header-wrapper-left'">
+  <div [class]="'header__icon'">
+    <fa-icon [icon]="faCode"></fa-icon>
+
+  </div>
+
+  <ul [class]="'header__options'">
+    @for (opt of options; track $index) {
+      <li [class]="'header__option'">{{ opt }}</li>
+
+    }
+
+  </ul>
+
+</div>
+
+<div [class]="'header-wrapper-right'">
+  <div [class]="'header__photo'">
+    <img [src]="photo" [alt]="'photo'">
+
+  </div>
+
+  <div [class]="'header__btn-translate'">
+    @for (lang of langs; track $index) {
+      <button
+        [class.active]="lang === languageSelected()"
+        (click)="languageSelected.set(lang)"
+
+        >{{ lang }}</button>
+
+    }
+
+  </div>
+
+</div>

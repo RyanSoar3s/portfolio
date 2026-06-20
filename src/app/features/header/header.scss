@@ -1,0 +1,185 @@
+@use "@utils/styles/styles.scss" as *;
+
+$textMuted: #7A859C;
+
+:host {
+  $borderHost: 1px solid #1E2640;
+
+  @include bg(oklab(0.15 0 -0.03 / 0.85));
+  @include fixed;
+  @include flex;
+  @include align-center;
+  @include justify-around;
+  @include dimension(100px, 100dvw);
+  @include directions(0px, 0px, null, 0px);
+  @include border((bottom), ($borderHost, ));
+  @include blur(20px);
+  @include z(999);
+
+}
+
+.header-wrapper-left {
+  @include flex;
+  @include gap(30px);
+
+}
+
+.header__icon {
+  $gradientIcon: 135deg, #0dffd7, #7b61ff;
+  $shadowIcon: (
+    0px 0px 18px oklab(89.36800000000001% -0.16611 0.01255 / 0.22),
+    0px 0px 8px oklab(60.568999999999996% 0.05826 -0.21643 / 0.18)
+
+  );
+  $transitionIcon: (box-shadow .25s, transform .25s);
+
+  @include c(black);
+  @include dimension(42px, 42px);
+  @include flex-full-center;
+  @include shrink(0);
+  @include radius(10px);
+  @include fsize(24, px, em);
+  @include lgradient(($gradientIcon, ));
+  @include shadow($shadowIcon);
+  @include pointer;
+  @include transition($transitionIcon);
+
+}
+
+@include hover(".header__icon") {
+  $shadowIconHover: (
+    0px 0px 28px oklab(89.36800000000001% -0.16611 0.01255 / 0.38),
+    0px 0px 14px oklab(60.568999999999996% 0.05826 -0.21643 / 0.28)
+
+  );
+  @include shadow($shadowIconHover);
+  @include scale(1.06);
+
+}
+
+.header__options {
+  @include flex-full-center;
+  @include gap(20px);
+
+  & .header__option {
+    @include relative;
+    @include c($textMuted);
+    @include fsize(15, px, em);
+    @include semibold;
+    @include pointer;
+    @include transition((color .2s, ));
+
+    @include hover("&") {
+      $textOptions: #DDE4F0;
+
+      @include c($textOptions);
+
+      @include after("&", null, null, null) {
+        @include scale(1);
+
+      }
+
+    }
+
+    @include after("&", "", absolute, (null, 0px, -2px, 0px)) {
+      $bgAfterOption: #0DFFD7;
+
+      @include bg($bgAfterOption);
+      @include h(1px);
+      @include scale(0);
+      @include transition(0.25s);
+
+    }
+
+  }
+
+}
+
+.header-wrapper-right {
+  @include flex;
+  @include flex-row;
+  @include gap(20px);
+
+}
+
+.header__photo {
+  $gradientPhoto1: #0d1120, #0d1120;
+  $gradientPhoto2: 135deg, #0dffd7, #7b61ff;
+
+  @include flex-full-center;
+  @include shrink(0);
+  @include dimension(70px, 70px);
+  @include lgradient(($gradientPhoto1, $gradientPhoto2));
+  @include bgClip((padding-box, border-box));
+  @include border(null, (2px, solid, transparent));
+  @include p(2px);
+  @include pointer;
+  @include shadow(0px 0px 14px oklch(0.61 0.22 285.07 / 0.28));
+  @include overflow(hidden);
+  @include transition((box-shadow .25s, transform .2s));
+
+  &, img {
+    @include radius-full;
+
+  }
+
+  img {
+    @include dimension(100%, 100%);
+
+  }
+
+}
+
+.header__btn-translate {
+  $bgBtnTranslate: #141929;
+  $borderBtnTranslate: 1px, solid, #1e2640;
+
+  @include bg($bgBtnTranslate);
+  @include flex-full-center;
+  @include align-self-center;
+  @include shrink(0);
+  @include gap(2px);
+  @include h(35px);
+  @include p(3px);
+  @include border(null, $borderBtnTranslate);
+  @include radius(99px);
+  @include overflow(hidden);
+
+  button {
+    $font: 'JetBrains Mono', monospace;
+
+    @include bg(transparent);
+    @include c($textMuted);
+    @include ffamily($font);
+    @include p(5px 13px);
+    @include fsize(13, px, em);
+    @include uppercase;
+    @include semibold;
+    @include lspace(.1em);
+    @include border(null, none);
+    @include radius(99px);
+    @include transition((all .22s, ));
+    @include pointer;
+
+    @include hover("&") {
+      $bgButton: #ffffff0f;
+      $colorButton: #dde4f0;
+
+      @include bg($bgButton);
+      @include c($colorButton);
+
+    }
+
+    &.active {
+      $gradientButtonSelected: 135deg, #0dffd7, #7b61ff;
+      $colorButtonSelected: #070b18;
+
+      @include lgradient(($gradientButtonSelected, ));
+      @include c($colorButtonSelected);
+      @include shadow(0px 2px 8px #0dffd738);
+
+    }
+
+  }
+
+}
