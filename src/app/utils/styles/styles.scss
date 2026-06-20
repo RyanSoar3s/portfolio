@@ -1,0 +1,277 @@
+@use "sass:list";
+
+@function pxToEm($px) {
+  $em: ($px / 16) * 1em;
+
+  @return $em;
+
+}
+
+@function emToPx($em) {
+  $px: ($em * 16) / 1px;
+
+  @return $px;
+
+}
+
+@mixin relative {
+  position: relative;
+
+}
+
+@mixin bg($color) {
+  background-color: $color;
+
+}
+
+@mixin lgradient($grads) {
+  $gradients: ();
+
+  @each $grad in $grads {
+    $gradients: list.append($gradients, linear-gradient($grad), $separator: comma);
+
+  }
+
+  background-image: $gradients;
+
+}
+
+@mixin bgClip($value) {
+  background-clip: $value;
+
+}
+
+@mixin c($color) {
+  color: $color;
+
+}
+
+@mixin p($padding) {
+  padding: $padding;
+
+}
+
+@mixin fixed {
+  position: fixed;
+
+}
+
+@mixin directions($values...) {
+  $directions: (top, left, bottom, right);
+  $size: list.length($values);
+
+  @for $i from 1 through $size {
+    $style: list.nth($values, $i);
+
+    @if $style {
+      $prop: list.nth($directions, $i);
+      #{$prop}: $style;
+
+    }
+
+  }
+
+}
+
+@mixin flex {
+  display: flex;
+
+}
+
+@mixin align-center {
+  align-items: center;
+
+}
+
+@mixin align-self-center {
+  align-self: center;
+
+}
+
+@mixin justify-center {
+  justify-content: center;
+
+}
+
+@mixin justify-around {
+  justify-content: space-around
+
+}
+
+@mixin flex-full-center {
+  @include flex;
+  @include align-center;
+  @include justify-center;
+
+}
+
+@mixin flex-row($reverse: false) {
+  $row: if($reverse, row-reverse, row);
+
+  flex-direction: $row;
+
+}
+
+@mixin flex-col($reverse: false) {
+  $column: if($reverse, column-reverse, column);
+
+  flex-direction: $column;
+
+}
+
+@mixin shrink($value) {
+  flex-shrink: $value;
+
+}
+
+@mixin gap($value) {
+  gap: $value;
+
+}
+
+@mixin dimension($height, $width) {
+  height: $height;
+  width: $width;
+
+}
+
+@mixin h($height) {
+  height: $height;
+
+}
+
+@mixin border($directions: null, $values) {
+  @if $directions {
+    $size: list.length($directions);
+
+    @for $i from 1 through $size {
+      $position: list.nth($directions, $i);
+      $value: list.nth($values, $i);
+
+      border-#{$position}: $value;
+
+    }
+
+  }
+  @else {
+    border: $values;
+
+  }
+
+}
+
+@mixin blur($value) {
+  -webkit-backdrop-filter: blur($value);
+  backdrop-filter: blur($value);
+
+}
+
+@mixin radius($rad) {
+  border-radius: $rad;
+
+}
+
+@mixin radius-full {
+  border-radius: calc(infinity * 1px);
+
+}
+
+@mixin ffamily($fonts) {
+  font-family: $fonts;
+
+}
+
+@mixin fsize($value, $fromUnit: px, $toUnit: px) {
+  $size: null;
+
+  @if $fromUnit == px {
+    @if $toUnit == em {
+      $size: pxToEm($value);
+
+    }
+    @else {
+      $size: #{$value}#{$toUnit}
+
+    }
+
+  }
+
+  @if $fromUnit == em {
+    @if $toUnit == px {
+      $size: emToPx($value);
+
+    }
+    @else {
+      $size: #{$value}#{$toUnit}
+
+    }
+
+  }
+
+  font-size: $size;
+
+}
+
+@mixin uppercase {
+  text-transform: uppercase;
+
+}
+
+@mixin semibold {
+  font-weight: 600;;
+
+}
+
+@mixin lspace($space) {
+  letter-spacing: $space;
+
+}
+
+@mixin shadow($values...) {
+  box-shadow: $values;
+
+}
+
+@mixin transition($values...) {
+  transition: $values;
+
+}
+
+@mixin scale($value) {
+  transform: scale($value);
+
+}
+
+@mixin pointer {
+  cursor: pointer;
+
+}
+
+@mixin overflow($value) {
+  overflow: $value;
+
+}
+
+@mixin z($index) {
+  z-index: $index;
+
+}
+
+@mixin hover($el) {
+  #{$el}:hover {
+    @content;
+
+  }
+
+}
+
+@mixin after($el, $content: "", $position: absolute, $dirs: (0px, 0px, 0px, 0px)) {
+  #{$el}::after {
+    content: $content;
+    position: $position;
+    @include directions($dirs...);
+    @content;
+
+  }
+
+}
