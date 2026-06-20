@@ -1,14 +1,26 @@
 @let XS = responsive.isXs();
 @let SM = responsive.isSm();
 
-@let options = [
-  "Início",
-  "Sobre",
-  "Tecnologias",
-  "Projetos",
-  "Contato"
+@let CurrLang = transloco.getActiveLang();
 
-];
+@let options = (CurrLang === "pt-BR") ?
+  [
+    "Início",
+    "Sobre",
+    "Tecnologias",
+    "Projetos",
+    "Contato"
+
+  ] :
+  [
+    "Home",
+    "About",
+    "Tech",
+    "Projects",
+    "Contact"
+
+  ]
+  ;
 
 @if (!(XS || SM)) {
   <div [class]="'header-wrapper-left '">
@@ -37,7 +49,7 @@
       @for (lang of langs; track $index) {
         <button
           [class.active]="lang === languageSelected()"
-          (click)="languageSelected.set(lang)"
+          (click)="languageSelected.set(lang); transloco.setActiveLang((CurrLang === 'pt-BR') ? 'en' : 'pt-BR')"
 
           >{{ lang }}</button>
 

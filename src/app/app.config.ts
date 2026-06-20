@@ -11,7 +11,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes), provideHttpClient(), provideTransloco({
         config: {
-          availableLangs: [ 'pt-BR', 'en' ],
+          availableLangs: [ 'en', 'pt-BR' ],
           defaultLang: 'en',
           // Remove this option if your application doesn't support changing language in runtime.
           reRenderOnLangChange: true,
