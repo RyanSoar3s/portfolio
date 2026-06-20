@@ -1,3 +1,6 @@
+@let XS = responsive.isXs();
+@let SM = responsive.isSm();
+
 @let options = [
   "Início",
   "Sobre",
@@ -7,38 +10,93 @@
 
 ];
 
-<div [class]="'header-wrapper-left'">
-  <div [class]="'header__icon'">
-    <fa-icon [icon]="faCode"></fa-icon>
+@if (!(XS || SM)) {
+  <div [class]="'header-wrapper-left '">
+    <div [class]="'header__icon'">
+      <fa-icon [icon]="faCode"></fa-icon>
+
+    </div>
+
+    <ul [class]="'header__options'">
+      @for (opt of options; track $index) {
+        <li [class]="'header__option'">{{ opt }}</li>
+
+      }
+
+    </ul>
 
   </div>
 
-  <ul [class]="'header__options'">
-    @for (opt of options; track $index) {
-      <li [class]="'header__option'">{{ opt }}</li>
+  <div [class]="'header-wrapper-right'">
+    <div [class]="'header__photo'">
+      <img [src]="photo" [alt]="'photo'">
 
-    }
+    </div>
 
-  </ul>
+    <div [class]="'header__btn-translate'">
+      @for (lang of langs; track $index) {
+        <button
+          [class.active]="lang === languageSelected()"
+          (click)="languageSelected.set(lang)"
 
-</div>
+          >{{ lang }}</button>
 
-<div [class]="'header-wrapper-right'">
-  <div [class]="'header__photo'">
-    <img [src]="photo" [alt]="'photo'">
+      }
 
-  </div>
-
-  <div [class]="'header__btn-translate'">
-    @for (lang of langs; track $index) {
-      <button
-        [class.active]="lang === languageSelected()"
-        (click)="languageSelected.set(lang)"
-
-        >{{ lang }}</button>
-
-    }
+    </div>
 
   </div>
 
-</div>
+}
+
+@else {
+  <div [class]="'header-wrapper-left'">
+    <div [class]="'header__icon'">
+      <fa-icon [icon]="faCode"></fa-icon>
+
+    </div>
+
+  </div>
+
+  <div [class]="'header-wrapper-right'">
+    <div [class]="'header__menu'" (click)="isOpenMenu.set(true)">
+      <fa-icon [icon]="faBars"></fa-icon>
+
+    </div>
+
+  </div>
+
+}
+
+@if (isOpenMenu()) {
+  <section
+    [class]="'menu'"
+    animate.enter="is-open-menu"
+    animate.leave="is-close-menu"
+
+    >
+    <div [class]="'close-menu-wrapper'" (click)="isOpenMenu.set(false)">
+      <div [class]="'close-menu'">
+        <fa-icon [icon]="faX"></fa-icon>
+
+      </div>
+
+    </div>
+
+    <div>
+      <div [class]="'header__photo'">
+        <img [src]="photo" [alt]="'photo'">
+
+      </div>
+
+      <div>
+        <h4>Ryan Soares</h4>
+        <p>FullStack Developer</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+}

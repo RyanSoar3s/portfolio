@@ -111,7 +111,7 @@ $textMuted: #7A859C;
   @include dimension(70px, 70px);
   @include lgradient(($gradientPhoto1, $gradientPhoto2));
   @include bgClip((padding-box, border-box));
-  @include border(null, (2px, solid, transparent));
+  @include border(null, (2px solid transparent));
   @include p(2px);
   @include pointer;
   @include shadow(0px 0px 14px oklch(0.61 0.22 285.07 / 0.28));
@@ -132,7 +132,7 @@ $textMuted: #7A859C;
 
 .header__btn-translate {
   $bgBtnTranslate: #141929;
-  $borderBtnTranslate: 1px, solid, #1e2640;
+  $borderBtnTranslate: 1px solid #1e2640;
 
   @include bg($bgBtnTranslate);
   @include flex-full-center;
@@ -181,5 +181,106 @@ $textMuted: #7A859C;
     }
 
   }
+
+}
+
+.header__menu {
+  $bgMenu: #141929;
+  $borderMenu: 1px solid #1e2640;
+
+  @include bg($bgMenu);
+  @include flex;
+  @include flex-col;
+  @include shrink(0);
+  @include gap(5px);
+  @include p(3px);
+  @include fsize(25, px, em);
+  @include border(null, $borderMenu);
+  @include radius(8px);
+  @include pointer;
+  @include transition((.2s, ));
+
+  @include hover("&") {
+    $borderColorMenuHover: #7b61ff;
+    $bgMenuHover: #7b61ff1f;
+
+    @include bg($bgMenuHover);
+    @include cborder($borderColorMenuHover);
+
+  }
+
+}
+
+.menu {
+  $bgMenu: #0d1120;
+
+  @include bg($bgMenu);
+  @include flex;
+  @include flex-col;
+  @include fixed;
+  @include directions(0px, null, 0px, 0px);
+  @include dimension(100dvh, 280px);
+  @include border((left, ), (1px solid #1e2640, ));
+  @include p(18px 20px);
+  @include translate((0%, 0%));
+  @include z(999);
+
+  .close-menu-wrapper {
+    @include flex;
+    @include justify-end;
+
+    .close-menu {
+      @include flex-full-center;
+      @include c($textMuted);
+      @include p(4px);
+      @include radius(6px);
+      @include transition((.2s, ));
+      @include pointer;
+
+      @include hover("&") {
+        $bgCloseMenu: #1e2640;
+        $colorCloseMenu: #dde4f0;
+
+        @include bg($bgCloseMenu);
+        @include c($colorCloseMenu);
+
+      }
+
+    }
+
+  }
+
+}
+
+.is-open-menu {
+  @include keyframe("open-menu", (.5s cubic-bezier(.4, 0, .2, 1))) {
+    from {
+      @include translate((100%, 0%));
+
+    }
+
+    to {
+      @include translate((0%, 0%));
+
+    }
+
+  };
+
+}
+
+
+.is-close-menu {
+  @include keyframe("close-menu", (.5s cubic-bezier(.4, 0, .2, 1))) {
+    from {
+      @include translate((0%, 0%));
+
+    }
+
+    to {
+      @include translate((100%, 0%));
+
+    }
+
+  };
 
 }
