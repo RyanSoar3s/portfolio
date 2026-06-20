@@ -14,11 +14,6 @@
 
 }
 
-@mixin relative {
-  position: relative;
-
-}
-
 @mixin bg($color) {
   background-color: $color;
 
@@ -48,6 +43,11 @@
 
 @mixin p($padding) {
   padding: $padding;
+
+}
+
+@mixin relative {
+  position: relative;
 
 }
 
@@ -90,6 +90,11 @@
 
 @mixin justify-center {
   justify-content: center;
+
+}
+
+@mixin justify-end {
+  justify-content: flex-end;
 
 }
 
@@ -157,6 +162,11 @@
     border: $values;
 
   }
+
+}
+
+@mixin cborder($color) {
+  border-color: $color;
 
 }
 
@@ -237,6 +247,11 @@
 
 }
 
+@mixin translate($value) {
+  transform: translate($value);
+
+}
+
 @mixin scale($value) {
   transform: scale($value);
 
@@ -273,5 +288,15 @@
     @content;
 
   }
+
+}
+
+@mixin keyframe($name, $animation) {
+  @keyframes #{$name} {
+    @content;
+
+  }
+
+  animation: $name $animation;
 
 }
