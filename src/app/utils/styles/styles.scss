@@ -46,6 +46,11 @@
 
 }
 
+@mixin m($margin) {
+  margin: $margin;
+
+}
+
 @mixin relative {
   position: relative;
 
@@ -170,6 +175,11 @@
 
 }
 
+@mixin opacity($value) {
+  opacity: $value;
+
+}
+
 @mixin blur($value) {
   -webkit-backdrop-filter: blur($value);
   backdrop-filter: blur($value);
@@ -280,6 +290,17 @@
 
 }
 
+@mixin before($el, $content: "", $position: absolute, $dirs: (0px, 0px, 0px, 0px)) {
+  #{$el}::before {
+    content: $content;
+    position: $position;
+    @include directions($dirs...);
+    @content;
+
+  }
+
+}
+
 @mixin after($el, $content: "", $position: absolute, $dirs: (0px, 0px, 0px, 0px)) {
   #{$el}::after {
     content: $content;
@@ -298,5 +319,10 @@
   }
 
   animation: $name $animation;
+
+}
+
+@mixin scrollbarw-none {
+  scrollbar-width: none;
 
 }
