@@ -1,0 +1,40 @@
+@let CurrLang = transloco.getActiveLang();
+
+@let profession = (CurrLang === "pt-BR") ? "Desenvolvedor FullStack" : "FullStack Developer";
+@let intro =  (CurrLang === "pt-BR") ? "Olá, sou" : "Hello, I'm";
+@let text = (CurrLang === "pt-BR") ?
+  "Construo produtos digitais completos — de interfaces intuitivas a arquiteturas back‑end escaláveis. Crio experiências rápidas, acessíveis e feitas para durar." :
+  "I build complete digital products — from intuitive interfaces to scalable back‑end architectures. I craft experiences that are fast, accessible, and built to last.";
+@let projectBtn = (CurrLang === "pt-BR") ? "Ver projetos" : "See my work";
+@let contactBtn = (CurrLang === "pt-BR") ? "Entrar em contato" : "Get in touch";
+
+<div [class]="'glow-top'"></div>
+
+<section [class]="'home'">
+  <div [class]="'home__tag'">
+    <h3>{{ profession }}</h3>
+
+  </div>
+  <h1 [class]="'home__title'">
+    {{ intro }}
+    <br>
+    <span>Ryan Soares</span>
+
+  </h1>
+
+  <p [class]="'home__text'">{{ text }}</p>
+
+  <div [class]="'home__btns'">
+    <button [class]="'home__btn-projects'">{{ projectBtn }}</button>
+    <button [class]="'home__btn-contacts'">{{ contactBtn }}</button>
+
+  </div>
+
+</section>
+
+<section>
+  ddd
+
+</section>
+
+<div [class]="'glow-bottom'"></div>
