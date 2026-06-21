@@ -114,12 +114,20 @@ $fontJetBrains: var(--font-jetbrains);
   @include dimension(70px, 70px);
   @include lgradient(($gradientPhoto1, $gradientPhoto2));
   @include bgClip((padding-box, border-box));
-  @include border(null, (2px solid transparent));
+  @include border(null, (3px solid transparent));
   @include p(2px);
   @include pointer;
   @include shadow(0px 0px 14px oklch(0.61 0.22 285.07 / 0.28));
   @include overflow(hidden);
   @include transition((box-shadow .25s, transform .2s));
+
+  @include hover("&") {
+    $boxShadowPhotoHover: 0px 0px 22px #0dffd759;
+
+    @include shadow($boxShadowPhotoHover);
+    @include scale(1.06);
+
+  }
 
   &, img {
     @include radius-full;
