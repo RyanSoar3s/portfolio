@@ -19,8 +19,7 @@
     "Projects",
     "Contact"
 
-  ]
-  ;
+  ];
 
 @if (!(XS || SM)) {
   <div [class]="'header-wrapper-left '">
@@ -81,6 +80,10 @@
 }
 
 @if (isOpenMenu()) {
+  @let profession = (CurrLang === "pt-BR") ? "Desenvolvedor FullStack" : "FullStack Developer";
+
+  <div [class]="'overlay'" (click)="isOpenMenu.set(false)"></div>
+
   <section
     [class]="'menu'"
     animate.enter="is-open-menu"
@@ -95,19 +98,39 @@
 
     </div>
 
-    <div>
+    <div [class]="'header__profile'">
       <div [class]="'header__photo'">
         <img [src]="photo" [alt]="'photo'">
 
       </div>
 
-      <div>
+      <div [class]="'header__profile-info'">
         <h4>Ryan Soares</h4>
-        <p>FullStack Developer</p>
+        <p>{{ profession }}</p>
 
       </div>
 
     </div>
+
+    <div [class]="'header__btn-translate'" [style.margin]="'30px 0px'" [style.align-self]="'flex-start'">
+      @for (lang of langs; track $index) {
+        <button
+          [class.active]="lang === languageSelected()"
+          (click)="languageSelected.set(lang); transloco.setActiveLang((CurrLang === 'pt-BR') ? 'en' : 'pt-BR')"
+
+          >{{ lang }}</button>
+
+      }
+
+    </div>
+
+    <ul [class]="'header__options-menu'">
+      @for (opt of options; track $index) {
+        <li [class]="'header__option-menu'">{{ opt }}</li>
+
+      }
+
+    </ul>
 
   </section>
 

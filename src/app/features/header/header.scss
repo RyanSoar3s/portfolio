@@ -1,6 +1,9 @@
 @use "@utils/styles/styles.scss" as *;
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
 $textMuted: #7A859C;
+$fontSpace: var(--font-space);
+$fontJetBrains: var(--font-jetbrains);
 
 :host {
   $borderHost: 1px solid #1E2640;
@@ -146,11 +149,9 @@ $textMuted: #7A859C;
   @include overflow(hidden);
 
   button {
-    $font: 'JetBrains Mono', monospace;
-
     @include bg(transparent);
     @include c($textMuted);
-    @include ffamily($font);
+    @include ffamily($fontJetBrains);
     @include p(5px 13px);
     @include fsize(13, px, em);
     @include uppercase;
@@ -211,6 +212,21 @@ $textMuted: #7A859C;
 
 }
 
+.overlay {
+  $colorOverlay: #0000008c;
+
+  @include fixed;
+  @include directions(0px, 0px, 0px, 0px);
+  @include dimension(100dvh, 100dvw);
+  @include bg($colorOverlay);
+  @include opacity(1);
+  @include transition((opacity .3s), );
+  @include blur(2px);
+  @include pointer;
+  @include z(998);
+
+}
+
 .menu {
   $bgMenu: #0d1120;
 
@@ -223,6 +239,8 @@ $textMuted: #7A859C;
   @include border((left, ), (1px solid #1e2640, ));
   @include p(18px 20px);
   @include translate((0%, 0%));
+  @include overflow(auto);
+  @include scrollbarw-none;
   @include z(999);
 
   .close-menu-wrapper {
@@ -282,5 +300,83 @@ $textMuted: #7A859C;
     }
 
   };
+
+}
+
+.header__profile {
+  $borderProfile: 1px solid #1e2640;
+
+  @include flex-full-center;
+  @include gap(15px);
+  @include border((bottom, ), ($borderProfile, ));
+  @include p(20px 0px);
+
+  &-info {
+    @include flex;
+    @include flex-col;
+    @include gap(6px);
+
+    h4 {
+      @include ffamily($fontSpace);
+      @include fsize(0.8, em, em);
+      @include semibold;
+
+    }
+    p {
+      $colorText: #0dffd7;
+
+      @include c($colorText);
+      @include ffamily($fontJetBrains);
+      @include fsize(0.8, em, em);
+
+    }
+
+  }
+
+}
+
+.header__options-menu {
+  @include relative;
+  @include flex;
+  @include flex-col;
+  @include gap(20px);
+
+  & .header__option-menu {
+    @include flex;
+    @include p(12px 14px 12px 23px);
+    @include radius(5px);
+    @include transition((.2s, ));
+    @include pointer;
+
+    @include hover("&") {
+      $bgColorOptionHover: #141929 !important;
+      $colorOptionHover: #dde4f0;
+
+      @include bg($bgColorOptionHover);
+      @include c($colorOptionHover);
+
+      @include before("&", null, null, null) {
+        $bgColorCircleHover: #0dffd7;
+
+        @include bg($bgColorCircleHover);
+
+      };
+
+
+    }
+
+    @include before("&", "", absolute, (null, 0px, null, null)) {
+      $bgColorCircle: #1e2640;
+
+      @include bg($bgColorCircle);
+      @include align-self-center;
+      @include dimension(6px, 6px);
+      @include radius-full;
+      @include m(0px 0px 0px 8px);
+      @include transition((.2s, ));
+
+    }
+
+  }
 
 }
