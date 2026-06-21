@@ -14,12 +14,7 @@
 
 }
 
-@mixin bg($color) {
-  background-color: $color;
-
-}
-
-@mixin lgradient($grads) {
+@function lgradient($grads) {
   $gradients: ();
 
   @each $grad in $grads {
@@ -27,12 +22,51 @@
 
   }
 
-  background-image: $gradients;
+  @return $gradients;
+
+}
+
+@function rgradient($grads) {
+  $gradients: ();
+
+  @each $grad in $grads {
+    $gradients: list.append($gradients, radial-gradient($grad), $separator: comma);
+
+  }
+
+  @return $gradients;
+
+}
+
+@mixin bg($color) {
+  background-color: $color;
+
+}
+
+@mixin lgradient($grads) {
+  background-image: lgradient($grads);
+
+}
+
+@mixin rgradient($grads) {
+  background-image: rgradient($grads);
 
 }
 
 @mixin bgClip($value) {
   background-clip: $value;
+
+}
+
+@mixin bgSize($size) {
+  background-size: $size;
+
+}
+
+@mixin rmask-img($grads) {
+  $rgradient: rgradient($grads);
+
+  mask-image: $rgradient;
 
 }
 
@@ -61,6 +95,11 @@
 
 }
 
+@mixin absolute {
+  position: absolute;
+
+}
+
 @mixin directions($values...) {
   $directions: (top, left, bottom, right);
   $size: list.length($values);
@@ -75,6 +114,11 @@
     }
 
   }
+
+}
+
+@mixin inline-flex {
+  display: inline-flex;
 
 }
 
@@ -139,14 +183,24 @@
 
 }
 
-@mixin dimension($height, $width) {
+@mixin h($height) {
   height: $height;
+
+}
+
+@mixin w($width) {
   width: $width;
 
 }
 
-@mixin h($height) {
-  height: $height;
+@mixin max-w($width) {
+  max-width: $width;
+
+}
+
+@mixin dimension($height, $width) {
+  @include h($height);
+  @include w($width);
 
 }
 
@@ -201,6 +255,11 @@
 
 }
 
+@mixin fsizeclamp($min, $pref, $max) {
+  font-size: clamp($min, $pref, $max);
+
+}
+
 @mixin fsize($value, $fromUnit: px, $toUnit: px) {
   $size: null;
 
@@ -242,6 +301,21 @@
 
 }
 
+@mixin bold {
+  font-weight: 700;
+
+}
+
+@mixin textfillc($color) {
+  -webkit-text-fill-color: $color;
+
+}
+
+@mixin lineh($heigth) {
+  line-height: $heigth;
+
+}
+
 @mixin lspace($space) {
   letter-spacing: $space;
 
@@ -264,6 +338,11 @@
 
 @mixin scale($value) {
   transform: scale($value);
+
+}
+
+@mixin pointer-events-none {
+  pointer-events: none;
 
 }
 
