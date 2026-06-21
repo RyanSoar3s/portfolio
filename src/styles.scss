@@ -1,3 +1,16 @@
 @use "./app/utils/styles/global.scss" as *;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+$fontInter: 'Inter', sans-serif;
+$fontJetBrains: 'JetBrains Mono', monospace;
+$fontSpace: 'Space Grotesk', sans-serif;
+
+@include registerFonts((
+  "inter": $fontInter,
+  "jetbrains": $fontInter,
+  "space": $fontSpace
+
+));
 
 @include configureGlobalStyles;

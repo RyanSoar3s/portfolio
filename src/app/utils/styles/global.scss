@@ -1,8 +1,6 @@
 @use "sass:map";
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
-$globalFonts: 'Inter', sans-serif;
+$globalFont: var(--font-inter);
 $globalBg: #070B18;
 $globalColor: #DDE4F0;
 
@@ -14,7 +12,7 @@ $globalConfigs: (
 
   ),
   "body": (
-    "font-family": $globalFonts,
+    "font-family": $globalFont,
     "height": 100dvh,
     "width": 100dvw,
     "background-color": $globalBg,
@@ -24,7 +22,7 @@ $globalConfigs: (
     "overflow-x": hidden
 
   ),
-  "li": (
+  "ul": (
     "list-style": none
 
   ),
@@ -39,6 +37,17 @@ $globalConfigs: (
   )
 
 );
+
+@mixin registerFonts($fonts) {
+  body {
+    @each $name, $font in $fonts {
+      --font-#{$name}: #{$font};
+
+    }
+
+  }
+
+}
 
 @mixin configureGlobalStyles {
   @each $el, $styles in $globalConfigs {
