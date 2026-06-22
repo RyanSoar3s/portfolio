@@ -1,8 +1,11 @@
 @use "@utils/styles/styles.scss" as *;
 
 :host {
-  @include flex-full-center;
-  @include dimension(100dvh, 100dvw);
+  @include relative;
+  @include flex;
+  @include align-center;
+  @include justify-evenly;
+  @include dimension(877px, 100dvw);
 
   @include before("&") {
     $bgLinear1: #1e2640 1px, transparent 1px;
@@ -28,15 +31,6 @@
 }
 
 .glow-top {
-  $rgradient: circle, rgba(13, 255, 215, .12) 0%, transparent 70%;
-
-  @include rgradient(($rgradient, ));
-  @include dimension(500px, 500px);
-  @include directions(null, -100px, -100px, null);
-
-}
-
-.glow-bottom {
   $rgradient: circle, rgba(123, 97, 255, .18) 0%, transparent 70%;
 
   @include dimension(700px, 700px);
@@ -45,10 +39,19 @@
 
 }
 
+.glow-bottom {
+  $rgradient: circle, rgba(13, 255, 215, .12) 0%, transparent 70%;
+
+  @include rgradient(($rgradient, ));
+  @include dimension(500px, 500px);
+  @include directions(null, -100px, -100px, null);
+
+}
+
 .home {
   @include flex;
   @include flex-col;
-  @include gap(30px);
+  @include gap(25px);
   @include z(1);
 
   &__tag {
@@ -102,7 +105,6 @@
     @include c(white);
     @include fsizeclamp(2.4rem, 5vw, 3.8rem);
     @include bold;
-    @include m(0px 0px 20px 0px);
 
     span {
       $bgLinear: 90deg, #0dffd7, #7b61ff;
