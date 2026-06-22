@@ -9,6 +9,7 @@
 @let contactBtn = (CurrLang === "pt-BR") ? "Entrar em contato" : "Get in touch";
 
 <div [class]="'glow-top'"></div>
+<div [class]="'glow-bottom'"></div>
 
 <section [class]="'home'">
   <div [class]="'home__tag'">
@@ -33,8 +34,7 @@
 </section>
 
 <section>
-  ddd
+  <app-code-snippet [codes]="codeSnippet"></app-code-snippet>
 
 </section>
 
-<div [class]="'glow-bottom'"></div>
