@@ -18,6 +18,7 @@
       "@features/*": [ "./src/app/features/*" ],
       "@shared/*": [ "./src/app/shared/*" ],
       "@services/*": [ "./src/app/core/services/*" ],
+      "@directives/*": [ "./src/app/core/directives/*" ],
       "@mocks/*": [ "./src/app/mocks/*" ],
       "@models/*": [ "./src/app/models/*" ],
       "@utils/*": [ "./src/app/utils/*" ]
