@@ -100,6 +100,11 @@
 
 }
 
+@mixin sticky {
+  position: sticky;
+
+}
+
 @mixin directions($values...) {
   $directions: (top, left, bottom, right);
   $size: list.length($values);
@@ -114,6 +119,11 @@
     }
 
   }
+
+}
+
+@mixin block {
+  display: block;
 
 }
 
@@ -149,6 +159,11 @@
 
 @mixin justify-around {
   justify-content: space-around
+
+}
+
+@mixin justify-evenly {
+  justify-content: space-evenly
 
 }
 
