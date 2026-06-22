@@ -1,0 +1,38 @@
+@let dotsColor = [ "#FF5F57", "#FFBD2E", "#28C840" ];
+
+@let tabs = codes().tabs;
+
+<div [class]="'code-snippet__header'">
+  <div [class]="'code-snippet__dots'">
+    @for (color of dotsColor; track $index) {
+      <div [class]="'code-snippet__dot'" [style.background-color]="color"></div>
+
+    }
+
+  </div>
+
+  <div [class]="'code-snippet__tabs'">
+    @for (tab of tabs; track $index) {
+      <p
+        [class]="'code-snippet__tab'"
+        [class.selected]="tab === tabSelected()"
+        (click)="changeCode($index, tab)"
+
+        >{{ tab }}</p>
+
+    }
+
+  </div>
+
+</div>
+
+<pre>
+  <code
+    appHighlight
+    [code]="code()"
+    [language]="language()!"
+
+  >
+  </code>
+
+</pre>

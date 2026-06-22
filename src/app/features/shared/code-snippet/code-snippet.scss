@@ -1,0 +1,89 @@
+@use "@utils/styles/styles.scss" as *;
+
+:host {
+  $bgCodeSnippet: #111726;
+  $borderCodeSnippet: 1px solid #1e2640;
+
+  @include relative;
+  @include block;
+  @include bg($bgCodeSnippet);
+  @include border(null, ($borderCodeSnippet, ));
+  @include radius(12px);
+  @include overflow(auto);
+  @include scrollbarw-none;
+  @include z(1);
+
+}
+
+.code-snippet__header {
+  $bgCodeSnippetHeader: #141929;
+  $borderCodeSnippetHeader: 1px solid #1e2640;;
+
+  @include sticky;
+  @include directions((0px, ));
+  @include bg($bgCodeSnippetHeader);
+  @include flex;
+  @include align-center;
+  @include gap(18px);
+  @include border((bottom, ), (($borderCodeSnippetHeader, )));
+
+  @include p(10px 16px);
+
+  .code-snippet__dots {
+    @include flex;
+    @include gap(8px);
+
+    .code-snippet__dot {
+      @include dimension(11px, 11px);
+      @include radius-full;
+
+    }
+
+  }
+  .code-snippet__tabs {
+    @include flex;
+    @include gap(8px);
+
+    .code-snippet__tab {
+      $colorCodeSnippetTab: #7a859c;
+      $fontSpace: var(--font-space);
+
+      @include bg(transparent);
+      @include c($colorCodeSnippetTab);
+      @include p(4px 14px);
+      @include ffamily($fontSpace);
+      @include fsize(0.72, em, em);
+      @include radius(4px);
+      @include border(null, (1px solid transparent, ));
+      @include transition((.18s, ));
+      @include pointer;
+
+      &.selected {
+        $colorFileNameSelected: #0dffd7;
+        $bgFileNameSelected: #111726;
+        $borderColorFileNameSelected: #1e2640;
+
+        @include bg($bgFileNameSelected);
+        @include c($colorFileNameSelected);
+        @include cborder($borderColorFileNameSelected);
+
+      }
+
+    }
+
+  }
+
+}
+
+code, pre {
+  @include overflow(auto);
+  @include scrollbarw-none;
+
+}
+
+code {
+  @include bg(transparent);
+  @include block;
+  @include p(0px 25px !important);
+
+}
