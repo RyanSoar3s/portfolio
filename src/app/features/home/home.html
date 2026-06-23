@@ -11,7 +11,7 @@
 <div [class]="'glow-top'"></div>
 <div [class]="'glow-bottom'"></div>
 
-<section [class]="'home'">
+<section [class]="'home'" animate.enter="home-enter">
   <div [class]="'home__tag'">
     <h3>{{ profession }}</h3>
 
@@ -33,7 +33,7 @@
 
 </section>
 
-<section>
+<section [class]="'code-snippet'" animate.enter="code-snippet-enter">
   <app-code-snippet [codes]="codeSnippet"></app-code-snippet>
 
 </section>

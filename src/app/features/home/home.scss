@@ -186,3 +186,32 @@
   }
 
 }
+
+.home, .code-snippet {
+  @include transition((opacity .6s ease, transform .6s ease));
+
+}
+
+.home-enter, .code-snippet-enter  {
+  @include keyframe("slide", 0.6s ease) {
+    from {
+      @include opacity(0);
+      @include translate((0px, 20px));
+
+    }
+
+    to {
+      @include opacity(1);
+      @include translate(0px);
+
+    }
+
+  }
+
+}
+
+.code-snippet-enter {
+  @include opacity(0);
+  @include delay(0.14s);
+
+}
