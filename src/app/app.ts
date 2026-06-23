@@ -9,7 +9,11 @@ import { Home } from '@features/home/home';
 
   ],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
+  host: {
+    '[style.overflow-x]': '"clip"'
+
+  }
 })
 export class App {
 
