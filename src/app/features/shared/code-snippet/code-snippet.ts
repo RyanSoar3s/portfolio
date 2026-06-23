@@ -12,7 +12,8 @@ import type { CodeSnippetModel, FileName, Languages } from '@models/code.model';
   styleUrl: './code-snippet.scss',
   host: {
     '[style.height]': 'height()',
-    '[style.width]': 'width()'
+    '[style.width]': '"45vw"',
+    '[style.max-width]': 'width()'
 
   }
 })
@@ -24,7 +25,7 @@ export class CodeSnippet implements OnInit{
 
   protected tabSelected = signal<string>("");
   protected language = signal<Languages | undefined>(undefined);
-  
+
   private codeSignal = signal("");
   protected code = computed(() => this.codeSignal());
 

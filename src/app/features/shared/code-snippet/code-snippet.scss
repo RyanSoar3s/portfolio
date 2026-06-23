@@ -20,12 +20,13 @@
   $borderCodeSnippetHeader: 1px solid #1e2640;;
 
   @include sticky;
-  @include directions((0px, ));
+  @include directions(0px, 0px);
   @include bg($bgCodeSnippetHeader);
   @include flex;
   @include align-center;
   @include gap(18px);
   @include border((bottom, ), (($borderCodeSnippetHeader, )));
+  @include z(2);
 
   @include p(10px 16px);
 
@@ -83,7 +84,10 @@ code, pre {
 
 code {
   @include bg(transparent);
+  @include absolute;
+  @include directions((0px, ));
   @include block;
   @include p(0px 25px !important);
+  @include m(45px 0px 0px 0px);
 
 }
