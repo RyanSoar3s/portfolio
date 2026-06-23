@@ -15,7 +15,6 @@ $fontJetBrains: var(--font-jetbrains);
   @include dimension(100px, 100dvw);
   @include directions(0px, 0px, null, 0px);
   @include border((bottom), ($borderHost, ));
-  @include blur(20px);
   @include z(999);
 
 }
