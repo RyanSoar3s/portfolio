@@ -1,6 +1,7 @@
-import { Component, signal, input, OnInit, computed } from '@angular/core';
+import { Component, signal, input, OnInit, computed, inject } from '@angular/core';
 import { HighlightDirective } from '@directives/highlight';
 import type { CodeSnippetModel, FileName, Languages } from '@models/code.model';
+import { Responsive } from '@services/responsive';
 
 @Component({
   selector: 'app-code-snippet',
@@ -12,12 +13,14 @@ import type { CodeSnippetModel, FileName, Languages } from '@models/code.model';
   styleUrl: './code-snippet.scss',
   host: {
     '[style.height]': 'height()',
-    '[style.width]': '"45vw"',
+    '[style.width]': `(responsive.isXl() || responsive.isLg()) ? '45vw' : '90vw'`,
     '[style.max-width]': 'width()'
 
   }
 })
-export class CodeSnippet implements OnInit{
+export class CodeSnippet implements OnInit {
+  protected readonly responsive = inject(Responsive);
+
   protected height = input("440px");
   protected width = input("532px");
 
