@@ -421,6 +421,11 @@
 
 }
 
+@mixin delay($value) {
+  animation-delay: $value;
+
+}
+
 @mixin scrollbarw-none {
   scrollbar-width: none;
 
