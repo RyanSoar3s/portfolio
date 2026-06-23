@@ -5,7 +5,8 @@
   @include flex;
   @include align-center;
   @include justify-evenly;
-  @include dimension(877px, 100dvw);
+  @include dimension(900px, 100dvw);
+  @include m(100px 0px 0px 0px);
 
   @include before("&") {
     $bgLinear1: #1e2640 1px, transparent 1px;
@@ -128,6 +129,7 @@
 
   .home__btns {
     @include flex;
+    @include flex-wrap;
     @include gap(20px);
 
     button {
