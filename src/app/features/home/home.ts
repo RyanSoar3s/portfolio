@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { CodeSnippetModel } from '@models/code.model';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { Responsive } from '@services/responsive';
@@ -25,6 +25,8 @@ import { CodeSnippet } from '@features/shared/code-snippet/code-snippet';
 export class Home {
   protected readonly responsive = inject(Responsive);
   protected readonly transloco = inject(TranslocoService);
+
+  animate = input.required<boolean>();
 
   protected readonly codeSnippet: CodeSnippetModel = {
     codes: [

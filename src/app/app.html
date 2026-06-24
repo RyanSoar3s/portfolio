@@ -1,2 +1,2 @@
 <app-header></app-header>
-<app-home></app-home>
+<app-home #childs [animate]="visibleComponents()['home']" [attr.aria-label]="'home'"></app-home>
