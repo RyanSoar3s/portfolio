@@ -1,6 +1,6 @@
 import { Component, ElementRef, AfterViewInit, OnDestroy, viewChildren, signal } from '@angular/core';
-import { Header } from '@features/header/header';
-import { Home } from '@features/home/home';
+import { Header } from '@components/header/header';
+import { Home } from '@components/home/home';
 @Component({
   selector: 'app-root',
   imports: [

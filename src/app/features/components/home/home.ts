@@ -2,7 +2,7 @@ import { Component, inject, input } from '@angular/core';
 import { CodeSnippetModel } from '@models/code.model';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { Responsive } from '@services/responsive';
-import { CodeSnippet } from '@features/shared/code-snippet/code-snippet';
+import { CodeSnippet } from '@shared/code-snippet/code-snippet';
 
 @Component({
   selector: 'app-home',
