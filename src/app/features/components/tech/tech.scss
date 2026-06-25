@@ -105,7 +105,7 @@
   @include flex;
   @include flex-col;
   @include gap(30px);
-  @include w(560px);
+  @include w(min(560px, 80vw));
 
   .tech__label {
     $fontJetBrains: var(--font-jetbrains);
