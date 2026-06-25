@@ -1,0 +1,135 @@
+@use "@utils/styles/styles.scss" as *;
+
+:host {
+  @include flex-full-center;
+  @include flex-col;
+  @include min-h(932px);
+  @include w(100dvw);
+  @include p(100px 30px);
+
+}
+
+.about-me {
+  @include flex-full-center;
+  @include gap(70px);
+  @include dimension(100%, 95%);
+
+  &__photo-wrapper {
+    @include dimension(100%, 100%);
+    @include flex-full-center;
+
+    .about-me__photo {
+      @include relative;
+      @include flex-full-center;
+      @include w(min(400px, 70vw));
+      @include aspect-ratio-1;
+      @include radius-full;
+
+      img {
+        @include absolute;
+        @include dimension(100%, 100%);
+        @include aspect-ratio-1;
+        @include fit-contain;
+
+      }
+
+    }
+
+  }
+
+}
+
+.about-me__info {
+  @include flex;
+  @include flex-col;
+  @include gap(25px);
+
+  .about-me__label {
+    $fontJetBrains: var(--font-jetbrains);
+
+    @include relative;
+    @include c(#0dffd7);
+    @include inline-flex;
+    @include align-center;
+    @include gap(10px);
+    @include ffamily($fontJetBrains);
+    @include fsize(0.75, em, em);
+    @include lspace(0.12em);
+    @include uppercase;
+    @include p(0px 0px 0px 35px);
+
+    @include before("&", "", absolute, (null, 0px, null, null)) {
+      @include block;
+      @include dimension(1px, 25px);
+      @include bg(#0dffd7);
+
+    }
+
+  }
+
+  .about-me__title {
+    $fontSpace: var(--font-space);
+
+    @include ffamily($fontSpace);
+    @include fsizeclamp(2rem, 4vw, 3rem);
+    @include bold;
+    @include lineh(1.16);
+
+    & span {
+      $bgLinear: 90deg, #0dffd7, #7b61ff;
+
+      @include lgradient(($bgLinear, ));
+      @include bgClip(text);
+      @include textfillc(transparent);
+
+    }
+
+  }
+
+  .about-me__text {
+    $textMuted: #7a859c;
+
+    @include c($textMuted);
+    @include lineh(1.8);
+
+  }
+
+  .about-me__skills {
+    @include flex;
+    @include flex-wrap;
+    @include gap(20px);
+
+    span {
+      $bgSkill: #141929;
+      $textMuted: #7a859c;
+      $borderSkill: 1px solid #1e2640;
+      $fontJetBrains: var(--font-jetbrains);
+
+      @include bg($bgSkill);
+      @include c($textMuted);
+      @include p(6px 14px);
+      @include radius(99px);
+      @include border(null, ($borderSkill, ));
+      @include ffamily($fontJetBrains);
+      @include fsize(0.8, em, em);
+      @include pointer;
+      @include transition((0.2s, ));
+
+      @include hover("&") {
+        $colorSkillHover: #0dffd7;
+
+        @include c($colorSkillHover);
+        @include cborder($colorSkillHover);
+
+      }
+
+    }
+
+  }
+
+}
+
+.about-me-enter {
+  @include animation(slide 0.6s ease);
+
+}

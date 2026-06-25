@@ -1,11 +1,13 @@
 import { Component, ElementRef, AfterViewInit, OnDestroy, viewChildren, signal } from '@angular/core';
+import { AboutMe } from '@components/about-me/about-me';
 import { Header } from '@components/header/header';
 import { Home } from '@components/home/home';
 @Component({
   selector: 'app-root',
   imports: [
     Header,
-    Home
+    Home,
+    AboutMe
 
   ],
   templateUrl: './app.html',
@@ -19,7 +21,8 @@ export class App implements AfterViewInit, OnDestroy {
   private childs = viewChildren("childs", { read: ElementRef<HTMLElement> });
   private observer: IntersectionObserver | null = null;
   protected readonly visibleComponents = signal<Record<string, boolean>>({
-    home: false
+    home: false,
+    aboutMe: false
 
   });
 
@@ -38,8 +41,8 @@ export class App implements AfterViewInit, OnDestroy {
             this.updateVisibleComponents("home");
             break;
 
-          case "home2":
-            this.updateVisibleComponents("home2");
+          case "about-me":
+            this.updateVisibleComponents("aboutMe");
             break;
 
           default:
