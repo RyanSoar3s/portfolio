@@ -63,13 +63,6 @@
 
 }
 
-@mixin rmask-img($grads) {
-  $rgradient: rgradient($grads);
-
-  mask-image: $rgradient;
-
-}
-
 @mixin aspect-ratio-1 {
   aspect-ratio: 1 / 1;
 
@@ -210,6 +203,16 @@
 
 @mixin gap($value) {
   gap: $value;
+
+}
+
+@mixin grid {
+  display: grid;
+
+}
+
+@mixin template-cols($template) {
+  grid-template-columns: $template;
 
 }
 
@@ -366,11 +369,6 @@
 
 }
 
-@mixin transform($value) {
-  transform: $value;
-
-}
-
 @mixin translate($value) {
   transform: translate($value);
 
@@ -383,6 +381,11 @@
 
 @mixin pointer-events-none {
   pointer-events: none;
+
+}
+
+@mixin user-select-none {
+  user-select: none;
 
 }
 
@@ -401,9 +404,23 @@
 
 }
 
-@mixin hover($el) {
-  #{$el}:hover {
-    @content;
+@mixin hover($el, $onHover: false) {
+  @if ($onHover) {
+    @media (hover: hover) {
+      #{$el}:hover {
+        @content;
+
+      }
+
+    }
+
+  }
+
+  @else {
+    #{$el}:hover {
+      @content;
+
+    }
 
   }
 
