@@ -1,0 +1,165 @@
+@use "@utils/styles/styles.scss" as *;
+
+@mixin selected-card {
+  $colorCardHover: #0dffd7;
+  $shadowCardHover: 0px 12px 32px #0dffd71a;
+
+  @include c($colorCardHover);
+  @include cborder($colorCardHover);
+  @include shadow($shadowCardHover);
+
+  @include before("&") {
+    $gradientCardHover: 135deg, #0dffd71f, #0dffd71f;
+
+    @include lgradient(($gradientCardHover, ));
+
+  }
+
+  .tech__card-title {
+    @include c($colorCardHover);
+
+  }
+
+}
+
+:host {
+  $bgHost: #0d1120;
+
+  @include bg($bgHost);
+  @include flex-full-center;
+  @include min-h(440px);
+  @include w(100dvw);
+  @include p(100px 0px);
+
+}
+
+.tech {
+  @include flex;
+  @include flex-col;
+  @include gap(80px);
+  @include w(min(1170px, 80vw));
+
+  &__cards {
+    @include grid;
+    @include template-cols(repeat(auto-fill, minmax(110px, 1fr)));
+    @include gap(16px);
+    @include w(100%);
+
+    .tech__card {
+      $bgCard: #111726;
+      $borderCard: 1px solid #1e2640;
+      $radiusCard: 12px;
+
+      @include relative;
+      @include bg($bgCard);
+      @include flex;
+      @include flex-col;
+      @include align-center;
+      @include gap(12px);
+      @include p(24px 16px);
+      @include border(null, $borderCard);
+      @include radius($radiusCard);
+      @include pointer;
+      @include transition((.25s, ));
+      @include user-select-none;
+
+      &.selected {
+        @include selected-card;
+
+      }
+
+      @include hover("&", true) {
+        @include selected-card;
+
+      }
+
+      &-icon {
+        @include dimension(35px, 35px);
+
+        img {
+          @include dimension(100%, 100%);
+
+        }
+
+      }
+
+      &-title {
+        $fontJetBrains: var(--font-jetbrains);
+        $colorMuted: #7a859c;
+
+        @include relative;
+        @include c($colorMuted);
+        @include ffamily($fontJetBrains);
+        @include fsize(0.8, em, em);
+        @include transition((0.25s, ));
+
+      }
+
+    }
+
+  }
+
+}
+
+.tech-info {
+  @include flex;
+  @include flex-col;
+  @include gap(30px);
+  @include w(560px);
+
+  .tech__label {
+    $fontJetBrains: var(--font-jetbrains);
+
+    @include relative;
+    @include c(#0dffd7);
+    @include inline-flex;
+    @include align-center;
+    @include gap(10px);
+    @include ffamily($fontJetBrains);
+    @include fsize(0.75, em, em);
+    @include lspace(0.12em);
+    @include uppercase;
+    @include p(0px 0px 0px 35px);
+
+    @include before("&", "", absolute, (null, 0px, null, null)) {
+      @include block;
+      @include dimension(1px, 25px);
+      @include bg(#0dffd7);
+
+    }
+
+  }
+
+  .tech__title {
+    $fontSpace: var(--font-space);
+
+    @include ffamily($fontSpace);
+    @include fsizeclamp(2rem, 4vw, 3rem);
+    @include bold;
+    @include lineh(1.1);
+
+    & span {
+      $bgLinear: 90deg, #0dffd7, #7b61ff;
+
+      @include lgradient(($bgLinear, ));
+      @include bgClip(text);
+      @include textfillc(transparent);
+
+    }
+
+  }
+
+  .tech__text {
+    $textMuted: #7a859c;
+
+    @include c($textMuted);
+    @include lineh(1.8);
+
+  }
+
+}
+
+.tech-enter {
+  @include animation(slide 0.6s ease);
+
+}

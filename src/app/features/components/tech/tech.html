@@ -1,0 +1,70 @@
+@let currLang = transloco.getActiveLang();
+
+@let title = (currLang === "pt-BR") ? "Tecnologias que" : "Technologies I";
+@let titleHighlighted = (currLang === "pt-BR") ? "domino" : "master";
+@let text = (currLang === "pt-BR") ?
+  "Um conjunto de tecnologias que faz parte do meu dia a dia como desenvolvedor. Ferramentas que utilizo para criar interfaces modernas, desenvolver aplicações completas e entregar soluções eficientes." :
+  "A set of technologies that are part of my daily life as a developer. Tools I use to create modern interfaces, develop full-fledged applications, and deliver efficient solutions.";
+
+@let techs = [
+  [ "HTML5", "html5/html5-original.svg" ],
+  [ "CSS3", "css3/css3-original.svg" ],
+  [ "Sass", "sass/sass-original.svg" ],
+  [ "Tailwindcss", "tailwindcss/tailwindcss-original.svg" ],
+  [ "Angular", "angular/angular-original.svg" ],
+  [ "NodeJS", "nodejs/nodejs-original.svg" ],
+  [ "Bun", "bun/bun-original.svg" ],
+  [ "PostgreSQL", "postgresql/postgresql-original.svg" ],
+  [ "MongoDB", "mongodb/mongodb-original.svg" ],
+  [ "Redis", "redis/redis-original.svg" ],
+  [ "Vite", "vitejs/vitejs-original.svg" ],
+  [ "Vitest", "vitest/vitest-original.svg" ],
+  [ "Jest", "jest/jest-plain.svg" ],
+  [ "Docker", "docker/docker-original.svg" ]
+
+];
+
+@if (animate()) {
+  <section [class]="'tech'" animate.enter="tech-enter">
+    <div [class]="'tech-info'">
+      <span [class]="'tech__label'">
+        Tech Stack
+
+      </span>
+      <h2 [class]="'tech__title'">
+        {{ title }}
+        <br>
+        <span>{{ titleHighlighted }}</span>
+
+      </h2>
+
+      <p [class]="'tech__text'">{{ text }}</p>
+
+    </div>
+
+    <div [class]="'tech__cards'">
+      @for (tech of techs; track $index) {
+        @let name = tech[0];
+        @let pathUrl = tech[1];
+
+        <div
+          [class]="'tech__card'"
+          [class.selected]="selectedTech() === name"
+          (click)="void selectTech(name)"
+
+          >
+          <div [class]="'tech__card-icon'">
+            <img [src]="'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/' + pathUrl" />
+
+          </div>
+          <h3 [class]="'tech__card-title'">{{ name }}</h3>
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+}

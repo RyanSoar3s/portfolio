@@ -2,12 +2,14 @@ import { Component, ElementRef, AfterViewInit, OnDestroy, viewChildren, signal }
 import { AboutMe } from '@components/about-me/about-me';
 import { Header } from '@components/header/header';
 import { Home } from '@components/home/home';
+import { Tech } from '@components/tech/tech';
 @Component({
   selector: 'app-root',
   imports: [
     Header,
     Home,
-    AboutMe
+    AboutMe,
+    Tech
 
   ],
   templateUrl: './app.html',
@@ -22,7 +24,8 @@ export class App implements AfterViewInit, OnDestroy {
   private observer: IntersectionObserver | null = null;
   protected readonly visibleComponents = signal<Record<string, boolean>>({
     home: false,
-    aboutMe: false
+    aboutMe: false,
+    tech: false
 
   });
 
@@ -43,6 +46,10 @@ export class App implements AfterViewInit, OnDestroy {
 
           case "about-me":
             this.updateVisibleComponents("aboutMe");
+            break;
+
+          case "tech":
+            this.updateVisibleComponents("tech");
             break;
 
           default:
