@@ -14,7 +14,6 @@ import { CodeSnippet } from '@shared/code-snippet/code-snippet';
   templateUrl: './home.html',
   styleUrl: './home.scss',
   host: {
-    '[style.height]': `(responsive.isXl() || responsive.isLg()) ? '750px' : '900px'`,
     '[style.flex-direction]': `(responsive.isXl() || responsive.isLg()) ? 'row' : 'column'`,
     '[style.padding]': `(responsive.isXl() || responsive.isLg()) ? '0px' : '50px 5% 0px 5%'`,
     '[style.gap]': `(responsive.isXl() || responsive.isLg()) ? '0px' : '50px'`

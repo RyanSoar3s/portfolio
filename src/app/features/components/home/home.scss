@@ -5,7 +5,8 @@
   @include flex;
   @include align-center;
   @include justify-evenly;
-  @include dimension(900px, 100dvw);
+  @include min-h(900px);
+  @include w(100dvw);
   @include m(100px 0px 0px 0px);
 
   @include before("&") {
@@ -193,20 +194,7 @@
 }
 
 .home-enter, .code-snippet-enter  {
-  @include keyframe("slide", 0.6s ease) {
-    from {
-      @include opacity(0);
-      @include translate((0px, 20px));
-
-    }
-
-    to {
-      @include opacity(1);
-      @include translate(0px);
-
-    }
-
-  }
+  @include animation(slide 0.6s ease);
 
 }
 
