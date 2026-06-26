@@ -31,7 +31,13 @@
   </section>
 
   <section [class]="'code-snippet'" animate.enter="code-snippet-enter">
-    <app-code-snippet [codes]="codeSnippet"></app-code-snippet>
+    <app-code-snippet
+      [codes]="codeSnippetHome"
+      [height]="'440px'"
+      [width]="(responsive.isXl() || responsive.isLg()) ? '45vw' : '90vw'"
+      [maxWidth]="'532px'"
+
+      ></app-code-snippet>
 
   </section>
 
