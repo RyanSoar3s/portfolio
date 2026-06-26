@@ -1,10 +1,6 @@
-@let currLang = transloco.getActiveLang();
-
-@let title = (currLang === "pt-BR") ? "Tecnologias que" : "Technologies I";
-@let titleHighlighted = (currLang === "pt-BR") ? "domino" : "master";
-@let text = (currLang === "pt-BR") ?
-  "Um conjunto de tecnologias que faz parte do meu dia a dia como desenvolvedor. Ferramentas que utilizo para criar interfaces modernas, desenvolver aplicações completas e entregar soluções eficientes." :
-  "A set of technologies that are part of my daily life as a developer. Tools I use to create modern interfaces, develop full-fledged applications, and deliver efficient solutions.";
+@let title = tech().title;
+@let titleHighlighted = tech().titleHighlighted;
+@let text = tech().text;
 
 @let techs = [
   [ "HTML5", "html5/html5-original.svg" ],
@@ -43,14 +39,14 @@
     </div>
 
     <div [class]="'tech__cards'">
-      @for (tech of techs; track $index) {
+      @for (tech of techs; track i; let i = $index) {
         @let name = tech[0];
         @let pathUrl = tech[1];
 
         <div
           [class]="'tech__card'"
           [class.selected]="selectedTech() === name"
-          (click)="void selectTech(name)"
+          (click)="void selectTech(name, pathUrl, i)"
 
           >
           <div [class]="'tech__card-icon'">
@@ -64,6 +60,33 @@
       }
 
     </div>
+
+    @if (selectedTech()) {
+      @let desc = tech().descs[selectedDescIndex!];
+
+      <div [class]="'tech-panel'" animate.enter="open-panel" animate.leave="close-panel">
+        <div [class]="'tech-panel__header'">
+          <div [class]="'tech__panel-icon'">
+            <img [src]="'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/' + selectedTechLogoUrl()" />
+
+          </div>
+
+          <div [class]="'tech-panel__info'">
+            <h3>{{ selectedTech() }}</h3>
+            <p>{{ desc }}</p>
+
+          </div>
+
+          <div [class]="'tech-panel__close'" (click)="void resetTech()">
+            <fa-icon [icon]="faX"></fa-icon>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    }
 
   </section>
 
