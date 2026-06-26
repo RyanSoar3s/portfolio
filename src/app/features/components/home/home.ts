@@ -1,14 +1,14 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { CodeSnippetModel } from '@models/code.model';
-import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { Responsive } from '@services/responsive';
 import { CodeSnippet } from '@shared/code-snippet/code-snippet';
+import { Language } from '@services/language';
+import contentByTranslation from '@utils/translation/translation';
 
 @Component({
   selector: 'app-home',
   imports: [
-    CodeSnippet,
-    TranslocoModule
+    CodeSnippet
 
   ],
   templateUrl: './home.html',
@@ -22,12 +22,20 @@ import { CodeSnippet } from '@shared/code-snippet/code-snippet';
 
 })
 export class Home {
+  private language = inject(Language);
   protected readonly responsive = inject(Responsive);
-  protected readonly transloco = inject(TranslocoService);
 
   animate = input.required<boolean>();
 
+  protected home = computed(() => {
+    const currLang = this.language.currLang() as keyof typeof contentByTranslation;
+
+    return contentByTranslation[currLang].home;
+
+  });
+
   protected readonly codeSnippet: CodeSnippetModel = {
+    tabs: [ "index.html", "styles.scss" ],
     codes: [
       {
         "index.html": {
@@ -211,7 +219,7 @@ export class Home {
       }
 
     ],
-    tabs: [ "index.html", "styles.scss" ]
+    output: ""
 
   };
 

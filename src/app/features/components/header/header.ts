@@ -1,14 +1,15 @@
-import { Component, DOCUMENT, inject, Renderer2, signal } from '@angular/core';
+import { Component, computed, DOCUMENT, inject, Renderer2, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCode, faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import { Responsive } from '@services/responsive';
-import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
+import { TranslocoService } from '@jsverse/transloco';
+import contentByTranslation from '@utils/translation/translation';
+import { Language } from '@services/language';
 
 @Component({
   selector: 'app-header',
   imports: [
-    FontAwesomeModule,
-    TranslocoModule
+    FontAwesomeModule
 
   ],
   templateUrl: './header.html',
@@ -23,6 +24,7 @@ import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 
 })
 export class Header {
+  private language = inject(Language);
   protected readonly responsive = inject(Responsive);
   protected readonly transloco = inject(TranslocoService);
   private readonly document = inject(DOCUMENT);
@@ -40,9 +42,16 @@ export class Header {
 
   isOpenMenu = signal(false);
 
+  protected header = computed(() => {
+    const currLang = this.language.currLang() as keyof typeof contentByTranslation;
+
+    return contentByTranslation[currLang].header;
+
+  });
+
   changeLang(lang: string): void {
-    const currLang = this.transloco.getActiveLang();
-    if (!currLang.includes(lang)) this.transloco.setActiveLang((currLang === "pt-BR") ? "en" : "pt-BR");
+    const currLang = this.language.currLang();
+    if (!currLang.includes(lang)) this.language.changeCurrLang()
 
   }
 

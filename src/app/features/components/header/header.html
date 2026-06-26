@@ -1,25 +1,7 @@
 @let XS = responsive.isXs();
 @let SM = responsive.isSm();
 
-@let CurrLang = transloco.getActiveLang();
-
-@let options = (CurrLang === "pt-BR") ?
-  [
-    "Início",
-    "Sobre",
-    "Tecnologias",
-    "Projetos",
-    "Contato"
-
-  ] :
-  [
-    "Home",
-    "About",
-    "Tech",
-    "Projects",
-    "Contact"
-
-  ];
+@let options = header().options;
 
 @if (!(XS || SM)) {
   <div [class]="'header-wrapper-left '">
@@ -80,7 +62,7 @@
 }
 
 @if (isOpenMenu()) {
-  @let profession = (CurrLang === "pt-BR") ? "Desenvolvedor FullStack" : "FullStack Developer";
+  @let profession = header().profession;
 
   <div [class]="'overlay'" (click)="void toggleMenu()"></div>
 

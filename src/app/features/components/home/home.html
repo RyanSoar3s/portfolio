@@ -1,12 +1,8 @@
-@let CurrLang = transloco.getActiveLang();
-
-@let profession = (CurrLang === "pt-BR") ? "Desenvolvedor FullStack" : "FullStack Developer";
-@let intro =  (CurrLang === "pt-BR") ? "Olá, sou" : "Hello, I'm";
-@let text = (CurrLang === "pt-BR") ?
-  "Construo produtos digitais completos — de interfaces intuitivas a arquiteturas back‑end escaláveis. Crio experiências rápidas, acessíveis e feitas para durar." :
-  "I build complete digital products — from intuitive interfaces to scalable back‑end architectures. I craft experiences that are fast, accessible, and built to last.";
-@let projectBtn = (CurrLang === "pt-BR") ? "Ver projetos" : "See my work";
-@let contactBtn = (CurrLang === "pt-BR") ? "Entrar em contato" : "Get in touch";
+@let profession = home().profession;
+@let intro =  home().intro;
+@let text = home().text;
+@let projectBtn = home().projectBtn;
+@let contactBtn = home().contactBtn;
 
 @if (animate()) {
   <div [class]="'glow-top'"></div>

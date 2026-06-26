@@ -1,23 +1,15 @@
 @let XL = responsive.isXl();
 @let LG = responsive.isLg();
 
-@let currLang = transloco.getActiveLang();
+@let label = aboutMe().label;
+@let title = aboutMe().title;
+@let titleHighlighted = aboutMe().titleHighlighted;
 
-@let label = (currLang === "en") ? "About me" : "Sobre mim";
-@let title = (currLang === "en") ? "Building bridges between" : "Construindo pontes entre";
-@let titleHighlighted = (currLang === "en") ? "design & logic" : "design & lógica";
+@let p1 = aboutMe().p1;
 
-@let p1 = (currLang === "en") ?
-            "I'm a FullStack Developer focused on creating modern web applications with Angular, TypeScript, and backend technologies." :
-            "Sou um desenvolvedor FullStack focado na criação de aplicações web modernas utilizando Angular, TypeScript e tecnologias de backend.";
+@let p2 = aboutMe().p2;
 
-@let p2 = (currLang === "en") ?
-            "I enjoy solving problems through clean architecture, maintainable code, and intuitive user experiences. Whether developing interactive frontends, designing APIs, or working with databases, I'm always looking for solutions that balance performance, scalability, and simplicity;" :
-            "Gosto de resolver problemas por meio de arquitetura limpa, código de fácil manutenção e experiências de usuário intuitivas. Seja desenvolvendo front-ends interativos, projetando APIs ou trabalhando com bancos de dados, busco sempre soluções que equilibrem desempenho, escalabilidade e simplicidade.";
-
-@let p3 = (currLang === "en") ?
-            "Beyond web development, I'm passionate about software engineering concepts such as algorithms, data structures, compilers, and system design. I'm constantly learning, experimenting with new technologies, and building projects that challenge me to grow as a developer." :
-            "Além do desenvolvimento web, tenho grande interesse em conceitos de engenharia de software, como algoritmos, estruturas de dados, compiladores e design de sistemas. Estou em constante aprendizado, experimentando novas tecnologias e desenvolvendo projetos que me desafiam a evoluir como desenvolvedor.";
+@let p3 = aboutMe().p3;
 
 @let skills = [
   "Angular",
