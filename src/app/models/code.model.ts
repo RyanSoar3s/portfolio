@@ -1,3 +1,5 @@
+import { Type } from "@angular/core";
+
 export type Languages = "html" | "scss";
 
 export type FileName = `${string}.${Languages}` | "output";
@@ -12,6 +14,6 @@ export type CodeSnippetModel = {
     }
 
   }[],
-  output: string
+  render?: () => Promise<Type<unknown>>
 
 };
