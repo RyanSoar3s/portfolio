@@ -36,7 +36,6 @@
 .tech {
   @include flex;
   @include flex-col;
-  @include gap(80px);
   @include w(min(1170px, 80vw));
 
   &__cards {
@@ -44,6 +43,7 @@
     @include template-cols(repeat(auto-fill, minmax(110px, 1fr)));
     @include gap(16px);
     @include w(100%);
+    @include m(50px 0px 20px 0px);
 
     .tech__card {
       $bgCard: #111726;
@@ -161,5 +161,108 @@
 
 .tech-enter {
   @include animation(slide 0.6s ease);
+
+}
+
+.tech-panel {
+  $bgTechPanel: #141929;
+  $borderTechPanel: 1px solid #1e2640;
+
+  @include bg($bgTechPanel);
+  @include flex;
+  @include flex-col;
+  @include p(16px 20px);
+  @include border(null, ($borderTechPanel, ));
+  @include radius(12px);
+  @include overflow(hidden);
+
+  &__header {
+    @include relative;
+    @include flex;
+    @include align-center;
+    @include gap(15px);
+
+    .tech__panel-icon {
+      @include dimension(30px, 30px);
+
+      img {
+        @include dimension(100%, 100%);
+
+      }
+
+    }
+
+    .tech-panel__info {
+      @include flex;
+      @include flex-col;
+      @include gap(5px);
+      @include w(56vw);
+      @include m(0px 22px 0px 0px);
+
+      h3 {
+        $fontSpace: var(--font-space);
+
+        @include ffamily($fontSpace);
+        @include fsize(1, em, em);
+        @include semibold;
+
+      }
+
+      p {
+        $colorMuted: #7a859c;
+
+        @include c($colorMuted);
+        @include fsize(0.8, em, em);
+
+      }
+
+    }
+
+    .tech-panel__close {
+      @include absolute;
+      @include directions(null, null, null, 0px);
+      @include pointer;
+
+    }
+
+  }
+
+}
+
+.open-panel {
+  @include h(0px);
+  @include keyframe("open-panel", .5s cubic-bezier(.4, 0, .2, 1)) {
+    from {
+      @include h(0px);
+      @include opacity(0);
+
+    }
+
+    to {
+      @include h(75px);
+      @include opacity(1);
+
+    }
+
+  }
+
+}
+
+.close-panel {
+  @include keyframe("close-panel", .5s cubic-bezier(.4, 0, .2, 1)) {
+    from {
+      @include h(75px);
+      @include opacity(1);
+
+    }
+
+    to {
+      @include h(0px);
+      @include opacity(0);
+      @include p(0px 20px);
+
+    }
+
+  }
 
 }
