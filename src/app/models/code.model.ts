@@ -1,8 +1,9 @@
 export type Languages = "html" | "scss";
 
-export type FileName = `${string}.${Languages}`;
+export type FileName = `${string}.${Languages}` | "output";
 
 export type CodeSnippetModel = {
+  tabs: FileName[],
   codes: {
     [lang in FileName]?: {
       type: Languages,
@@ -11,7 +12,6 @@ export type CodeSnippetModel = {
     }
 
   }[],
-  tabs: FileName[]
-
+  output: string
 
 };
