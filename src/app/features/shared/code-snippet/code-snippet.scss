@@ -26,6 +26,8 @@
   @include align-center;
   @include gap(18px);
   @include border((bottom, ), (($borderCodeSnippetHeader, )));
+  @include overflow(auto);
+  @include scrollbarw-none;
   @include z(2);
 
   @include p(10px 16px);

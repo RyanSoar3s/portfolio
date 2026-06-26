@@ -26,13 +26,24 @@
 
 </div>
 
-<pre>
-  <code
-    appHighlight
-    [code]="code()"
-    [language]="language()!"
+@if (tabSelected() === "output") {
+  <div [style.padding]="'10px 30px'">
+    <ng-container *ngComponentOutlet="render()!"></ng-container>
 
-  >
-  </code>
+  </div>
 
-</pre>
+}
+
+@else {
+  <pre>
+    <code
+      appHighlight
+      [code]="code()"
+      [language]="language()!"
+
+    >
+    </code>
+
+  </pre>
+
+}
