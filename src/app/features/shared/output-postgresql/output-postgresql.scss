@@ -1,3 +1,10 @@
+:host {
+  display: block;
+  overflow: auto;
+  scrollbar-width: none;
+
+}
+
 .container {
   width: 100%;
   background: white;
