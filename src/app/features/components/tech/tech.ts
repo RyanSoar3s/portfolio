@@ -4,7 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { Language } from '@services/language';
 import contentByTranslation from '@utils/translation/translation';
-import { codeSnippetOutputHtml } from '@utils/code-snippets/snippets';
+import { codeSnippetOutputAngular, codeSnippetOutputBun, codeSnippetOutputCss, codeSnippetOutputDocker, codeSnippetOutputHtml, codeSnippetOutputJest, codeSnippetOutputMongoDB, codeSnippetOutputNodeJS, codeSnippetOutputPostgreSQL, codeSnippetOutputRedis, codeSnippetOutputSass, codeSnippetOutputTailwindcss, codeSnippetOutputVite, codeSnippetOutputVitest } from '@utils/code-snippets/snippets';
 import { CodeSnippetModel } from '@models/code.model';
 import { CodeSnippet } from '@shared/code-snippet/code-snippet';
 
@@ -38,7 +38,20 @@ export class Tech {
   protected readonly faX = faX;
 
   protected readonly outputComponents: Record<string, CodeSnippetModel> = {
-    "html5": codeSnippetOutputHtml
+    "html5": codeSnippetOutputHtml,
+    "css3": codeSnippetOutputCss,
+    "sass": codeSnippetOutputSass,
+    "tailwindcss": codeSnippetOutputTailwindcss,
+    "angular": codeSnippetOutputAngular,
+    "nodejs": codeSnippetOutputNodeJS,
+    "bun": codeSnippetOutputBun,
+    "postgresql": codeSnippetOutputPostgreSQL,
+    "mongodb": codeSnippetOutputMongoDB,
+    "redis": codeSnippetOutputRedis,
+    "vite": codeSnippetOutputVite,
+    "vitest": codeSnippetOutputVitest,
+    "jest": codeSnippetOutputJest,
+    "docker": codeSnippetOutputDocker
 
   }
 

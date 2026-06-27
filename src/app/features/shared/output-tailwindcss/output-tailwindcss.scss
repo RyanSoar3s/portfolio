@@ -1,0 +1,222 @@
+/* ==========================================================
+  Page
+========================================================== */
+
+:host {
+  --background: #0d1117;
+  --terminal: #161b22;
+  --titlebar: #11161d;
+  --border: #30363d;
+
+  --green: #00ff88;
+  --text: #e6edf3;
+
+  background: var(--background);
+  height: 393px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  padding: 20px 30px !important;
+
+}
+
+/* ==========================================================
+  Terminal
+========================================================== */
+
+.terminal {
+  height: 220px;
+
+  width: min(420px, 90vw);
+
+  background: var(--terminal);
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow:
+      0 0 0 1px rgba(255,255,255,.04),
+      0 24px 60px rgba(0,0,0,.55);
+
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  height: 42px;
+
+  padding: 0 16px;
+
+  background: var(--titlebar);
+
+  border-bottom: 1px solid var(--border);
+
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+
+}
+
+.red {
+  background: #ff5f57;
+
+}
+
+.yellow {
+  background: #febc2e;
+
+}
+
+.green {
+  background: #28c840;
+
+}
+
+.terminal-body {
+  padding: 24px;
+
+}
+
+/* ==========================================================
+  Lines
+========================================================== */
+
+.line {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  line-height: 1.8;
+}
+
+.prompt {
+  color: var(--green);
+
+  font-weight: bold;
+
+  text-shadow: 0 0 10px rgba(0,255,136,.4);
+
+}
+
+.output {
+  padding-left: 24px;
+
+  color: var(--text);
+}
+
+/* ==========================================================
+   Typing
+========================================================== */
+
+.typing {
+  display: inline-block;
+
+  overflow: hidden;
+  white-space: nowrap;
+
+  width: 0;
+  opacity: 0;
+
+  color: var(--green);
+
+  text-shadow: 0 0 10px rgba(0,255,136,.45);
+
+  border-right: 2px solid var(--green);
+
+  animation:
+      show var(--duration) steps(var(--steps), end) var(--delay) forwards,
+      typing var(--duration) steps(var(--steps), end) var(--delay) forwards,
+      blink .7s step-end calc(var(--delay) + var(--duration)) infinite;
+
+}
+
+.fade {
+  opacity: 0;
+
+  animation: reveal 0s linear var(--delay) forwards;
+
+}
+
+/* ==========================================================
+   Animations
+========================================================== */
+
+@keyframes typing {
+  from {
+    width: 0;
+
+  }
+
+  to {
+    width: var(--chars);
+
+  }
+
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+
+  }
+
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+
+  }
+
+  to {
+    opacity: 1;
+
+  }
+
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    border-color: var(--green);
+
+  }
+
+  50%,
+  100% {
+    border-color: transparent;
+
+  }
+
+}
+
+/* ==========================================================
+   Motion reduction
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .typing,
+  .fade {
+    animation: none;
+
+    opacity: 1;
+
+  }
+
+  .typing {
+    width: auto;
+    border-right: none;
+
+  }
+
+}

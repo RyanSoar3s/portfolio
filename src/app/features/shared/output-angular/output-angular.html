@@ -1,0 +1,13 @@
+<p>What's your favorite food?</p>
+
+<label for="framework">
+  <input id="framework" type="text"
+    [ngModel]="favoriteFood()"
+    (ngModelChange)="favoriteFood.set($event)"
+    placeholder="enter here"
+
+  />
+
+</label>
+
+<p>I like {{ favoriteFood() }}</p>
