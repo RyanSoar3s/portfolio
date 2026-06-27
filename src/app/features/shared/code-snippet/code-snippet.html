@@ -27,7 +27,7 @@
 </div>
 
 @if (tabSelected() === "output") {
-  <div [style.padding]="'10px 30px'">
+  <div [style.min-height]="'calc(100% - 45px)'" [style.overflow]="'hidden'">
     <ng-container *ngComponentOutlet="render()!"></ng-container>
 
   </div>

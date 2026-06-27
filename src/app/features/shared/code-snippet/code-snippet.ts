@@ -43,13 +43,23 @@ export class CodeSnippet implements OnInit {
 
       if (!code || !("render" in code) || typeof code.render !== "function") return;
 
-      code.render().then((component) => this.render.set(component));
+      code.render().then((component) => {
+        this.render.set(component);
+        this.initCodeSnippets();
+
+      });
+
 
     });
 
   }
 
   ngOnInit(): void {
+    this.initCodeSnippets();
+
+  }
+
+  private initCodeSnippets(): void {
     const fileName = this.codes().tabs[0];
     this.tabSelected.set(fileName);
 
@@ -62,7 +72,10 @@ export class CodeSnippet implements OnInit {
   changeCode(index: number, tab: FileName): void {
     this.tabSelected.set(tab);
 
+    if (!this.codes().codes[index]) return;
+
     const code = this.codes().codes[index][tab]!;
+
     this.language.set(code.type);
     this.codeSignal.set(code.code);
 
