@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Languages } from '@models/code.model';
 import hljs, { type LanguageFn } from 'highlight.js';
-import xml from 'highlight.js/lib/languages/xml'
-import scss from 'highlight.js/lib/languages/scss'
+import xml from 'highlight.js/lib/languages/xml';
+import css from 'highlight.js/lib/languages/css';
+import scss from 'highlight.js/lib/languages/scss';
+import javascript from "highlight.js/lib/languages/javascript";
+import typescript from "highlight.js/lib/languages/typescript";
+import sql from "highlight.js/lib/languages/sql";
+import Dockerfile from "highlight.js/lib/languages/dockerfile";
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +15,12 @@ import scss from 'highlight.js/lib/languages/scss'
 export class HighlightService {
   private languages: Record<Languages, LanguageFn> = {
     html: xml,
-    scss
+    css,
+    scss,
+    js: javascript,
+    ts: typescript,
+    sql,
+    Dockerfile
   };
 
   constructor() {
@@ -25,7 +35,7 @@ export class HighlightService {
     const result = hljs.highlight(code, { language });
 
     element.innerHTML = result.value;
-    
+
   }
 
 }
