@@ -63,6 +63,11 @@
 
 }
 
+@mixin maski-rgradient($value) {
+  mask-image: rgradient($value);
+
+}
+
 @mixin aspect-ratio-1 {
   aspect-ratio: 1 / 1;
 
