@@ -9,6 +9,19 @@
   @include w(100dvw);
   @include m(100px 0px 0px 0px);
 
+  @include before("&") {
+    $lgradient1: #1e2640 1px, transparent 1px;
+    $lgradient2: 90deg, #1e2640 1px, transparent 1px;
+    $rgradient: ellipse 80% 70% at 50% 50%, black 40%, transparent 100%;
+
+    @include lgradient(($lgradient1, $lgradient2));
+    @include bgSize(60px 60px);
+    @include maski-rgradient(($rgradient, ));
+    @include opacity(0.35);
+    @include z(0);
+
+  }
+
 }
 
 .glow-top, .glow-bottom {
