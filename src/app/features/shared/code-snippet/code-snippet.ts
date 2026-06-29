@@ -1,8 +1,7 @@
-import { Component, signal, input, OnInit, computed, inject, effect, type Type } from '@angular/core';
+import { Component, signal, input, OnInit, computed, effect, type Type } from '@angular/core';
 import { NgComponentOutlet } from '@angular/common';
 import { HighlightDirective } from '@directives/highlight';
 import type { CodeSnippetModel, FileName, Languages } from '@models/code.model';
-import { Responsive } from '@services/responsive';
 
 @Component({
   selector: 'app-code-snippet',
@@ -21,8 +20,6 @@ import { Responsive } from '@services/responsive';
   }
 })
 export class CodeSnippet implements OnInit {
-  protected readonly responsive = inject(Responsive);
-
   height = input.required<string>()
   width = input.required<string>()
   maxWidth = input<string>();
