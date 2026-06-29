@@ -68,6 +68,11 @@
 
 }
 
+@mixin ratio($value) {
+  aspect-ratio: $value;
+
+}
+
 @mixin fit-contain {
   object-fit: contain;
 
@@ -196,6 +201,11 @@
 
 }
 
+@mixin fgrow($value) {
+  flex-grow: $value;
+
+}
+
 @mixin shrink($value) {
   flex-shrink: $value;
 
@@ -208,6 +218,11 @@
 
 @mixin grid {
   display: grid;
+
+}
+
+@mixin flow-col($flow) {
+  grid-auto-flow: $flow;
 
 }
 
@@ -326,6 +341,11 @@
   }
 
   font-size: $size;
+
+}
+
+@mixin capitalize {
+  text-transform: capitalize;
 
 }
 
