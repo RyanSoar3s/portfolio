@@ -7,10 +7,7 @@ import contentByTranslation from '@utils/translation/translation';
   selector: 'app-about-me',
   imports: [],
   templateUrl: './about-me.html',
-  styleUrl: './about-me.scss',
-  host: {
-
-  }
+  styleUrl: './about-me.scss'
 })
 export class AboutMe {
   private language = inject(Language);
