@@ -884,8 +884,8 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-reactive-input',
   template: \`
     <p>What's your favorite food?</p>
-    <label for="framework">
-      <input id="framework" type="text"
+    <label for="favoriteFood">
+      <input id="favoriteFood" type="text"
         [ngModel]="favoriteFood()"
         (ngModelChange)="favoriteFood.set($event)"
         placeholder="enter here"
