@@ -2,6 +2,7 @@ import { Component, ElementRef, AfterViewInit, OnDestroy, viewChildren, signal }
 import { AboutMe } from '@components/about-me/about-me';
 import { Header } from '@components/header/header';
 import { Home } from '@components/home/home';
+import { Projects } from '@components/projects/projects';
 import { Tech } from '@components/tech/tech';
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import { Tech } from '@components/tech/tech';
     Header,
     Home,
     AboutMe,
-    Tech
+    Tech,
+    Projects
 
   ],
   templateUrl: './app.html',
@@ -25,7 +27,8 @@ export class App implements AfterViewInit, OnDestroy {
   protected readonly visibleComponents = signal<Record<string, boolean>>({
     home: false,
     aboutMe: false,
-    tech: false
+    tech: false,
+    projects: false
 
   });
 
@@ -50,6 +53,10 @@ export class App implements AfterViewInit, OnDestroy {
 
           case "tech":
             this.updateVisibleComponents("tech");
+            break;
+
+          case "projects":
+            this.updateVisibleComponents("projects");
             break;
 
           default:
