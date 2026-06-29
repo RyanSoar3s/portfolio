@@ -50,6 +50,21 @@ const en = {
 
     ]
 
+  },
+  projects: {
+    label: "projects",
+    title: "Latest",
+    titleHighlighted: "Projects",
+    text: "A selection of recent products I've designed and built — end‑to‑end, with care for both the user experience and the code quality.",
+    descs: [
+      "Platform for executing code in multiple languages ​​using Angular, Bun and Docker.",
+      "Fiamma Pizza is a digital showcase for a Neapolitan-inspired pizzeria.",
+      "Project for a streaming service developed with a focus on content organization."
+
+    ],
+    previewBtn: "live site",
+    codeBtn: "repository"
+
   }
 
 };
@@ -104,6 +119,21 @@ const ptBR = {
       "Plataforma que empacota aplicativos em contêineres para uma implantação consistente em qualquer ambiente."
 
     ]
+
+  },
+  projects: {
+    label: "projetos",
+    title: "Últimos",
+    titleHighlighted: "Projetos",
+    text: "Uma seleção de produtos recentes que projetei e construí — do início ao fim, com cuidado tanto na experiência do usuário quanto na qualidade do código.",
+    descs: [
+      "Plataforma para execução de código em múltiplas linguagens utilizando Angular, Bun e Docker.",
+      "A Fiamma Pizza é uma vitrine digital para uma pizzaria de inspiração napolitana.",
+      "Project for a streaming service developed with a focus on content organization."
+
+    ],
+    previewBtn: "ver site",
+    codeBtn: "repositório"
 
   }
 
