@@ -933,7 +933,7 @@ app.get("/", (req, res) => {
 
     <!DOCTYPE html>
 
-    <html lang="pt-BR">
+    <html lang="en">
 
     <head>
 
@@ -988,7 +988,7 @@ Bun.serve({
     return new Response(
       \`
       <!DOCTYPE html>
-      <html lang="pt-BR">
+      <html lang="en">
       <head>
         <meta charset="UTF-8">
         <title>Bun</title>
