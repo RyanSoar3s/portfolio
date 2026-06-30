@@ -1,0 +1,100 @@
+@let title = tech().title;
+@let titleHighlighted = tech().titleHighlighted;
+@let text = tech().text;
+
+@let techs = [
+  [ "HTML5", "html5/html5-original.svg" ],
+  [ "CSS3", "css3/css3-original.svg" ],
+  [ "Sass", "sass/sass-original.svg" ],
+  [ "Tailwindcss", "tailwindcss/tailwindcss-original.svg" ],
+  [ "Angular", "angular/angular-original.svg" ],
+  [ "NodeJS", "nodejs/nodejs-original.svg" ],
+  [ "Bun", "bun/bun-original.svg" ],
+  [ "PostgreSQL", "postgresql/postgresql-original.svg" ],
+  [ "MongoDB", "mongodb/mongodb-original.svg" ],
+  [ "Redis", "redis/redis-original.svg" ],
+  [ "Vite", "vitejs/vitejs-original.svg" ],
+  [ "Vitest", "vitest/vitest-original.svg" ],
+  [ "Jest", "jest/jest-plain.svg" ],
+  [ "Docker", "docker/docker-original.svg" ]
+
+];
+
+@defer (when animate()) {
+  <section [class]="'tech'" animate.enter="tech-enter">
+    <div [class]="'tech-info'">
+      <span [class]="'tech__label'">
+        Tech Stack
+
+      </span>
+      <h2 [class]="'tech__title'">
+        {{ title }}
+        <br>
+        <span>{{ titleHighlighted }}</span>
+
+      </h2>
+
+      <p [class]="'tech__text'">{{ text }}</p>
+
+    </div>
+
+    <div [class]="'tech__cards'">
+      @for (tech of techs; track i; let i = $index) {
+        @let name = tech[0];
+        @let pathUrl = tech[1];
+
+        <div
+          [class]="'tech__card'"
+          [class.selected]="selectedTech() === name"
+          (click)="void selectTech(name, pathUrl, i)"
+
+          >
+          <div [class]="'tech__card-icon'">
+            <img [src]="'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/' + pathUrl" />
+
+          </div>
+          <h3 [class]="'tech__card-title'">{{ name }}</h3>
+
+        </div>
+
+      }
+
+    </div>
+
+    @if (selectedTech()) {
+      @let desc = tech().descs[selectedDescIndex!];
+
+      <div [class]="'tech-panel'" animate.enter="open-panel" animate.leave="close-panel">
+        <div [class]="'tech-panel__header'">
+          <div [class]="'tech__panel-icon'">
+            <img [src]="'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/' + selectedTechLogoUrl()" />
+
+          </div>
+
+          <div [class]="'tech-panel__info'">
+            <h3>{{ selectedTech() }}</h3>
+            <p>{{ desc }}</p>
+
+          </div>
+
+          <div [class]="'tech-panel__close'" (click)="void resetTech()">
+            <fa-icon [icon]="faX"></fa-icon>
+
+          </div>
+
+        </div>
+
+        <app-code-snippet
+          [codes]="codeSnippet()!"
+          [height]="'440px'"
+          [width]="'100%'"
+
+          ></app-code-snippet>
+
+      </div>
+
+    }
+
+  </section>
+
+}

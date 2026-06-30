@@ -1,0 +1,388 @@
+@use "@utils/styles/styles.scss" as *;
+
+$textMuted: #7A859C;
+$fontSpace: var(--font-space);
+$fontJetBrains: var(--font-jetbrains);
+
+:host {
+  $borderHost: 1px solid #1E2640;
+
+  @include bg(oklab(0.15 0 -0.03 / 0.85));
+  @include fixed;
+  @include flex;
+  @include align-center;
+  @include justify-around;
+  @include dimension(100px, 100dvw);
+  @include directions(0px, 0px, null, 0px);
+  @include border((bottom), ($borderHost, ));
+  @include z(999);
+
+}
+
+.header-wrapper-left {
+  @include flex;
+  @include gap(30px);
+
+}
+
+.header__icon {
+  $gradientIcon: 135deg, #0dffd7, #7b61ff;
+  $shadowIcon: (
+    0px 0px 18px oklab(89.36800000000001% -0.16611 0.01255 / 0.22),
+    0px 0px 8px oklab(60.568999999999996% 0.05826 -0.21643 / 0.18)
+
+  );
+  $transitionIcon: (box-shadow .25s, transform .25s);
+
+  @include c(black);
+  @include dimension(42px, 42px);
+  @include flex-full-center;
+  @include shrink(0);
+  @include radius(10px);
+  @include fsize(24, px, em);
+  @include lgradient(($gradientIcon, ));
+  @include shadow($shadowIcon);
+  @include pointer;
+  @include transition($transitionIcon);
+
+}
+
+@include hover(".header__icon") {
+  $shadowIconHover: (
+    0px 0px 28px oklab(89.36800000000001% -0.16611 0.01255 / 0.38),
+    0px 0px 14px oklab(60.568999999999996% 0.05826 -0.21643 / 0.28)
+
+  );
+  @include shadow($shadowIconHover);
+  @include scale(1.06);
+
+}
+
+.header__options {
+  @include flex-full-center;
+  @include gap(20px);
+
+  & .header__option {
+    @include relative;
+    @include c($textMuted);
+    @include fsize(15, px, em);
+    @include semibold;
+    @include pointer;
+    @include transition((color .2s, ));
+
+    @include hover("&") {
+      $textOptions: #DDE4F0;
+
+      @include c($textOptions);
+
+      @include after("&", null, null, null) {
+        @include scale(1);
+
+      }
+
+    }
+
+    @include after("&", "", absolute, (null, 0px, -2px, 0px)) {
+      $bgAfterOption: #0DFFD7;
+
+      @include bg($bgAfterOption);
+      @include h(1px);
+      @include scale(0);
+      @include transition(0.25s);
+
+    }
+
+  }
+
+}
+
+.header-wrapper-right {
+  @include flex;
+  @include flex-row;
+  @include gap(20px);
+
+}
+
+.header__photo {
+  $gradientPhoto1: #0d1120, #0d1120;
+  $gradientPhoto2: 135deg, #0dffd7, #7b61ff;
+
+  @include flex-full-center;
+  @include shrink(0);
+  @include dimension(70px, 70px);
+  @include lgradient(($gradientPhoto1, $gradientPhoto2));
+  @include bgClip((padding-box, border-box));
+  @include border(null, (3px solid transparent));
+  @include p(2px);
+  @include pointer;
+  @include shadow(0px 0px 14px oklch(0.61 0.22 285.07 / 0.28));
+  @include overflow(hidden);
+  @include transition((box-shadow .25s, transform .2s));
+
+  @include hover("&") {
+    $boxShadowPhotoHover: 0px 0px 22px #0dffd759;
+
+    @include shadow($boxShadowPhotoHover);
+    @include scale(1.06);
+
+  }
+
+  &, img {
+    @include radius-full;
+
+  }
+
+  img {
+    @include dimension(100%, 100%);
+
+  }
+
+}
+
+.header__btn-translate {
+  $bgBtnTranslate: #141929;
+  $borderBtnTranslate: 1px solid #1e2640;
+
+  @include bg($bgBtnTranslate);
+  @include flex-full-center;
+  @include align-self-center;
+  @include shrink(0);
+  @include gap(2px);
+  @include h(35px);
+  @include p(3px);
+  @include border(null, $borderBtnTranslate);
+  @include radius(99px);
+  @include overflow(hidden);
+
+  button {
+    @include bg(transparent);
+    @include c($textMuted);
+    @include ffamily($fontJetBrains);
+    @include p(5px 13px);
+    @include fsize(13, px, em);
+    @include uppercase;
+    @include semibold;
+    @include lspace(.1em);
+    @include border(null, none);
+    @include radius(99px);
+    @include transition((all .22s, ));
+    @include pointer;
+
+    @include hover("&") {
+      $bgButton: #ffffff0f;
+      $colorButton: #dde4f0;
+
+      @include bg($bgButton);
+      @include c($colorButton);
+
+    }
+
+    &.active {
+      $gradientButtonSelected: 135deg, #0dffd7, #7b61ff;
+      $colorButtonSelected: #070b18;
+
+      @include lgradient(($gradientButtonSelected, ));
+      @include c($colorButtonSelected);
+      @include shadow(0px 2px 8px #0dffd738);
+
+    }
+
+  }
+
+}
+
+.header__menu {
+  $bgMenu: #141929;
+  $borderMenu: 1px solid #1e2640;
+
+  @include bg($bgMenu);
+  @include flex;
+  @include flex-col;
+  @include shrink(0);
+  @include gap(5px);
+  @include p(3px);
+  @include fsize(25, px, em);
+  @include border(null, $borderMenu);
+  @include radius(8px);
+  @include pointer;
+  @include transition((.2s, ));
+
+  @include hover("&") {
+    $borderColorMenuHover: #7b61ff;
+    $bgMenuHover: #7b61ff1f;
+
+    @include bg($bgMenuHover);
+    @include cborder($borderColorMenuHover);
+
+  }
+
+}
+
+.overlay {
+  $colorOverlay: #0000008c;
+
+  @include fixed;
+  @include directions(0px, 0px, 0px, 0px);
+  @include dimension(100dvh, 100dvw);
+  @include bg($colorOverlay);
+  @include opacity(1);
+  @include transition((opacity .3s), );
+  @include blur(2px);
+  @include pointer;
+  @include z(998);
+
+}
+
+.menu {
+  $bgMenu: #0d1120;
+
+  @include bg($bgMenu);
+  @include flex;
+  @include flex-col;
+  @include fixed;
+  @include directions(0px, null, 0px, 0px);
+  @include dimension(100dvh, 280px);
+  @include border((left, ), (1px solid #1e2640, ));
+  @include p(18px 20px);
+  @include translate((0%, 0%));
+  @include overflow(auto);
+  @include scrollbarw-none;
+  @include z(999);
+
+  .close-menu-wrapper {
+    @include flex;
+    @include justify-end;
+
+    .close-menu {
+      @include flex-full-center;
+      @include c($textMuted);
+      @include p(4px);
+      @include radius(6px);
+      @include transition((.2s, ));
+      @include pointer;
+
+      @include hover("&") {
+        $bgCloseMenu: #1e2640;
+        $colorCloseMenu: #dde4f0;
+
+        @include bg($bgCloseMenu);
+        @include c($colorCloseMenu);
+
+      }
+
+    }
+
+  }
+
+}
+
+.is-open-menu {
+  @include keyframe("open-menu", (.5s cubic-bezier(.4, 0, .2, 1))) {
+    from {
+      @include translate((100%, 0%));
+
+    }
+
+    to {
+      @include translate((0%, 0%));
+
+    }
+
+  };
+
+}
+
+
+.is-close-menu {
+  @include keyframe("close-menu", (.5s cubic-bezier(.4, 0, .2, 1))) {
+    from {
+      @include translate((0%, 0%));
+
+    }
+
+    to {
+      @include translate((100%, 0%));
+
+    }
+
+  };
+
+}
+
+.header__profile {
+  $borderProfile: 1px solid #1e2640;
+
+  @include flex-full-center;
+  @include gap(15px);
+  @include border((bottom, ), ($borderProfile, ));
+  @include p(20px 0px);
+
+  &-info {
+    @include flex;
+    @include flex-col;
+    @include gap(6px);
+
+    h4 {
+      @include ffamily($fontSpace);
+      @include fsize(0.8, em, em);
+      @include semibold;
+
+    }
+    p {
+      $colorText: #0dffd7;
+
+      @include c($colorText);
+      @include ffamily($fontJetBrains);
+      @include fsize(0.8, em, em);
+
+    }
+
+  }
+
+}
+
+.header__options-menu {
+  @include relative;
+  @include flex;
+  @include flex-col;
+  @include gap(20px);
+
+  & .header__option-menu {
+    @include flex;
+    @include p(12px 14px 12px 23px);
+    @include radius(5px);
+    @include transition((.2s, ));
+    @include pointer;
+
+    @include hover("&") {
+      $bgColorOptionHover: #141929 !important;
+      $colorOptionHover: #dde4f0;
+
+      @include bg($bgColorOptionHover);
+      @include c($colorOptionHover);
+
+      @include before("&", null, null, null) {
+        $bgColorCircleHover: #0dffd7;
+
+        @include bg($bgColorCircleHover);
+
+      };
+
+
+    }
+
+    @include before("&", "", absolute, (null, 0px, null, null)) {
+      $bgColorCircle: #1e2640;
+
+      @include bg($bgColorCircle);
+      @include align-self-center;
+      @include dimension(6px, 6px);
+      @include radius-full;
+      @include m(0px 0px 0px 8px);
+      @include transition((.2s, ));
+
+    }
+
+  }
+
+}

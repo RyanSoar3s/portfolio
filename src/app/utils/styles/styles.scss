@@ -1,0 +1,499 @@
+@use "sass:list";
+
+@function pxToEm($px) {
+  $em: ($px / 16) * 1em;
+
+  @return $em;
+
+}
+
+@function emToPx($em) {
+  $px: ($em * 16) / 1px;
+
+  @return $px;
+
+}
+
+@function lgradient($grads) {
+  $gradients: ();
+
+  @each $grad in $grads {
+    $gradients: list.append($gradients, linear-gradient($grad), $separator: comma);
+
+  }
+
+  @return $gradients;
+
+}
+
+@function rgradient($grads) {
+  $gradients: ();
+
+  @each $grad in $grads {
+    $gradients: list.append($gradients, radial-gradient($grad), $separator: comma);
+
+  }
+
+  @return $gradients;
+
+}
+
+@mixin bg($color) {
+  background-color: $color;
+
+}
+
+@mixin lgradient($grads) {
+  background-image: lgradient($grads);
+
+}
+
+@mixin rgradient($grads) {
+  background-image: rgradient($grads);
+
+}
+
+@mixin bgClip($value) {
+  background-clip: $value;
+
+}
+
+@mixin bgSize($size) {
+  background-size: $size;
+
+}
+
+@mixin maski-rgradient($value) {
+  mask-image: rgradient($value);
+
+}
+
+@mixin aspect-ratio-1 {
+  aspect-ratio: 1 / 1;
+
+}
+
+@mixin ratio($value) {
+  aspect-ratio: $value;
+
+}
+
+@mixin fit-contain {
+  object-fit: contain;
+
+}
+
+@mixin c($color) {
+  color: $color;
+
+}
+
+@mixin p($padding) {
+  padding: $padding;
+
+}
+
+@mixin m($margin) {
+  margin: $margin;
+
+}
+
+@mixin relative {
+  position: relative;
+
+}
+
+@mixin fixed {
+  position: fixed;
+
+}
+
+@mixin absolute {
+  position: absolute;
+
+}
+
+@mixin sticky {
+  position: sticky;
+
+}
+
+@mixin directions($values...) {
+  $directions: (top, left, bottom, right);
+  $size: list.length($values);
+
+  @for $i from 1 through $size {
+    $style: list.nth($values, $i);
+
+    @if $style {
+      $prop: list.nth($directions, $i);
+      #{$prop}: $style;
+
+    }
+
+  }
+
+}
+
+@mixin block {
+  display: block;
+
+}
+
+@mixin inline-flex {
+  display: inline-flex;
+
+}
+
+@mixin flex {
+  display: flex;
+
+}
+
+@mixin align-center {
+  align-items: center;
+
+}
+
+@mixin align-self-center {
+  align-self: center;
+
+}
+
+@mixin justify-center {
+  justify-content: center;
+
+}
+
+@mixin justify-end {
+  justify-content: flex-end;
+
+}
+
+@mixin justify-around {
+  justify-content: space-around
+
+}
+
+@mixin justify-evenly {
+  justify-content: space-evenly
+
+}
+
+@mixin flex-full-center {
+  @include flex;
+  @include align-center;
+  @include justify-center;
+
+}
+
+@mixin flex-row($reverse: false) {
+  $row: if($reverse, row-reverse, row);
+
+  flex-direction: $row;
+
+}
+
+@mixin flex-col($reverse: false) {
+  $column: if($reverse, column-reverse, column);
+
+  flex-direction: $column;
+
+}
+
+@mixin flex-wrap {
+  flex-wrap: wrap;
+
+}
+
+@mixin fgrow($value) {
+  flex-grow: $value;
+
+}
+
+@mixin shrink($value) {
+  flex-shrink: $value;
+
+}
+
+@mixin gap($value) {
+  gap: $value;
+
+}
+
+@mixin grid {
+  display: grid;
+
+}
+
+@mixin flow-col($flow) {
+  grid-auto-flow: $flow;
+
+}
+
+@mixin template-cols($template) {
+  grid-template-columns: $template;
+
+}
+
+@mixin h($height) {
+  height: $height;
+
+}
+
+@mixin min-h($height) {
+  min-height: $height;
+
+}
+
+@mixin w($width) {
+  width: $width;
+
+}
+
+@mixin max-w($width) {
+  max-width: $width;
+
+}
+
+@mixin dimension($height, $width) {
+  @include h($height);
+  @include w($width);
+
+}
+
+@mixin border($directions: null, $values) {
+  @if $directions {
+    $size: list.length($directions);
+
+    @for $i from 1 through $size {
+      $position: list.nth($directions, $i);
+      $value: list.nth($values, $i);
+
+      border-#{$position}: $value;
+
+    }
+
+  }
+  @else {
+    border: $values;
+
+  }
+
+}
+
+@mixin cborder($color) {
+  border-color: $color;
+
+}
+
+@mixin opacity($value) {
+  opacity: $value;
+
+}
+
+@mixin blur($value) {
+  -webkit-backdrop-filter: blur($value);
+  backdrop-filter: blur($value);
+
+}
+
+@mixin radius($rad) {
+  border-radius: $rad;
+
+}
+
+@mixin radius-full {
+  border-radius: calc(infinity * 1px);
+
+}
+
+@mixin ffamily($fonts) {
+  font-family: $fonts;
+
+}
+
+@mixin fsizeclamp($min, $pref, $max) {
+  font-size: clamp($min, $pref, $max);
+
+}
+
+@mixin fsize($value, $fromUnit: px, $toUnit: px) {
+  $size: null;
+
+  @if $fromUnit == px {
+    @if $toUnit == em {
+      $size: pxToEm($value);
+
+    }
+    @else {
+      $size: #{$value}#{$toUnit}
+
+    }
+
+  }
+
+  @if $fromUnit == em {
+    @if $toUnit == px {
+      $size: emToPx($value);
+
+    }
+    @else {
+      $size: #{$value}#{$toUnit}
+
+    }
+
+  }
+
+  font-size: $size;
+
+}
+
+@mixin capitalize {
+  text-transform: capitalize;
+
+}
+
+@mixin uppercase {
+  text-transform: uppercase;
+
+}
+
+@mixin semibold {
+  font-weight: 600;;
+
+}
+
+@mixin bold {
+  font-weight: 700;
+
+}
+
+@mixin textfillc($color) {
+  -webkit-text-fill-color: $color;
+
+}
+
+@mixin lineh($heigth) {
+  line-height: $heigth;
+
+}
+
+@mixin lspace($space) {
+  letter-spacing: $space;
+
+}
+
+@mixin shadow($values...) {
+  box-shadow: $values;
+
+}
+
+@mixin transition($values...) {
+  transition: $values;
+
+}
+
+@mixin translate($value) {
+  transform: translate($value);
+
+}
+
+@mixin scale($value) {
+  transform: scale($value);
+
+}
+
+@mixin pointer-events-none {
+  pointer-events: none;
+
+}
+
+@mixin user-select-none {
+  user-select: none;
+
+}
+
+@mixin pointer {
+  cursor: pointer;
+
+}
+
+@mixin overflow($value) {
+  overflow: $value;
+
+}
+
+@mixin z($index) {
+  z-index: $index;
+
+}
+
+@mixin hover($el, $onHover: false) {
+  @if ($onHover) {
+    @media (hover: hover) {
+      #{$el}:hover {
+        @content;
+
+      }
+
+    }
+
+  }
+
+  @else {
+    #{$el}:hover {
+      @content;
+
+    }
+
+  }
+
+}
+
+@mixin before($el, $content: "", $position: absolute, $dirs: (0px, 0px, 0px, 0px)) {
+  #{$el}::before {
+    content: $content;
+    position: $position;
+    @include directions($dirs...);
+    @content;
+
+  }
+
+}
+
+@mixin after($el, $content: "", $position: absolute, $dirs: (0px, 0px, 0px, 0px)) {
+  #{$el}::after {
+    content: $content;
+    position: $position;
+    @include directions($dirs...);
+    @content;
+
+  }
+
+}
+
+@mixin keyframe($name, $animation) {
+  @keyframes #{$name} {
+    @content;
+
+  }
+
+  animation: $name $animation;
+
+}
+
+@mixin animation($values) {
+  animation: $values;
+
+}
+
+@mixin delay($value) {
+  animation-delay: $value;
+
+}
+
+@mixin scrollbarw-none {
+  scrollbar-width: none;
+
+}

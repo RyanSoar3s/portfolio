@@ -1,0 +1,353 @@
+@use "@utils/styles/styles.scss" as *;
+@use "sass:map";
+@use "sass:math";
+
+:host {
+  @include flex-full-center;
+  @include min-h(1006px);
+  @include w(100dvw);
+  @include p(100px 0px);
+
+}
+
+.projects {
+  @include flex;
+  @include flex-col;
+  @include gap(50px);
+  @include w(min(1170px, 85vw));
+
+}
+
+.projects-info {
+  @include flex;
+  @include flex-col;
+  @include gap(20px);
+  @include w(min(560px, 90vw));
+
+  .projects__label {
+    $fontJetBrains: var(--font-jetbrains);
+
+    @include relative;
+    @include c(#0dffd7);
+    @include inline-flex;
+    @include align-center;
+    @include gap(10px);
+    @include ffamily($fontJetBrains);
+    @include fsize(0.75, em, em);
+    @include lspace(0.12em);
+    @include uppercase;
+    @include p(0px 0px 0px 35px);
+
+    @include before("&", "", absolute, (null, 0px, null, null)) {
+      @include block;
+      @include dimension(1px, 25px);
+      @include bg(#0dffd7);
+
+    }
+
+  }
+
+  .projects__title {
+    $fontSpace: var(--font-space);
+
+    @include ffamily($fontSpace);
+    @include fsizeclamp(2rem, 4vw, 3rem);
+    @include bold;
+    @include lineh(1.1);
+
+    & span {
+      $bgLinear: 90deg, #0dffd7, #7b61ff;
+
+      @include lgradient(($bgLinear, ));
+      @include bgClip(text);
+      @include textfillc(transparent);
+
+    }
+
+  }
+
+  .projects__text {
+    $textMuted: #7a859c;
+
+    @include c($textMuted);
+    @include lineh(1.8);
+
+  }
+
+}
+
+.projects__cards {
+  @include grid;
+  @include flow-col(dense);
+  @include template-cols(repeat(auto-fill, minmax(280px, 1fr)));
+  @include gap(40px);
+
+  .projects__card {
+    $bgCardProjects: #111726;
+    $borderCardProjects: 1px solid #1e2640;
+
+    @include bg($bgCardProjects);
+    @include flex;
+    @include flex-col;
+    @include dimension(510px, 100%);
+    @include border(null, ($borderCardProjects, ));
+    @include radius(12px);
+    @include transition((.25s, ));
+    @include pointer;
+    @include overflow(hidden);
+
+    @include hover("&") {
+      $borderColorCardHover: #7b61ff;
+      $shadowCardHover: 0px 16px 40px #7b61ff26;
+
+      @include cborder($borderColorCardHover);
+      @include shadow($shadowCardHover);
+      @include translate((0px, -10px));
+
+    }
+
+    &-header {
+      $bgImgProjects: #141929;
+
+      @include bg($bgImgProjects);
+      @include w(100%);
+      @include ratio(math.div(16, 9));
+      @include radius(12px 12px 0px 0px);
+      @include overflow(hidden);
+
+      img {
+        @include dimension(100%, 100%);
+
+      }
+
+    }
+    &-body {
+      @include flex;
+      @include flex-col;
+      @include justify-evenly;
+      @include h(calc(100% - 200px));
+      @include m(0px 20px);
+      @include overflow(hidden);
+
+      h3 {
+        $fontSpace: var(--font-space);
+
+        @include ffamily($fontSpace);
+        @include bold;
+        @include lineh(1.1);
+        @include capitalize;
+
+      }
+
+      p.projects__desc {
+        $textMuted: #7a859c;
+
+        @include c($textMuted);
+        @include fsize(0.9, em, em);
+        @include lineh(1.7);
+
+
+      }
+
+      .projects__tags {
+        @include flex;
+        @include flex-wrap;
+        @include gap(8px);
+        @include user-select-none;
+
+        .projects__tag {
+          $fontJetBrains: var(--font-jetbrains);
+          $bgTag: #141929;
+          $colorTag: #7a859c;
+          $borderTag: 1px solid #1e2640;
+
+          @include relative;
+          @include bg($bgTag);
+          @include c($colorTag);
+          @include p(6px 11px);
+          @include border(null, ($borderTag, ));
+          @include radius(99px);
+          @include ffamily($fontJetBrains);
+          @include fsize(0.72, em, em);
+          @include uppercase;
+          @include transition((color .22s, border-color .22s, box-shadow .22s, transform .18s));
+          @include overflow(hidden);
+
+          @include before("&") {
+            $lgradientTag:(110deg, transparent 30%, #ffffff1f 50%, transparent 70%);
+
+            @include lgradient(($lgradientTag, ));
+            @include translate((100%, 0%));
+            @include transition((transform .45s ease, ));
+            @include overflow(hidden);
+
+          }
+
+          @include hover("&") {
+            $bgTagHover: #0dffd71f;
+            $colorTagHover: #0dffd7;
+            $shadowTagHover: 0px 0px 10px #0dffd72e, 0px 2px 8px #00000040;;
+
+            @include bg($bgTagHover);
+            @include c($colorTagHover);
+            @include cborder($colorTagHover);
+            @include shadow($shadowTagHover);
+
+            @include before("&", null, null, null) {
+              @include translate((-100%, 0%));
+
+            };
+
+          }
+
+        }
+
+      }
+
+      .projects__btns {
+        @include flex;
+        @include gap(10px);
+
+        & button {
+          $fontSpace: var(--font-space);
+
+          @include fgrow(1);
+          @include p(9px 0px);
+          @include radius(8px);
+          @include ffamily($fontSpace);
+          @include fsize(0.8, em, em);
+          @include semibold;
+          @include transition((0.2s, ));
+
+        }
+
+        & button[disabled] {
+          &, &:hover {
+            @include opacity(0.7);
+
+          }
+
+        }
+
+        .projects__preview {
+          $gradientBtnPreview: 135deg, #0dffd7, #7b61ff;
+          $colorBtnPreview: #070b18;
+
+          @include relative;
+          @include lgradient(($gradientBtnPreview, ));
+          @include c($colorBtnPreview);
+          @include cborder(transparent);
+
+          & a {
+            @include c($colorBtnPreview);
+
+          }
+
+          @include hover("&") {
+            @include opacity(0.85);
+
+          }
+
+        }
+
+        .projects__repo {
+          $colorBtnRepo: #dde4f0;
+          $borderBtnRepo: 1px solid #1e2640;
+
+          @include relative;
+          @include bg(transparent);
+          @include c($colorBtnRepo);
+          @include border(null, ($borderBtnRepo, ));
+
+          & a {
+            @include c($colorBtnRepo);
+
+          }
+
+          @include hover("&") {
+            $borderColorBtnRepoHover: #7b61ff;
+
+            @include c(white);
+            @include cborder($borderColorBtnRepoHover);
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.projects-enter {
+  @include animation(slide 0.6s ease);
+
+}
+
+$colorTags: (
+  Sass: (
+    bg: #cc669933,
+    color: #CC6699
+
+  ),
+  Tailwindcss: (
+    bg: #06b5d431,
+    color: #06B6D4
+
+  ),
+  Angular: (
+    bg: #dd00312e,
+    color: #dd0031
+
+  ),
+  NodeJS: (
+    bg: #5fa04e2e,
+    color: #5fa04e,
+
+  ),
+  Bun: (
+    bg: #fbf0df24,
+    color: #fbf0df
+
+  ),
+  PostgreSQL: (
+    bg: #33679138,
+    color: #336791
+
+  ),
+  MongoDB: (
+    bg: #47a2482e,
+    color: #47a248
+
+  ),
+  Redis: (
+    bg: #ff44382e,
+    color: #ff4438
+
+  ),
+  Docker: (
+    bg: #2496ed2e,
+    color: #2496ed
+
+  )
+
+);
+
+@each $tech, $style in $colorTags {
+  .projects__tag[data-tag="#{$tech}"] {
+    @include hover("&") {
+      $bgTagHover: map.get($style, "bg") !important;
+      $colorTagHover: map.get($style, "color") !important;
+
+      @include bg($bgTagHover);
+      @include c($colorTagHover);
+      @include cborder($colorTagHover);
+
+    }
+
+  }
+
+}

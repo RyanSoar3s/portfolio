@@ -1,0 +1,17 @@
+<div style="height: 100%; background-color: #1e1e1e; color: #d4d4d4; font-family: monospace; padding: 15px; border-radius: 5px; line-height: 1.5; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+  <!-- STEP 1: DOCKER BUILD -->
+  <span style="color: #569cd6;">$ </span> <span style="color: #ce9178;">docker build -t js-docker-app .</span><br/>
+  <span style="color: #888;">[internal] load build definition from Dockerfile</span><br/>
+  <span style="color: #888;">[internal] load .dockerignore</span><br/>
+  <span style="color: #888;">[internal] load metadata for docker.io/library/node:20-alpine</span><br/>
+  <span style="color: #4dc47d;">=&gt; [1/3] FROM docker.io/library/node:20-alpine </span> <span style="color: #888;">0.8s</span><br/>
+  <span style="color: #4dc47d;">=&gt; [2/3] WORKDIR /app </span> <span style="color: #888;">0.1s</span><br/>
+  <span style="color: #4dc47d;">=&gt; [3/3] COPY app.js . </span> <span style="color: #888;">0.1s</span><br/>
+  <span style="color: #4dc47d;">=&gt; exporting to image </span> <span style="color: #888;">0.2s</span><br/>
+  <span style="color: #4dc47d;">Successfully tagged js-docker-app:latest</span><br/><br/>
+
+  <!-- STEP 2: DOCKER RUN -->
+  <span style="color: #569cd6;">$ </span> <span style="color: #ce9178;">docker run -e APP_USER="Ryan" js-docker-app</span><br/>
+  <span style="color: #fff; font-weight: bold;">Hello, Ryan! Docker container executed successfully.</span>
+
+</div>

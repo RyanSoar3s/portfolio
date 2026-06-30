@@ -1,44 +1,18 @@
-@use "sass:map";
-@use "./app/utils/styles/utils.scss" as *;
+@use "./app/utils/styles/global.scss" as *;
+@use "highlight.js/styles/github-dark.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
-* {
-  @include margin(null, 0px);
-  @include padding(null, 0px);
-  box-sizing: border-box;
+$fontInter: 'Inter', sans-serif;
+$fontJetBrains: 'JetBrains Mono', monospace;
+$fontSpace: 'Space Grotesk', sans-serif;
 
-}
+@include registerFonts((
+  "inter": $fontInter,
+  "jetbrains": $fontJetBrains,
+  "space": $fontSpace
 
-::-webkit-scrollbar {
-  @include dimension(10px, 7px);
+));
 
-}
-
-::-webkit-scrollbar-thumb {
-  @include dimension((prefix: min, value: 50px), (prefix: min, value: 40px));
-  @include bg(#888);
-  @include rounded(5px);
-
-}
-
-html, body {
-  @include dimension(100dvh, 100dvw);
-  @include overflow(x, clip);
-  scroll-behavior: smooth;
-
-}
-
-body {
-  @include globalBackground;
-  @include text($family: ("Rubik", sans-serif));
-
-}
-
-ul {
-  list-style: none;
-
-}
-
-a {
-  text-decoration: none;
-
-}
+@include configureGlobalStyles;

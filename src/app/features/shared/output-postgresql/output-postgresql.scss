@@ -1,0 +1,80 @@
+:host {
+  display: block;
+  overflow: auto;
+  scrollbar-width: none;
+
+}
+
+.container {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.1);
+  overflow: auto;
+
+}
+
+.container > * {
+  width: 96% !important;
+
+}
+
+h1 {
+  margin-top: 0;
+  color: #333;
+
+}
+
+.query {
+  background: #272822;
+  color: #f8f8f2;
+  padding: 16px 0px;
+  border-radius: 6px;
+  font-family: Consolas, monospace;
+  margin-bottom: 24px;
+  white-space: pre;
+
+  span {
+    margin-left: 10px;
+
+  }
+
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+}
+
+thead {
+  background: #0064a5;
+  color: white;
+
+}
+
+tbody tr {
+  color: black;
+
+}
+
+th,
+td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+
+}
+
+tbody tr:nth-child(even) {
+  background: #f7f7f7;
+
+}
+
+.rows {
+  margin-top: 16px;
+  color: #666;
+  font-size: 14px;
+
+}

@@ -1,150 +1,120 @@
-# Portfólio Web – Angular
+# Portfólio Web - Angular
 
-Este repositório contém o código-fonte do meu **portfólio web pessoal**, desenvolvido com **Angular (v21+)**, **TypeScript** e **SCSS**, com foco em **demonstrar raciocínio técnico, arquitetura e modelagem de código**, e não apenas exibir resultados visuais.
+Este repositório contém o código-fonte do meu portfólio web pessoal, desenvolvido com
+Angular, TypeScript e SCSS.
 
-A proposta do projeto foge de um portfólio tradicional baseado em screenshots e listas de tecnologias. Aqui, o portfólio funciona como um **ambiente demonstrativo interativo**, onde conceitos de arquitetura frontend, tipagem avançada e organização de código são parte central da experiência.
+O projeto foi pensado como uma vitrine técnica e visual: além de apresentar projetos,
+contato e tecnologias, ele também mostra exemplos de código com preview visual simulado,
+como se fosse uma pequena experiência de editor dentro do próprio portfólio.
 
----
+## Objetivo
 
-## 🎯 Objetivo do Projeto
+O objetivo principal é demonstrar:
 
-O objetivo principal deste projeto é:
+- organização de componentes standalone em Angular;
+- uso de TypeScript, signals, inputs e outputs;
+- criação de interfaces responsivas com SCSS;
+- snippets de código com syntax highlighting;
+- previews simulados para tecnologias e ferramentas;
+- navegação fluida entre seções.
 
-* Demonstrar **como eu penso e estruturo código**, não apenas o que eu construo
-* Explorar **TypeScript como ferramenta de modelagem**, não só como linguagem
-* Criar uma experiência interativa que simula um ambiente real de desenvolvimento
-* Servir como vitrine de decisões arquiteturais, padrões e boas práticas
+Nenhum código exibido nos snippets é executado dinamicamente pelo usuário. Os outputs são
+componentes Angular controlados, usados apenas para representar visualmente o resultado dos
+exemplos.
 
-Nenhuma parte do projeto executa código dinâmico real no browser. Todo o comportamento é **simulado de forma controlada**, priorizando clareza conceitual, previsibilidade e segurança.
+## Estrutura
 
----
+As principais áreas do portfólio ficam em `src/app/features/components`:
 
-## 🧱 Estrutura Geral do Portfólio
+- `header`: navegação, idioma e menu mobile;
+- `home`: apresentação inicial e snippet em destaque;
+- `about-me`: resumo profissional;
+- `tech`: cards de tecnologias com painel de snippet e preview;
+- `projects`: cards com links para site e repositório;
+- `contacts`: links de contato;
+- `footer`: informações finais.
 
-O layout do portfólio é organizado em seções bem definidas:
+Componentes compartilhados ficam em `src/app/features/shared`:
 
-* **Header**
+- `code-snippet`: janela de código com abas, highlight e output dinâmico;
+- `output-*`: previews simulados usados pelos snippets de tecnologia.
 
-  * Navegação entre seções
-  * Logo
-  * Foto/apresentação
+Serviços e utilitários principais:
 
-* **Seções Principais**
+- `Responsive`: leitura de breakpoints com Angular CDK;
+- `Language`: estado do idioma ativo;
+- `HighlightService` e `HighlightDirective`: integração com `highlight.js`;
+- `translation.ts`: conteúdo textual tipado em inglês e português;
+- `snippets.ts`: exemplos de código exibidos pelo `CodeSnippet`.
 
-  * Início
-  * Sobre Mim
-  * Tecnologias
-  * Projetos
-  * Contatos
+## Internacionalização
 
-* **Footer**
+O conteúdo textual do portfólio está centralizado em:
 
-A navegação é fluida e pensada para leitura contínua, priorizando a experiência de quem está avaliando o projeto tecnicamente.
+```txt
+src/app/utils/translation/translation.ts
+```
 
----
+O estado do idioma é controlado pelo serviço `Language`, que alterna entre `pt-BR` e `en`.
+Essa abordagem mantém os textos tipados e próximos do código que consome o conteúdo.
 
-## 🧠 Seção de Tecnologias: o Núcleo do Projeto
+## Testes
 
-A seção de **Tecnologias** é o coração conceitual do portfólio.
+O projeto usa o builder de testes do Angular com Vitest.
 
-Em vez de ícones ou listas estáticas, ela apresenta um **ambiente de código simulado**, inspirado em editores reais.
+Os testes cobrem:
 
-### Code Boxes
+- criação dos componentes principais;
+- navegação do `Header` em desktop e menu mobile;
+- interação com cards e links de `Projects`;
+- troca de abas no `CodeSnippet`;
+- renderização dos componentes `output-*`;
+- interações específicas, como input no output Angular e contador no output Vite.
 
-* Cada **Code Box** representa um arquivo de um projeto frontend ou backend
+Para executar:
 
-  * `component.ts`
-  * `template.html`
-  * `style.scss`
-  * `server.js`
-* As caixas possuem **abas por arquivo**
-* Apenas uma combinação de caixas pode estar ativa por vez
+```bash
+npm test -- --watch=false
+```
 
-### Output Box
+## Scripts
 
-* Existe uma **única Output Box**
-* Ela representa o resultado visual combinado do conjunto de arquivos ativos
-* O comportamento é simulado usando:
+```bash
+npm start
+```
 
-  * Mocks
-  * Delays artificiais
-  * Estados intermediários (ex.: loading, transições visuais e composição gradual da saída)
+Inicia o servidor de desenvolvimento.
 
-Nenhum código é executado ou interpretado dinamicamente. A saída é previsível e controlada.
+```bash
+npm run build
+```
 
----
+Gera o build de produção.
 
-## 🧩 Modelagem Avançada com TypeScript
+```bash
+npm run build -- --configuration development
+```
 
-Um dos principais diferenciais do projeto é o uso intensivo de **tipagem avançada em TypeScript**.
+Gera um build de desenvolvimento.
 
-### Principais conceitos explorados:
+```bash
+npm test -- --watch=false
+```
 
-* `type` como ferramenta central de modelagem
-* **Template Literal Types**
-* **Generics**
-* Relações entre tokens de código
-* Validação estrutural em tempo de compilação
+Executa a suíte de testes uma vez.
 
-Os códigos exibidos nas Code Boxes:
+## Tecnologias
 
-* Não são simples strings
-* São representados por **estruturas tipadas**
-* Possuem coerência garantida pelo compilador
+- Angular 21+
+- TypeScript
+- SCSS
+- Angular CDK
+- Signals
+- RxJS
+- Font Awesome
+- highlight.js
+- Vitest
 
-Isso permite que o próprio TypeScript atue como um mecanismo de validação conceitual do conteúdo exibido.
+## Licença
 
----
-
-## 🎭 Simulação, não Execução
-
-Este projeto **não**:
-
-* Executa código do usuário
-* Avalia expressões (`eval`)
-* Usa sandbox de execução
-* Possui backend real
-
-Toda a interatividade é baseada em **simulação controlada**, com foco em:
-
-* Clareza
-* Segurança
-* Previsibilidade
-* Didática
-
-A intenção é representar **como um sistema funciona**, não rodá-lo de fato.
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-* Angular (Standalone Components)
-* TypeScript
-* SCSS
-* Signals
-* RxJS (uso pontual e controlado)
-
----
-
-## 📦 Estado do Projeto
-
-Este projeto está em **desenvolvimento ativo** e pode sofrer mudanças estruturais conforme novas ideias arquiteturais forem exploradas.
-
-O código prioriza:
-
-* Clareza conceitual
-* Organização
-* Tipagem forte
-* Coerência interna
-
----
-
-## 👋 Contato
-
-Caso queira conversar sobre arquitetura frontend, TypeScript, Angular ou design de sistemas demonstrativos, fique à vontade para entrar em contato.
-
----
-
-## 📄 Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE)
+Este projeto está licenciado sob a [MIT License](LICENSE).

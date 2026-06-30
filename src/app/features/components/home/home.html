@@ -1,0 +1,45 @@
+@let profession = home().profession;
+@let intro =  home().intro;
+@let text = home().text;
+@let projectBtn = home().projectBtn;
+@let contactBtn = home().contactBtn;
+
+@defer (when animate()) {
+  <div [class]="'glow-top'"></div>
+  <div [class]="'glow-bottom'"></div>
+
+  <section [class]="'home'" animate.enter="home-enter">
+    <div [class]="'home__tag'">
+      <h3>{{ profession }}</h3>
+
+    </div>
+    <h1 [class]="'home__title'">
+      {{ intro }}
+      <br>
+      <span>Ryan Soares</span>
+
+    </h1>
+
+    <p [class]="'home__text'">{{ text }}</p>
+
+    <div [class]="'home__btns'">
+      <button [class]="'home__btn-projects'" (click)="void navigateByComponent(3)">{{ projectBtn }}</button>
+      <button [class]="'home__btn-contacts'" (click)="void navigateByComponent(4)">{{ contactBtn }}</button>
+
+    </div>
+
+  </section>
+
+  <section [class]="'code-snippet'" animate.enter="code-snippet-enter">
+    <app-code-snippet
+      [codes]="codeSnippetHome"
+      [height]="'440px'"
+      [width]="(responsive.isXl() || responsive.isLg()) ? '45vw' : '90vw'"
+      [maxWidth]="'532px'"
+
+      ></app-code-snippet>
+
+  </section>
+
+}
+

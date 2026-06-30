@@ -1,0 +1,86 @@
+/* 1. Global Styles: Setting up the background and font */
+:host {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  margin: 0;
+
+}
+
+/* 2. Card Container: Turning a boring box into a sleek card */
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 320px;
+  text-align: center;
+  transition: transform 0.3s ease;
+
+}
+
+/* Hover effect to make it interactive */
+.profile-card:hover {
+  transform: translateY(-5px);
+
+}
+
+/* 3. Image Styling: Making the square image a perfect circle */
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4f46e5;
+  margin-bottom: 15px;
+
+}
+
+/* 4. Typography: Adding hierarchy with colors and sizes */
+.profile-name {
+  font-size: 24px;
+  color: #1f2937;
+  margin: 10px 0 5px 0;
+
+}
+
+.profile-title {
+  font-size: 14px;
+  color: #4f46e5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-bottom: 15px;
+
+}
+
+.profile-bio {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+  margin-bottom: 20px;
+
+}
+
+/* 5. Button: Styling a call-to-action */
+.btn-follow {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+}
+
+.btn-follow:hover {
+  background-color: #3730a3;
+
+}

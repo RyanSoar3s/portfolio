@@ -1,0 +1,86 @@
+@let label = projects().label;
+@let title = projects().title;
+@let titleHighlighted = projects().titleHighlighted;
+@let text = projects().text;
+@let previewBtn = projects().previewBtn;
+@let codeBtn = projects().codeBtn;
+
+@defer (when animate()) {
+  <section [class]="'projects'" animate.enter="projects-enter">
+    <div [class]="'projects-info'">
+      <span [class]="'projects__label'">
+        {{ label }}
+
+      </span>
+      <h2 [class]="'projects__title'">
+        {{ title }}
+        <br>
+        <span>{{ titleHighlighted }}</span>
+
+      </h2>
+
+      <p [class]="'projects__text'">{{ text }}</p>
+
+    </div>
+    <div [class]="'projects__cards'">
+      @for (project of projectCards; track i; let i = $index) {
+        <div [class]="'projects__card'">
+          <div [class]="'projects__card-header'">
+            <img [src]="project.img" [alt]="project.name" />
+
+          </div>
+          <div [class]="'projects__card-body'">
+            <h3 [class]="'projects__card-title'">{{ project.name }}</h3>
+            <p [class]="'projects__desc'">{{ project.desc() }}</p>
+
+            <div [class]="'projects__tags'">
+              @for (tag of project.tags; track $index) {
+                <div [class]="'projects__tag'" [attr.data-tag]="tag">{{ tag }}</div>
+
+              }
+
+            </div>
+            <div [class]="'projects__btns'">
+              <button [class]="'projects__preview'" [disabled]="!project.linkSite">
+                @if (project.linkSite) {
+                  <a [href]="project.linkSite" [target]="'_blank'" [rel]="'noopener noreferrer'">
+                    {{ previewBtn }}
+
+                  </a>
+
+                }
+                @else {
+                  {{ previewBtn }}
+
+                }
+
+              </button>
+              <button [class]="'projects__repo'" [disabled]="!project.linkRepo">
+                @if (project.linkRepo) {
+                  <a [href]="project.linkRepo" [target]="'_blank'" [rel]="'noopener noreferrer'">
+                    {{ codeBtn }}
+
+                  </a>
+
+                }
+
+                @else {
+                  {{ codeBtn }}
+
+                }
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+}

@@ -15,9 +15,10 @@
     "target": "ES2022",
     "module": "preserve",
     "paths": {
-      "@features/*": [ "./src/app/features/*" ],
-      "@shared/*": [ "./src/app/shared/*" ],
+      "@components/*": [ "./src/app/features/components/*" ],
+      "@shared/*": [ "./src/app/features/shared/*" ],
       "@services/*": [ "./src/app/core/services/*" ],
+      "@directives/*": [ "./src/app/core/directives/*" ],
       "@mocks/*": [ "./src/app/mocks/*" ],
       "@models/*": [ "./src/app/models/*" ],
       "@utils/*": [ "./src/app/utils/*" ]

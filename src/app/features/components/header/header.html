@@ -1,0 +1,119 @@
+@let XS = responsive.isXs();
+@let SM = responsive.isSm();
+
+@let options = header().options;
+
+@if (!(XS || SM)) {
+  <div [class]="'header-wrapper-left '">
+    <div [class]="'header__icon'">
+      <fa-icon [icon]="faCode"></fa-icon>
+
+    </div>
+
+    <ul [class]="'header__options'">
+      @for (opt of options; track i; let i = $index) {
+        <li [class]="'header__option'" (click)="indexByComponent.set(i); void navigateByComponent()">{{ opt }}</li>
+
+      }
+
+    </ul>
+
+  </div>
+
+  <div [class]="'header-wrapper-right'">
+    <div [class]="'header__photo'">
+      <img [src]="photo" [alt]="'photo'">
+
+    </div>
+
+    <div [class]="'header__btn-translate'">
+      @for (lang of langs; track $index) {
+        <button
+          [class.active]="lang === languageSelected()"
+          (click)="languageSelected.set(lang); void changeLang(lang)"
+
+          >{{ lang }}</button>
+
+      }
+
+    </div>
+
+  </div>
+
+}
+
+@else {
+  <div [class]="'header-wrapper-left'">
+    <div [class]="'header__icon'">
+      <fa-icon [icon]="faCode"></fa-icon>
+
+    </div>
+
+  </div>
+
+  <div [class]="'header-wrapper-right'">
+    <div [class]="'header__menu'" (click)="void toggleMenu()">
+      <fa-icon [icon]="faBars"></fa-icon>
+
+    </div>
+
+  </div>
+
+}
+
+@if (isOpenMenu()) {
+  @let profession = header().profession;
+
+  <div [class]="'overlay'" (click)="void toggleMenu()"></div>
+
+  <section
+    [class]="'menu'"
+    animate.enter="is-open-menu"
+    animate.leave="is-close-menu"
+
+    >
+    <div [class]="'close-menu-wrapper'">
+      <div [class]="'close-menu'" (click)="void toggleMenu()">
+        <fa-icon [icon]="faX"></fa-icon>
+
+      </div>
+
+    </div>
+
+    <div [class]="'header__profile'">
+      <div [class]="'header__photo'">
+        <img [src]="photo" [alt]="'photo'">
+
+      </div>
+
+      <div [class]="'header__profile-info'">
+        <h4>Ryan Soares</h4>
+        <p>{{ profession }}</p>
+
+      </div>
+
+    </div>
+
+    <div [class]="'header__btn-translate'" [style.margin]="'30px 0px'" [style.align-self]="'flex-start'">
+      @for (lang of langs; track $index) {
+        <button
+          [class.active]="lang === languageSelected()"
+          (click)="languageSelected.set(lang); void changeLang(lang)"
+
+          >{{ lang }}</button>
+
+      }
+
+    </div>
+
+    <ul [class]="'header__options-menu'">
+      @for (opt of options; track i; let i = $index) {
+        <li [class]="'header__option-menu'" (click)="indexByComponent.set(i); void navigateByComponent()">{{ opt }}</li>
+
+      }
+
+    </ul>
+
+  </section>
+
+}
