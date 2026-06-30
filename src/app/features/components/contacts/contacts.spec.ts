@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Contacts } from './contacts';
-import { translocoTestingProvider } from '@mocks/transloco.mock';
 
 describe('Contacts', () => {
   let component: Contacts;
@@ -9,8 +8,7 @@ describe('Contacts', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Contacts],
-      providers: [ translocoTestingProvider ]
+      imports: [Contacts]
     })
     .compileComponents();
 

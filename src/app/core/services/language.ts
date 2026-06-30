@@ -1,18 +1,20 @@
-import { computed, inject, Injectable, signal } from '@angular/core';
-import { TranslocoService } from '@jsverse/transloco';
+import { computed, Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Language {
-  private transloco = inject(TranslocoService);
+  private readonly availableLangs = [ 'en', 'pt-BR' ] as const;
 
-  private currLangSignal = signal(this.transloco.getActiveLang());
+  private currLangSignal = signal<typeof this.availableLangs[number]>('en');
   currLang = computed(() => this.currLangSignal());
 
+  getAvailableLangs(): string[] {
+    return [ ...this.availableLangs ];
+  }
+
   changeCurrLang(): void {
-    this.transloco.setActiveLang((this.currLangSignal() === "pt-BR") ? "en" : "pt-BR");
-    this.currLangSignal.set(this.transloco.getActiveLang());
+    this.currLangSignal.update((curr) => curr === 'pt-BR' ? 'en' : 'pt-BR');
 
   }
 

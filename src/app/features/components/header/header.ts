@@ -2,7 +2,6 @@ import { Component, computed, DOCUMENT, inject, output, Renderer2, signal } from
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCode, faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import { Responsive } from '@services/responsive';
-import { TranslocoService } from '@jsverse/transloco';
 import contentByTranslation from '@utils/translation/translation';
 import { Language } from '@services/language';
 
@@ -26,7 +25,6 @@ import { Language } from '@services/language';
 export class Header {
   private language = inject(Language);
   protected readonly responsive = inject(Responsive);
-  protected readonly transloco = inject(TranslocoService);
   private readonly document = inject(DOCUMENT);
   private readonly renderer = inject(Renderer2);
 
@@ -36,7 +34,7 @@ export class Header {
 
   protected readonly photo = "assets/images/profile.png";
 
-  protected readonly langs = this.transloco.getAvailableLangs().map((lang) => lang.toString().slice(0, 2));
+  protected readonly langs = this.language.getAvailableLangs().map((lang) => lang.slice(0, 2));
 
   languageSelected = signal(this.langs[0]);
 
@@ -62,7 +60,7 @@ export class Header {
     if (this.isOpenMenu()) {
       this.isOpenMenu.set(false)
       this.renderer.removeStyle(this.document.body, "overflow");
-      
+
     };
 
   }

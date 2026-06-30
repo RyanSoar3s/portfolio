@@ -111,7 +111,6 @@ Executa a suíte de testes uma vez.
 - Angular CDK
 - Signals
 - RxJS
-- Transloco
 - Font Awesome
 - highlight.js
 - Vitest

@@ -2,7 +2,6 @@ import { DOCUMENT } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Header } from './header';
-import { translocoTestingProvider } from '@mocks/transloco.mock';
 import ResponsiveMock from '@mocks/responsive.mock';
 import { Responsive } from '@services/responsive';
 
@@ -17,7 +16,6 @@ describe('Header', () => {
     await TestBed.configureTestingModule({
       imports: [Header],
       providers: [
-        translocoTestingProvider,
         {
           provide: Responsive,
           useValue: responsive
