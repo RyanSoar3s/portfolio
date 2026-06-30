@@ -1,0 +1,47 @@
+@let label = contacts().label;
+@let title = contacts().title;
+@let titleHighlighted = contacts().titleHighlighted;
+@let text = contacts().text;
+
+@if (animate()) {
+  <section [class]="'contacts'" animate.enter="contacts-enter">
+    <div [class]="'contacts-info'">
+      <span [class]="'contacts__label'">
+        {{ label }}
+
+      </span>
+      <h2 [class]="'contacts__title'">
+        {{ title }}
+        <br>
+        <span>{{ titleHighlighted }}</span>
+
+      </h2>
+
+      <p [class]="'contacts__text'">{{ text }}</p>
+
+    </div>
+
+    <div [class]="'contacts__cards'">
+      @for (card of cards; track $index) {
+        <div [class]="'contacts__card'" [attr.data-card]="card.label">
+          <a [href]="card.link" [target]="'_blank'" [rel]="'noopener noreferrer'"></a>
+
+          <div [class]="'contacts__icon'">
+            <fa-icon [icon]="card.icon"></fa-icon>
+
+          </div>
+          <div [class]="'contacts__card-info'">
+            <h3>{{ card.title }}</h3>
+            <p>{{ card.text() }}</p>
+
+          </div>
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+}

@@ -1,5 +1,6 @@
 import { Component, ElementRef, AfterViewInit, OnDestroy, viewChildren, signal } from '@angular/core';
 import { AboutMe } from '@components/about-me/about-me';
+import { Contacts } from '@components/contacts/contacts';
 import { Header } from '@components/header/header';
 import { Home } from '@components/home/home';
 import { Projects } from '@components/projects/projects';
@@ -11,7 +12,8 @@ import { Tech } from '@components/tech/tech';
     Home,
     AboutMe,
     Tech,
-    Projects
+    Projects,
+    Contacts
 
   ],
   templateUrl: './app.html',
@@ -28,7 +30,8 @@ export class App implements AfterViewInit, OnDestroy {
     home: false,
     aboutMe: false,
     tech: false,
-    projects: false
+    projects: false,
+    contacts: false
 
   });
 
@@ -57,6 +60,10 @@ export class App implements AfterViewInit, OnDestroy {
 
           case "projects":
             this.updateVisibleComponents("projects");
+            break;
+
+          case "contacts":
+            this.updateVisibleComponents("contacts");
             break;
 
           default:

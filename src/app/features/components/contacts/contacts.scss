@@ -1,0 +1,203 @@
+@use "@utils/styles/styles.scss" as *;
+@use "sass:map";
+
+:host {
+  $bgContacts: #0d1120;
+
+  @include bg($bgContacts);
+  @include flex-full-center;
+  @include min-h(645px);
+  @include w(100dvw);
+  @include p(100px 0px);
+
+}
+
+.contacts {
+  @include flex;
+  @include flex-col;
+  @include gap(50px);
+  @include w(min(850px, 90vw));
+
+}
+
+.contacts-info {
+  @include flex;
+  @include flex-col;
+  @include gap(20px);
+  @include w(min(560px, 90vw));
+
+  .contacts__label {
+    $fontJetBrains: var(--font-jetbrains);
+
+    @include relative;
+    @include c(#0dffd7);
+    @include inline-flex;
+    @include align-center;
+    @include gap(10px);
+    @include ffamily($fontJetBrains);
+    @include fsize(0.75, em, em);
+    @include lspace(0.12em);
+    @include uppercase;
+    @include p(0px 0px 0px 35px);
+
+    @include before("&", "", absolute, (null, 0px, null, null)) {
+      @include block;
+      @include dimension(1px, 25px);
+      @include bg(#0dffd7);
+
+    }
+
+  }
+
+  .contacts__title {
+    $fontSpace: var(--font-space);
+
+    @include ffamily($fontSpace);
+    @include fsizeclamp(2rem, 4vw, 3rem);
+    @include bold;
+    @include lineh(1.1);
+
+    & span {
+      $bgLinear: 90deg, #0dffd7, #7b61ff;
+
+      @include lgradient(($bgLinear, ));
+      @include bgClip(text);
+      @include textfillc(transparent);
+
+    }
+
+  }
+
+  .contacts__text {
+    $textMuted: #7a859c;
+
+    @include c($textMuted);
+    @include lineh(1.8);
+
+  }
+
+}
+
+.contacts__cards {
+  @include grid;
+  @include template-cols(repeat(auto-fill,minmax(332px,1fr)));
+  @include gap(20px);
+
+  .contacts__card {
+    $bgContactsCard: #111726;
+    $borderContactsCard: 1px solid #1e2640;
+
+    @include relative;
+    @include bg($bgContactsCard);
+    @include flex;
+    @include align-center;
+    @include gap(18px);
+    @include border(null, ($borderContactsCard, ));
+    @include radius(12px);
+    @include p(28px 24px);
+    @include transition((.25s, ));
+    @include pointer;
+
+    @include hover("&") {
+      $bgContactsCardHover: #141929;
+      $borderColorContactsHover: #0dffd7;
+
+      @include bg($bgContactsCardHover);
+      @include cborder($borderColorContactsHover);
+      @include translate((0px, -4px));
+
+    };
+
+    & a {
+      @include absolute;
+      @include directions(0px, null, null, 0px);
+      @include dimension(100%, 100%);
+
+    }
+
+    .contacts__icon {
+      $bgContactsIcon: #0dffd71f;;
+
+      @include bg($bgContactsIcon);
+      @include dimension(46px, 46px);
+      @include flex-full-center;
+      @include shrink(0);
+      @include radius(8px);
+      @include fsize(1.6, em, em);
+
+    }
+
+    .contacts__card-info {
+      @include flex;
+      @include flex-col;
+      @include gap(5px);
+
+      h3 {
+        $fontSpace: var(--font-space);
+
+        @include ffamily($fontSpace);
+        @include fsize(1, em, em);
+
+      }
+
+      p {
+        $textMuted: #7a859c;
+
+        @include c($textMuted);
+        @include fsize(0.75, em, em);
+
+      }
+
+    }
+
+  }
+
+}
+
+.contacts-enter {
+  @include animation(slide 0.6s ease);
+
+}
+
+$icons: (
+  Linkedin: (
+    bgIcon: #0A66C2
+
+  ),
+  Github: (
+    bgIcon: black
+
+  ),
+  Email: (
+    bgIcon: #FF6464
+
+  ),
+  Whatsapp: (
+    bgIcon: #25D366
+
+  )
+
+);
+
+@each $label, $styles in $icons {
+  $bgIcon: map.get($styles, "bgIcon") !important;
+
+  .contacts__card[data-card=#{$label}] {
+    @include hover("&") {
+      @include cborder($bgIcon);
+
+    }
+
+    .contacts__icon {
+
+      &, & fa-icon {
+        @include bg($bgIcon);
+
+      }
+
+    }
+
+  }
+
+
+}
