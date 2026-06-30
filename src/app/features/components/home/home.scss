@@ -5,6 +5,7 @@
   @include flex;
   @include align-center;
   @include justify-evenly;
+  @include flex-wrap;
   @include min-h(900px);
   @include w(100dvw);
   @include m(100px 0px 0px 0px);
