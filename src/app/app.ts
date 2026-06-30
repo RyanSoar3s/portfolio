@@ -104,7 +104,7 @@ export class App implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.observer) this.observer = null;
+    if (this.observer) this.observer.disconnect();
 
   }
 
