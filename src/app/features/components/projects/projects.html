@@ -5,7 +5,7 @@
 @let previewBtn = projects().previewBtn;
 @let codeBtn = projects().codeBtn;
 
-@if (animate()) {
+@defer (when animate()) {
   <section [class]="'projects'" animate.enter="projects-enter">
     <div [class]="'projects-info'">
       <span [class]="'projects__label'">

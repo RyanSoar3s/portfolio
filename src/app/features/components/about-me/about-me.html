@@ -21,7 +21,7 @@
 
 ];
 
-@if (animate()) {
+@defer (when animate()) {
   <section [class]="'about-me'" [style.flex-direction]="(XL || LG) ? 'row' : 'column'" animate.enter="about-me-enter">
     <div [class]="'about-me__photo-wrapper'">
       <div [class]="'about-me__photo'">

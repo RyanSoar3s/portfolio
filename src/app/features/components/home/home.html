@@ -4,7 +4,7 @@
 @let projectBtn = home().projectBtn;
 @let contactBtn = home().contactBtn;
 
-@if (animate()) {
+@defer (when animate()) {
   <div [class]="'glow-top'"></div>
   <div [class]="'glow-bottom'"></div>
 

@@ -3,7 +3,7 @@
 @let titleHighlighted = contacts().titleHighlighted;
 @let text = contacts().text;
 
-@if (animate()) {
+@defer (when animate()) {
   <section [class]="'contacts'" animate.enter="contacts-enter">
     <div [class]="'contacts-info'">
       <span [class]="'contacts__label'">
