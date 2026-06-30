@@ -10,7 +10,7 @@ $fontSpace: 'Space Grotesk', sans-serif;
 
 @include registerFonts((
   "inter": $fontInter,
-  "jetbrains": $fontInter,
+  "jetbrains": $fontJetBrains,
   "space": $fontSpace
 
 ));

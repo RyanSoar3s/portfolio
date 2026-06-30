@@ -159,7 +159,7 @@
           $fontJetBrains: var(--font-jetbrains);
           $bgTag: #141929;
           $colorTag: #7a859c;
-          $borderTag: 1px solid #1e2640;;
+          $borderTag: 1px solid #1e2640;
 
           @include relative;
           @include bg($bgTag);
