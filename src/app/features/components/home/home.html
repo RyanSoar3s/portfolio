@@ -23,8 +23,8 @@
     <p [class]="'home__text'">{{ text }}</p>
 
     <div [class]="'home__btns'">
-      <button [class]="'home__btn-projects'">{{ projectBtn }}</button>
-      <button [class]="'home__btn-contacts'">{{ contactBtn }}</button>
+      <button [class]="'home__btn-projects'" (click)="void navigateByComponent(3)">{{ projectBtn }}</button>
+      <button [class]="'home__btn-contacts'" (click)="void navigateByComponent(4)">{{ contactBtn }}</button>
 
     </div>
 

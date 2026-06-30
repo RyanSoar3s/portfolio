@@ -1,4 +1,4 @@
-import { Component, computed, DOCUMENT, inject, Renderer2, signal } from '@angular/core';
+import { Component, computed, DOCUMENT, inject, output, Renderer2, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCode, faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import { Responsive } from '@services/responsive';
@@ -42,6 +42,9 @@ export class Header {
 
   isOpenMenu = signal(false);
 
+  indexByComponent = signal(0);
+  navigate = output<number>();
+
   protected header = computed(() => {
     const currLang = this.language.currLang() as keyof typeof contentByTranslation;
 
@@ -65,6 +68,11 @@ export class Header {
 
     if (this.isOpenMenu()) this.renderer.setStyle(this.document.body, "overflow", "hidden");
     else this.renderer.removeStyle(this.document.body, "overflow");
+
+  }
+
+  navigateByComponent(): void {
+    this.navigate.emit(this.indexByComponent());
 
   }
 

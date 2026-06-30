@@ -11,8 +11,8 @@
     </div>
 
     <ul [class]="'header__options'">
-      @for (opt of options; track $index) {
-        <li [class]="'header__option'">{{ opt }}</li>
+      @for (opt of options; track i; let i = $index) {
+        <li [class]="'header__option'" (click)="indexByComponent.set(i); void navigateByComponent()">{{ opt }}</li>
 
       }
 
@@ -107,8 +107,8 @@
     </div>
 
     <ul [class]="'header__options-menu'">
-      @for (opt of options; track $index) {
-        <li [class]="'header__option-menu'">{{ opt }}</li>
+      @for (opt of options; track i; let i = $index) {
+        <li [class]="'header__option-menu'" (click)="indexByComponent.set(i); void navigateByComponent()">{{ opt }}</li>
 
       }
 

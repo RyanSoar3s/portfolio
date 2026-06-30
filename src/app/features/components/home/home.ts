@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input, output } from '@angular/core';
 import { Responsive } from '@services/responsive';
 import { CodeSnippet } from '@shared/code-snippet/code-snippet';
 import { Language } from '@services/language';
@@ -35,5 +35,12 @@ export class Home {
   });
 
   protected readonly codeSnippetHome = codeSnippetHome;
+
+  navigate = output<number>();
+
+  navigateByComponent(index: number): void {
+    this.navigate.emit(index);
+
+  }
 
 }

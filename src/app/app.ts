@@ -1,4 +1,5 @@
-import { Component, ElementRef, AfterViewInit, OnDestroy, viewChildren, signal } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+import { Component, ElementRef, AfterViewInit, OnDestroy, viewChildren, signal, inject } from '@angular/core';
 import { AboutMe } from '@components/about-me/about-me';
 import { Contacts } from '@components/contacts/contacts';
 import { Footer } from '@components/footer/footer';
@@ -26,6 +27,8 @@ import { Tech } from '@components/tech/tech';
   }
 })
 export class App implements AfterViewInit, OnDestroy {
+  private viewportScroll = inject(ViewportScroller);
+
   private childs = viewChildren("childs", { read: ElementRef<HTMLElement> });
   private observer: IntersectionObserver | null = null;
   protected readonly visibleComponents = signal<Record<string, boolean>>({
@@ -81,6 +84,13 @@ export class App implements AfterViewInit, OnDestroy {
     });
 
     this.childs().forEach((child) => this.observer?.observe(child.nativeElement));
+
+  }
+
+  protected scrollNavigation(index: number): void {
+    const childs = this.childs()[index].nativeElement;
+
+    this.viewportScroll.scrollToPosition([ 0, childs.offsetTop - 100 ]);
 
   }
 

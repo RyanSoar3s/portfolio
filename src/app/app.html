@@ -1,5 +1,5 @@
-<app-header></app-header>
-<app-home #childs [animate]="visibleComponents()['home']" [attr.aria-label]="'home'"></app-home>
+<app-header (navigate)="void scrollNavigation($event)"></app-header>
+<app-home #childs (navigate)="void scrollNavigation($event)" [animate]="visibleComponents()['home']" [attr.aria-label]="'home'"></app-home>
 <app-about-me #childs [animate]="visibleComponents()['aboutMe']" [attr.aria-label]="'about-me'"></app-about-me>
 <app-tech #childs [animate]="visibleComponents()['tech']" [attr.aria-label]="'tech'"></app-tech>
 <app-projects #childs [animate]="visibleComponents()['projects']" [attr.aria-label]="'projects'"></app-projects>
