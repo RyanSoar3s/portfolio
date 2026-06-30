@@ -65,6 +65,14 @@ const en = {
     previewBtn: "live site",
     codeBtn: "repository"
 
+  },
+  contacts: {
+    label: "contacts",
+    title: "Let's",
+    titleHighlighted: "Connect",
+    text: "Whether it's a project idea, a job opportunity, or just a tech chat — my inbox is always open.",
+    whatsappMsg: "Send a message"
+
   }
 
 };
@@ -134,6 +142,14 @@ const ptBR = {
     ],
     previewBtn: "ver site",
     codeBtn: "repositório"
+
+  },
+  contacts: {
+    label: "contatos",
+    title: "Vamos nos",
+    titleHighlighted: "Conectar",
+    text: "Seja uma ideia de projeto, uma oportunidade de trabalho ou uma conversa sobre tecnologia — estou sempre disponível.",
+    whatsappMsg: "Enviar mensagem"
 
   }
 
