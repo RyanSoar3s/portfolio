@@ -59,7 +59,11 @@ export class Header {
   }
 
   onResize(): void {
-    if (this.isOpenMenu()) this.isOpenMenu.set(false);
+    if (this.isOpenMenu()) {
+      this.isOpenMenu.set(false)
+      this.renderer.removeStyle(this.document.body, "overflow");
+      
+    };
 
   }
 
