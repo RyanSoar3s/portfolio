@@ -1,6 +1,7 @@
 import { Component, ElementRef, AfterViewInit, OnDestroy, viewChildren, signal } from '@angular/core';
 import { AboutMe } from '@components/about-me/about-me';
 import { Contacts } from '@components/contacts/contacts';
+import { Footer } from '@components/footer/footer';
 import { Header } from '@components/header/header';
 import { Home } from '@components/home/home';
 import { Projects } from '@components/projects/projects';
@@ -13,7 +14,8 @@ import { Tech } from '@components/tech/tech';
     AboutMe,
     Tech,
     Projects,
-    Contacts
+    Contacts,
+    Footer
 
   ],
   templateUrl: './app.html',

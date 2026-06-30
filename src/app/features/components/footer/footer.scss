@@ -1,0 +1,11 @@
+@use "@utils/styles/styles.scss" as *;
+
+:host {
+  $borderTopFooter: 1px solid #1e2640;
+
+  @include flex-full-center;
+  @include border((top, ), ($borderTopFooter, ));
+  @include p(32px 0px);
+
+}
+
