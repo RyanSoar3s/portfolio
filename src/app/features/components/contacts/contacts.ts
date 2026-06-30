@@ -48,7 +48,7 @@ export class Contacts {
       title: "E-mail",
       label: "Email",
       text: signal("ryansoares.dev@gmail.com"),
-      link: "maito:ryansoares.dev@gmail.com"
+      link: "mailto:ryansoares.dev@gmail.com"
 
     },
     {
