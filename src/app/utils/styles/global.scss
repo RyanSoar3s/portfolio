@@ -28,6 +28,11 @@ $globalConfigs: (
     "background-color": #888888d3
 
   ),
+  "html, body": (
+    "scroll-behavior": smooth,
+    "overflow-x": hidden
+
+  ),
   "body": (
     "font-family": $globalFont,
     "min-height": 100dvh,
@@ -36,7 +41,6 @@ $globalConfigs: (
     "color": $globalColor,
     "display": flex,
     "flex-direction": column,
-    "overflow-x": hidden
 
   ),
   "ul": (
