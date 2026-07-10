@@ -74,6 +74,8 @@ export class Header {
   }
 
   navigateByComponent(): void {
+    if (this.isOpenMenu()) this.toggleMenu();
+
     this.navigate.emit(this.indexByComponent());
 
   }
