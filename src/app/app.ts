@@ -31,14 +31,14 @@ export class App implements AfterViewInit, OnDestroy {
 
   private childs = viewChildren("childs", { read: ElementRef<HTMLElement> });
   private observer: IntersectionObserver | null = null;
-  protected readonly visibleComponents = signal<Record<string, boolean>>({
-    home: false,
-    aboutMe: false,
-    tech: false,
-    projects: false,
-    contacts: false
+  protected readonly visibleComponents = signal({
+    "home": false,
+    "about-me": false,
+    "tech": false,
+    "projects": false,
+    "contacts": false
 
-  });
+  } as const);
 
   ngAfterViewInit(): void {
     this.observer = new IntersectionObserver((entries) => {
@@ -50,30 +50,7 @@ export class App implements AfterViewInit, OnDestroy {
 
         if (!label) return;
 
-        switch (label) {
-          case "home":
-            this.updateVisibleComponents("home");
-            break;
-
-          case "about-me":
-            this.updateVisibleComponents("aboutMe");
-            break;
-
-          case "tech":
-            this.updateVisibleComponents("tech");
-            break;
-
-          case "projects":
-            this.updateVisibleComponents("projects");
-            break;
-
-          case "contacts":
-            this.updateVisibleComponents("contacts");
-            break;
-
-          default:
-            break;
-        }
+        this.updateVisibleComponents(label);
 
       })
 
@@ -104,7 +81,11 @@ export class App implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.observer) this.observer.disconnect();
+    if (this.observer) {
+      this.observer.disconnect();
+      this.observer = null;
+
+    }
 
   }
 
