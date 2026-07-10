@@ -59,7 +59,7 @@ export class Header {
   onResize(): void {
     if (this.isOpenMenu()) {
       this.isOpenMenu.set(false)
-      this.renderer.removeStyle(this.document.body, "overflow");
+      this.renderer.removeStyle(this.document.documentElement, "overflow");
 
     };
 
@@ -68,8 +68,8 @@ export class Header {
   toggleMenu(): void {
     this.isOpenMenu.set(!this.isOpenMenu());
 
-    if (this.isOpenMenu()) this.renderer.setStyle(this.document.body, "overflow", "hidden");
-    else this.renderer.removeStyle(this.document.body, "overflow");
+    if (this.isOpenMenu()) this.renderer.setStyle(this.document.documentElement, "overflow", "hidden");
+    else this.renderer.removeStyle(this.document.documentElement, "overflow");
 
   }
 
