@@ -43,9 +43,18 @@ Serviços e utilitários principais:
 
 - `Responsive`: leitura de breakpoints com Angular CDK;
 - `Language`: estado do idioma ativo;
+- `StateComponents`: gerenciamento de estado de visibilidade dos componentes da página;
 - `HighlightService` e `HighlightDirective`: integração com `highlight.js`;
+- `ActiveElement`: diretiva que marca componentes como ativos ao serem renderizados;
 - `translation.ts`: conteúdo textual tipado em inglês e português;
 - `snippets.ts`: exemplos de código exibidos pelo `CodeSnippet`.
+
+## Navegação entre seções
+
+A navegação entre as seções do portfólio usa `IntersectionObserver` para detectar qual
+componente está visível na tela, combinado com o serviço `StateComponents` para gerenciar
+o estado de cada seção. Quando um link de navegação é clicado, o método `activeComponents`
+rola suavemente até a seção correspondente.
 
 ## Internacionalização
 
