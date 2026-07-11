@@ -1,32 +1,52 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { Language } from '@services/language';
 import contentByTranslation from '@utils/translation/translation';
-import { codeSnippetOutputAngular, codeSnippetOutputBun, codeSnippetOutputCss, codeSnippetOutputDocker, codeSnippetOutputHtml, codeSnippetOutputJest, codeSnippetOutputMongoDB, codeSnippetOutputNodeJS, codeSnippetOutputPostgreSQL, codeSnippetOutputRedis, codeSnippetOutputSass, codeSnippetOutputTailwindcss, codeSnippetOutputVite, codeSnippetOutputVitest } from '@utils/code-snippets/snippets';
+import {
+  codeSnippetOutputAngular,
+  codeSnippetOutputBun,
+  codeSnippetOutputCss,
+  codeSnippetOutputDocker,
+  codeSnippetOutputHtml,
+  codeSnippetOutputJest,
+  codeSnippetOutputMongoDB,
+  codeSnippetOutputNodeJS,
+  codeSnippetOutputPostgreSQL,
+  codeSnippetOutputRedis,
+  codeSnippetOutputSass,
+  codeSnippetOutputTailwindcss,
+  codeSnippetOutputVite,
+  codeSnippetOutputVitest
+
+} from '@utils/code-snippets/snippets';
 import { CodeSnippetModel } from '@models/code.model';
 import { CodeSnippet } from '@shared/code-snippet/code-snippet';
+import { StateComponents } from '@services/state-components';
+import { ActiveElement } from '@directives/active-element';
 
 @Component({
   selector: 'app-tech',
   imports: [
     FontAwesomeModule,
-    CodeSnippet
-
+    CodeSnippet,
+    ActiveElement
   ],
   templateUrl: './tech.html',
   styleUrl: './tech.scss'
 })
 export class Tech {
   private language = inject(Language);
+  protected readonly stateComponents = inject(StateComponents);
+
+  isTarget = computed(() => this.stateComponents.visibleComponents()["tech"].isTarget);
+
   protected tech = computed(() => {
     const currLang = this.language.currLang() as keyof typeof contentByTranslation;
 
     return contentByTranslation[currLang].tech;
 
   });
-
-  animate = input.required<boolean>();
 
   protected selectedTech = signal<string | undefined>(undefined);
   protected selectedTechLogoUrl = signal<string | undefined>(undefined);

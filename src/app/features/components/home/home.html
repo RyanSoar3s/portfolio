@@ -4,11 +4,11 @@
 @let projectBtn = home().projectBtn;
 @let contactBtn = home().contactBtn;
 
-@defer (when animate()) {
+@defer (when isTarget()) {
   <div [class]="'glow-top'"></div>
   <div [class]="'glow-bottom'"></div>
 
-  <section [class]="'home'" animate.enter="home-enter">
+  <section [class]="'home'" animate.enter="home-enter" [appActiveElement]="'home'">
     <div [class]="'home__tag'">
       <h3>{{ profession }}</h3>
 
