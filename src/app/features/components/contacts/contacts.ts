@@ -1,21 +1,27 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { Language } from '@services/language';
 import contentByTranslation from '@utils/translation/translation';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faLinkedin, faGithub, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { StateComponents } from '@services/state-components';
+import { ActiveElement } from '@directives/active-element';
 
 @Component({
   selector: 'app-contacts',
   imports: [
-    FontAwesomeModule
-
+    FontAwesomeModule,
+    ActiveElement
   ],
   templateUrl: './contacts.html',
   styleUrl: './contacts.scss'
 })
 export class Contacts {
   private language = inject(Language);
+  protected readonly stateComponents = inject(StateComponents);
+
+  isTarget = computed(() => this.stateComponents.visibleComponents()["contacts"].isTarget);
+
   protected contacts = computed(() => {
     const currLang = this.language.currLang() as keyof typeof contentByTranslation;
 
@@ -23,7 +29,6 @@ export class Contacts {
 
   });
 
-  animate = input.required<boolean>();
 
   protected readonly cards = [
     {

@@ -80,7 +80,7 @@
 
 .contacts__cards {
   @include grid;
-  @include template-cols(repeat(auto-fill,minmax(332px,1fr)));
+  @include template-cols(repeat(auto-fill,minmax(48.5%,1fr)));
   @include gap(20px);
 
   .contacts__card {

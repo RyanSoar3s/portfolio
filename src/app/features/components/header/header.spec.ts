@@ -58,13 +58,13 @@ describe('Header', () => {
     fixture.detectChanges();
 
     expect(component.isOpenMenu()).toBe(true);
-    expect(doc.body.style.overflow).toBe('hidden');
+    expect(doc.documentElement.style.overflow).toBe('hidden');
 
     component.onResize();
     fixture.detectChanges();
 
     expect(component.isOpenMenu()).toBe(false);
-    expect(doc.body.style.overflow).toBe('');
+    expect(doc.documentElement.style.overflow).toBe('');
   });
 
   it('should emit the selected section from the mobile menu', () => {

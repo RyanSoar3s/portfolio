@@ -1,23 +1,29 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { ActiveElement } from '@directives/active-element';
 import { Language } from '@services/language';
+import { StateComponents } from '@services/state-components';
 import contentByTranslation from '@utils/translation/translation';
 
 @Component({
   selector: 'app-projects',
-  imports: [],
+  imports: [
+    ActiveElement
+  ],
   templateUrl: './projects.html',
   styleUrl: './projects.scss'
 })
 export class Projects {
   private language = inject(Language);
+  protected readonly stateComponents = inject(StateComponents);
+
+  isTarget = computed(() => this.stateComponents.visibleComponents()["projects"].isTarget);
+
   protected projects = computed(() => {
     const currLang = this.language.currLang() as keyof typeof contentByTranslation;
 
     return contentByTranslation[currLang].projects;
 
   });
-
-  animate = input.required<boolean>();
 
   protected readonly projectCards = [
     {

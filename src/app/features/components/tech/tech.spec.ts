@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { StateComponents } from '@services/state-components';
 
 import { Tech } from './tech';
 
@@ -12,8 +13,10 @@ describe('Tech', () => {
     })
     .compileComponents();
 
+    const stateComponents = TestBed.inject(StateComponents);
+    stateComponents.updateState("tech", "isTarget");
+
     fixture = TestBed.createComponent(Tech);
-    fixture.componentRef.setInput('animate', true);
     fixture.detectChanges();
     component = fixture.componentInstance;
     await fixture.whenStable();

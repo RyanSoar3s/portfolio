@@ -1,15 +1,17 @@
-import { Component, computed, inject, input, output } from '@angular/core';
+import { Component, computed, inject, output } from '@angular/core';
 import { Responsive } from '@services/responsive';
 import { CodeSnippet } from '@shared/code-snippet/code-snippet';
 import { Language } from '@services/language';
 import contentByTranslation from '@utils/translation/translation';
 import { codeSnippetHome } from '@utils/code-snippets/snippets';
+import { StateComponents } from '@services/state-components';
+import { ActiveElement } from '@directives/active-element';
 
 @Component({
   selector: 'app-home',
   imports: [
-    CodeSnippet
-
+    CodeSnippet,
+    ActiveElement
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
@@ -22,9 +24,10 @@ import { codeSnippetHome } from '@utils/code-snippets/snippets';
 })
 export class Home {
   private language = inject(Language);
+  protected readonly stateComponents = inject(StateComponents);
   protected readonly responsive = inject(Responsive);
 
-  animate = input.required<boolean>();
+  isTarget = computed(() => this.stateComponents.visibleComponents()["home"].isTarget);
 
   protected home = computed(() => {
     const currLang = this.language.currLang() as keyof typeof contentByTranslation;

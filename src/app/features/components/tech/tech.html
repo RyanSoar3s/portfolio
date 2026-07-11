@@ -20,8 +20,8 @@
 
 ];
 
-@defer (when animate()) {
-  <section [class]="'tech'" animate.enter="tech-enter">
+@defer (when isTarget()) {
+  <section [class]="'tech'" animate.enter="tech-enter" [appActiveElement]="'tech'">
     <div [class]="'tech-info'">
       <span [class]="'tech__label'">
         Tech Stack

@@ -22,7 +22,7 @@
   @include flex;
   @include flex-col;
   @include gap(20px);
-  @include w(min(560px, 90vw));
+  @include w(min(560px, 85vw));
 
   .projects__label {
     $fontJetBrains: var(--font-jetbrains);
