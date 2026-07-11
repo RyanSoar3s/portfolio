@@ -1,5 +1,5 @@
 import { ViewportScroller } from '@angular/common';
-import { Component, ElementRef, AfterViewInit, OnDestroy, viewChildren, inject, effect, signal } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, OnDestroy, viewChildren, inject, effect, signal } from '@angular/core';
 import { AboutMe } from '@components/about-me/about-me';
 import { Contacts } from '@components/contacts/contacts';
 import { Footer } from '@components/footer/footer';
@@ -27,7 +27,7 @@ import { StateComponents } from '@services/state-components';
     '[style.overflow-x]': '"clip"'
   }
 })
-export class App implements AfterViewInit, OnDestroy {
+export class App implements OnInit, AfterViewInit, OnDestroy {
   private viewportScroll = inject(ViewportScroller);
   private stateComponents = inject(StateComponents);
 
@@ -53,6 +53,36 @@ export class App implements AfterViewInit, OnDestroy {
       this.element.set(null);
 
     });
+
+  }
+
+  ngOnInit(): void {
+    console.log(
+      "%cRyan Soares",
+      `
+        color: #61DAFB;
+        font-size: 32px;
+        font-weight: bold;
+        text-shadow: 0 0 8px rgba(97,218,251,.5);
+
+      `
+    );
+
+    console.log(
+      "%cBem-vindo ao console! 👨‍💻",
+      "color:#8BE9FD;font-size:16px;font-weight:bold;"
+      
+    );
+
+    console.log(`
+Você encontrou o easter egg do meu portfólio!
+
+Se chegou até aqui, provavelmente é curioso,
+desenvolvedor(a), recrutador(a)... ou os três. 😄
+
+Obrigado pela visita e tenha um ótimo dia! 🚀
+
+    `);
 
   }
 
